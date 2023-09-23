@@ -8,18 +8,15 @@ public class Squadra {
 	
 	private String id;
 	private String nome;
-	private ArrayList<String> allenatori;
-	private ArrayList<String> giocatori;
+	private ArrayList<Allenatore> allenatori;
+	private ArrayList<Giocatore> giocatori;
 	private Calendario calendario;
 	private HttpSession session;
 	
-	public Squadra(String id, String nome, ArrayList<String> allenatori, ArrayList<String> giocatori,
-			Calendario calendario) {
+	public Squadra(String id, String nome, Calendario calendario) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.allenatori = allenatori;
-		this.giocatori = giocatori;
 		this.calendario = calendario;
 	}
 
@@ -39,19 +36,19 @@ public class Squadra {
 		this.nome = nome;
 	}
 
-	public ArrayList<String> getAllenatori() {
+	public ArrayList<Allenatore> getAllenatori() {
 		return allenatori;
 	}
 
-	public void setAllenatori(ArrayList<String> allenatori) {
+	public void setAllenatori(ArrayList<Allenatore> allenatori) {
 		this.allenatori = allenatori;
 	}
 
-	public ArrayList<String> getGiocatori() {
+	public ArrayList<Giocatore> getGiocatori() {
 		return giocatori;
 	}
 
-	public void setGiocatori(ArrayList<String> giocatori) {
+	public void setGiocatori(ArrayList<Giocatore> giocatori) {
 		this.giocatori = giocatori;
 	}
 
@@ -69,6 +66,22 @@ public class Squadra {
 
 	public void setSession(HttpSession session) {
 		this.session = session;
+	}
+	
+	public boolean aggiungiAllenatore(Allenatore a) {
+		if(this.allenatori.size()==2)
+			return false;
+		
+		this.allenatori.add(a);
+		return true;
+	}
+	
+	public boolean aggiungiGiocatore(Giocatore g) {
+		if(this.giocatori.size()==21)
+			return false;
+		
+		this.giocatori.add(g);
+		return true;
 	}
 
 	@Override

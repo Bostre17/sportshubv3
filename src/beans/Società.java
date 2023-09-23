@@ -9,6 +9,7 @@ public class Società {
 	private ArrayList<Squadra> squadre;
 	private String nome;
 	private Calendario calendario;
+	
 	public Società(String nome) {
 		this.nome = nome;
 		this.palestre= new ArrayList<Palestra>();
@@ -37,6 +38,21 @@ public class Società {
 	}
 	public void setCalendario(Calendario calendario) {
 		this.calendario = calendario;
+	}
+	public void aggiungiSquadra(Squadra s) {
+		this.squadre.add(s);
+	}
+	
+	public boolean rimuoviSquadra(Squadra s) {
+		return this.squadre.remove(s);
+	}
+	
+	public void aggiungiPalesta(Palestra p) {
+		this.palestre.add(p);
+	}
+	
+	public boolean rimuoviPalestra(Palestra p) {
+		return this.palestre.remove(p);
 	}
 	
 	
