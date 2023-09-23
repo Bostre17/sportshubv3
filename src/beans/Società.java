@@ -3,17 +3,20 @@ package beans;
 import java.util.ArrayList;
 
 
-public class Società {
+public class Società extends Utente{
 
 	private ArrayList<Palestra> palestre;
 	private ArrayList<Squadra> squadre;
 	private String nome;
 	private Calendario calendario;
 	
-	public Società(String nome) {
+	
+	public Società(String username, String id, String nome) {
+		super(username, id);
 		this.nome = nome;
 		this.palestre= new ArrayList<Palestra>();
 		this.squadre= new ArrayList<Squadra>();
+		this.calendario = new Calendario();
 	}
 	public ArrayList<Palestra> getPalestre() {
 		return palestre;

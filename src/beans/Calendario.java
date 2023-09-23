@@ -6,8 +6,11 @@ import java.util.List;
 public class Calendario {
     private List<Impegno> giorni;
     
-    public Calendario(List<Impegno> giorni) {
-        this.giorni = new ArrayList<>(giorni);
+    public Calendario() {
+        this.giorni = new ArrayList<>();
+    }
+    public void addImpegno(Impegno i){ 
+        this.giorni.add(i);
     }
     public Impegno getImpegno(String id){
         for (int i=0; i<giorni.size();i++){
