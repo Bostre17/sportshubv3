@@ -8,8 +8,8 @@ public class Squadra {
 	
 	private String id;
 	private String nome;
-	private ArrayList<Allenatore> allenatori;
-	private ArrayList<Giocatore> giocatori;
+	private ArrayList<String> allenatori;
+	private ArrayList<String> giocatori;
 	private Calendario calendario;
 	private HttpSession session;
 	
