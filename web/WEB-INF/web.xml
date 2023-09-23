@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>FitFlow</display-name>
+    <description>
+      An empty project to use as a template for your own ones
+    </description>
+
+	<!-- Context attributes to be used throughout the application -->
+	<context-param>
+		<param-name>dao</param-name>
+		<param-value>IDENTIFICATIVO_DELL_IMPLEMENTAZIONE</param-value>
+	</context-param>
+	
+    <!-- Define servlets that are included in the application -->
+    
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>servlet.LogIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/LogIn</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RegistrazioneCliente</servlet-name>
+        <servlet-class>servlet.RegistrazioneCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrazioneCliente</servlet-name>
+        <url-pattern>/RegistrazioneCliente</url-pattern>
+    </servlet-mapping>
+	
+	<servlet>
+        <servlet-name>Calendario</servlet-name>
+        <servlet-class>servlet.Calendario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Calendario</servlet-name>
+        <url-pattern>/Calendario</url-pattern>
+    </servlet-mapping>
+	<servlet>
+        <servlet-name>CreaScheda</servlet-name>
+        <servlet-class>servlet.CreaScheda</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreaScheda</servlet-name>
+        <url-pattern>/CreaScheda</url-pattern>
+    </servlet-mapping>
+	
+	
+    <servlet>
+    <servlet-name>EsecuzioneScheda</servlet-name>
+    <servlet-class>servlet.EsecuzioneScheda</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>EsecuzioneScheda</servlet-name>
+    <url-pattern>/EsecuzioneScheda</url-pattern>
+</servlet-mapping>
+  <servlet>
+    <servlet-name>HomeCliente</servlet-name>
+    <servlet-class>servlet.HomeCliente</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>HomeCliente</servlet-name>
+    <url-pattern>/HomeCliente</url-pattern>
+</servlet-mapping>
+
+    
+    <servlet>
+        <servlet-name>HomeAdmin</servlet-name>
+        <servlet-class>servlet.HomeAdmin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeAdmin</servlet-name>
+        <url-pattern>/HomeAdmin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RimuoviPT</servlet-name>
+        <servlet-class>servlet.RimuoviPT</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RimuoviPT</servlet-name>
+        <url-pattern>/RimuoviPT</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RegistrazionePT</servlet-name>
+        <servlet-class>servlet.RegistrazionePT</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrazionePT</servlet-name>
+        <url-pattern>/RegistrazionePT</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RimuoviCliente</servlet-name>
+        <servlet-class>servlet.RimuoviCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RimuoviCliente</servlet-name>
+        <url-pattern>/RimuoviCliente</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SbloccaCliente</servlet-name>
+        <servlet-class>servlet.SbloccaCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SbloccaCliente</servlet-name>
+        <url-pattern>/SbloccaCliente</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ResetLog</servlet-name>
+        <servlet-class>servlet.ResetLog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetLog</servlet-name>
+        <url-pattern>/ResetLog</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>servlet.LogOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    
+    
+	<!-- Welcome pages -->
+	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+		
+	<!-- Handle exceptions and errors -->
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errors/notfound.html</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/errors/failure.jsp</location>
+	</error-page>
+	 
+</web-app>
