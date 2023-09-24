@@ -12,7 +12,7 @@
 	>
 		<echo message="Ricordarsi di impostare correttamente le proprieta' nel file ant/environment.properties !!!"/>
 		<!-- Environment properties -->
-		<property file="ant/environmentLollo.properties"/>
+		<property file="ant/environmentSeve.properties"/>
 		<!-- Project properties -->
 		<property file="ant/project.properties"/>
 		<!-- Project structure -->
