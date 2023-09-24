@@ -37,9 +37,9 @@ public class LogIn extends HttpServlet{
 		super.init(conf);
 		g=new Gson();
 		
-		//AGGIUNGI ACCOUNT ALLA SERVLET
-		//-AMMINISTRATORE
-		Società societa1 = new Società("andrei@povia", "AAAAABB","andrei");
+		// Aggiunta utenti alla servlet
+		// Societa
+		Societa societa1 = new Societa("andrei@povia", "AAAAABB","andrei");
 		this.getServletContext().setAttribute("Societa1", societa1);
 		
 		// Creazione membri da fare in registrazione o quello che è

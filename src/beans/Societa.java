@@ -3,7 +3,7 @@ package beans;
 import java.util.ArrayList;
 
 
-public class Società extends Utente{
+public class Societa extends Utente{
 
 	private ArrayList<Palestra> palestre;
 	private ArrayList<Squadra> squadre;
@@ -11,7 +11,7 @@ public class Società extends Utente{
 	private Calendario calendario;
 	
 	
-	public Società(String username, String id, String nome) {
+	public Societa(String username, String id, String nome) {
 		super(username, id);
 		this.nome = nome;
 		this.palestre= new ArrayList<Palestra>();
