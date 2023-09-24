@@ -37,14 +37,15 @@ public class LogIn extends HttpServlet{
 		super.init(conf);
 		g=new Gson();
 		
-		// Aggiunta utenti alla servlet
-		// Societa
-		Societa societa1 = new Societa("andrei@povia", "AAAAABB","andrei");
-		this.getServletContext().setAttribute("Societa1", societa1);
+	// Aggiunta utenti alla servlet
 		
-		// Creazione membri da fare in registrazione o quello che è
+		// Societa
+		Societa societa = new Societa("dukes", "00000000","Dukes Sansepolcro");
+		this.getServletContext().setAttribute("dukes", societa);
+		
+		// Allenatore
 	
-		// Creazione del formato per la data
+		// Giocatore
 		DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	}

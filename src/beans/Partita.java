@@ -3,6 +3,8 @@ package beans;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 public class Partita extends Impegno {
     private int punteggioCasa;
     private int punteggioOspiti;
@@ -10,7 +12,7 @@ public class Partita extends Impegno {
     private String avversario;
     private String competizione;
     private List<Integer> quarti;
-
+	private HttpSession session;
     
 
     public Partita(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine, int punteggioCasa,
@@ -35,6 +37,12 @@ public class Partita extends Impegno {
     public String getAvversario() {
         return avversario;
     }
+	public HttpSession getSession() {
+		return session;
+	}
+	public void setSession(HttpSession session) {
+		this.session = session;
+	}
 
     
 }

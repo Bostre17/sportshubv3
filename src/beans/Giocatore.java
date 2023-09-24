@@ -1,5 +1,7 @@
 package beans;
 
+import javax.servlet.http.HttpSession;
+
 public class Giocatore extends Membro{
 	
 	
