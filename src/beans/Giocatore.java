@@ -1,21 +1,15 @@
 package beans;
 
-import javax.servlet.http.HttpSession;
-
 public class Giocatore extends Membro{
 	
+	private int altezza;
+	private double puntiPartita;
+	private double assistPartita;
+	private double rimbalziPartita;
 	
-	int altezza;
-	double puntiPartita;
-	double assistPartita;
-	double rimbalziPartita;
-	
-	public Giocatore(String username, String id, String nome, String cognome,int altezza, double puntiPartita, double assistPartita, double rimbalziPartita) {
+	public Giocatore(String username, String id, String nome, String cognome,int altezza) {
 		super(username, id, nome, cognome);
 		this.altezza = altezza;
-		this.puntiPartita = puntiPartita;
-		this.assistPartita = assistPartita;
-		this.rimbalziPartita = rimbalziPartita;
 	}
 
 	public int getAltezza() {

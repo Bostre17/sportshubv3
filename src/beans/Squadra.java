@@ -13,11 +13,11 @@ public class Squadra {
 	private Calendario calendario;
 	private HttpSession session;
 	
-	public Squadra(String id, String nome, Calendario calendario) {
+	public Squadra(String nome, String id) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.calendario = calendario;
+		this.calendario = new Calendario();
 	}
 
 	public String getId() {

@@ -35,18 +35,42 @@ public class LogIn extends HttpServlet{
 	@Override
 	public void init(ServletConfig conf)throws ServletException{
 		super.init(conf);
-		g=new Gson();
+		g = new Gson();
 		
-	// Aggiunta utenti alla servlet
+		
+	// Creazione e aggiunta attori alla servlet
+		
+		Calendario calendario = new Calendario();
+		ArrayList<Societa> listSocieta = new ArrayList<Societa>();
 		
 		// Societa
-		Societa societa = new Societa("dukes", "00000000","Dukes Sansepolcro");
-		this.getServletContext().setAttribute("dukes", societa);
+		Societa societa1 = new Societa("dukes", "00000000","Dukes Sansepolcro");
+		
+		// Squadra
+		Squadra squadra1 = new Squadra("pulcini", "00000000");
 		
 		// Allenatore
+		Allenatore allenatore1 = new Allenatore("lebron.james.pulcini.dukes", "00000000", "Lebron", "James");
 	
 		// Giocatore
-		DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		Giocatore giocatore1 = new Giocatore("lorenzo.severini.pulcini.dukes", "00000000","Lorenzo", "Severini", 195);
+		Giocatore giocatore2 = new Giocatore("leonardo.gennaioli.pulcini.dukes", "00000001","Leonardo", "Gennaioli", 180);
+		Giocatore giocatore3 = new Giocatore("matteo.bostrenghi.pulcini.dukes", "00000002","Matteo", "Bostrenghi", 180);
+
+		// Aggiunta allenatori e giocatori a squadra
+		squadra1.aggiungiAllenatore(allenatore1);
+		squadra1.aggiungiGiocatore(giocatore1);
+		squadra1.aggiungiGiocatore(giocatore2);
+		squadra1.aggiungiGiocatore(giocatore3);
+		
+		// Aggiunta squadra a società
+		societa1.aggiungiSquadra(squadra1);
+		
+		// Aggiunta società a lista società
+		listSocieta.add(societa1);
+		
+		// Aggiunta lista società a servlet context
+		this.getServletContext().setAttribute("listSocieta", listSocieta);
 
 	}
 	
@@ -57,62 +81,76 @@ public class LogIn extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		HttpSession session = req.getSession();
-		//if(req.getParameter("azione")!= null && req.getParameter("azione").equals("registra")) {
-		//	RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/registrazioneCliente.jsp");
-		//	rd.forward(req, resp);
-		//	return;
-		//}
+		
+		// Creazione del formato per la data
+		//DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
+	// Controlli tipo utente
 		
-		
-		//CONTROLLO CHE UTENTE SIA SOCIETà
-		Società societa1 = (Società) this.getServletContext().getAttribute("Societa1");
-		if(username.equals(societa1.getUsername()) && password.equals("admin")) {
-			session.setAttribute("admin", true);
-			Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/admin.jsp");
-			rd.forward(req, resp);
-			return;
-		}
-		
-		
-		
-		//Controllo se è un cliente
-		List<Cliente> listClienti=(ArrayList<Cliente>) this.getServletContext().getAttribute("listClienti");
-		for(Cliente cl : listClienti) {
-			if(username.equals(cl.getUsername()) && password.equals(cl.getPassword()) && cl.getStato().equals("Attivo")) {
-				session.setAttribute("Cliente", true);
-				session.setAttribute("username", cl.getUsername());
-				Log.writeLog(cl.getUsername(), LocalDateTime.now(), "LogIn Cliente");
-				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/HomeCliente.jsp");
+		// Controllo tutte le società ed i suoi membri
+		for(Societa so : listSocieta)
+		{
+			if(username.equals(so.getUsername()) && password.equals("societa"))
+			{
+				// Accesso Società
+				session.setAttribute("societa", true);
+				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
+				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-admin.jsp");
 				rd.forward(req, resp);
 				return;
 			}
-		}
-		
-		
-		
-		
-		//controllo se è un personal trainer
-		List<PersonalTrainer> listPT=(ArrayList<PersonalTrainer>) this.getServletContext().getAttribute("listPT");
-		for(PersonalTrainer pt : listPT) {
-			if(username.equals(pt.getUsername()) && password.equals(pt.getPassword())) {
-				session.setAttribute("PersonalTrainer", true);
-				session.setAttribute("username", pt.getUsername());
-				Log.writeLog(pt.getUsername(), LocalDateTime.now(), "LogIn PersonalTrainer");
-				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/PersonalTrainerHome.jsp");
-				rd.forward(req, resp);
-				return;
+			else if(username.contains(so.getUsername()))
+			{
+				// L'username contiene il nome della società
+				// Controllo tutti gli allenatori e giocatori delle squadre
+
+				session.setAttribute("credenzialiErrate", false);
+				
+				ArrayList<Squadra> listSquadre = so.getSquadre();
+				
+				for(Squadra sq : listSquadre)
+				{
+					ArrayList<Allenatore> listAllenatori = sq.getAllenatori();
+					ArrayList<Giocatore> listGiocatori = sq.getGiocatori();
+
+					for(Allenatore a : listAllenatori)
+					{
+						if(username.equals(a.getUsername()) && password.equals("allenatore"))
+						{
+							// Accesso Allenatore
+							session.setAttribute("allenatore", true);
+							session.setAttribute("username", a.getUsername());
+							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-allenatore.jsp");
+							rd.forward(req, resp);
+							return;
+						}
+					}
+					for(Giocatore g : listGiocatori)
+					{
+						if(username.equals(g.getUsername()) && password.equals("giocatore"))
+						{
+							// Accesso Giocatore
+							session.setAttribute("giocatore", true);
+							session.setAttribute("username", g.getUsername());
+							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.jsp");
+							rd.forward(req, resp);
+							return;
+						}
+					}
+				}
 			}
 		}
-		
-		
-		
-		
-		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.jsp");
+
+		session.setAttribute("credenzialiErrate", true);
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/login.jsp");
 		rd.forward(req, resp);
 		return;
 		
