@@ -36,38 +36,30 @@ public class LogOut extends HttpServlet{
 	public void init(ServletConfig conf)throws ServletException{
 		super.init(conf);
 		g=new Gson();
-		
-		
-	
-	
 	}
-	
-	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = req.getSession();
-		String tipo = req.getParameter("tipo");
-		System.out.println("tipo in servlet: "+tipo);
-		if(tipo.equals("admin")) {
-			session.setAttribute("admin", false);
-			System.out.println((Boolean)session.getAttribute("admin"));
-		}
-		else if(tipo.equals("Cliente")) {
-			session.setAttribute("Cliente", false);
-		}else if(tipo.equals("PersonalTrainer")) {
-			session.setAttribute("PersonalTrainer", false);
-		}
+		String tipo;
 		
+		if((boolean)session.getAttribute("societa"))
+		{
+			session.setAttribute("societa", false);
+		}
+		else if((boolean)session.getAttribute("allenatore"))
+		{
+			session.setAttribute("allenatore", false);
+		}
+		else if((boolean)session.getAttribute("giocatore"))
+		{
+			session.setAttribute("giocatore", false);
+		}
 		
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.jsp");
 		rd.forward(req, resp);
 		return;
-		
 	}
-	
-	
-
 }
