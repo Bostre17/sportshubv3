@@ -39,63 +39,14 @@ public class LogIn extends HttpServlet{
 		
 		//AGGIUNGI ACCOUNT ALLA SERVLET
 		//-AMMINISTRATORE
-		Amministratore admin = new Amministratore("admin", "admin");
-		this.getServletContext().setAttribute("Amministratore", admin);
+		Società societa1 = new Società("andrei@povia", "AAAAABB","andrei");
+		this.getServletContext().setAttribute("Societa1", societa1);
 		
-		// Creazione esercizi
-		Esercizio esercizio1 = new Esercizio("Panca piana", 3, 10, 1, "images/Panca.jpg", "Panca piana, focus pettorale",90);
-		Esercizio esercizio2 = new Esercizio("Spinte verticali", 4, 12, 2, "images/Spinte.jpg", "Spinte verticali, focus spalle",90);
-
-		// Creazione schede
-		Scheda scheda1 = new Scheda("Scheda 1", Arrays.asList(esercizio1, esercizio2), "","pt1","easy");
-		Scheda scheda2 = new Scheda("Scheda 2", Arrays.asList(esercizio1, esercizio2), "","pt1","medium");
-		// Creazione del formato per la data
-		
-
+		// Creazione membri da fare in registrazione o quello che è
+	
 		// Creazione del formato per la data
 		DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-		// Creazione della data di nascita
-		LocalDate dataNascita = LocalDate.parse("01/01/2001", formatoData);
-		// Creazione clienti
-		Cliente cliente1 = new Cliente("cl1", "cl1", Arrays.asList(scheda1), "Nome Cliente 1", "Cognome Cliente 1", dataNascita,"Attivo");
-		Cliente cliente2 = new Cliente("cl2", "cl2", Arrays.asList(scheda1,scheda2), "Nome Cliente 2", "Cognome Cliente 2", dataNascita,"Attivo");
-
-		// Creazione lista clienti
-		List<Cliente> listClienti = new ArrayList<>();
-		listClienti.add(cliente1);
-		listClienti.add(cliente2);
-
-		// Impostazione attributo nel contesto dell'applicazione
-		this.getServletContext().setAttribute("listClienti", listClienti);
-		
-		
-		//creazione presonal trainer 
-		dataNascita = LocalDate.parse("07/08/1958", formatoData);
-		PersonalTrainer pt1 = new PersonalTrainer("pt1", "pt1", "Bruce", "Dickinson", dataNascita);
-		dataNascita = LocalDate.parse("03/08/1963", formatoData);
-		PersonalTrainer pt2 = new PersonalTrainer("pt2", "pt2", "James", "Hetfield", dataNascita);
-		List<PersonalTrainer> listPT=new ArrayList<PersonalTrainer>();
-		listPT.add(pt1);
-		listPT.add(pt2);
-		this.getServletContext().setAttribute("listPT", listPT);
-	
-	
-		
-		//creazione sessioni iniziali
-		int nS=0;
-		List<Sessione> sessioni;
-		sessioni=new ArrayList<Sessione>();
-		Sessione s1=new Sessione(nS,LocalDateTime.of(2023,7,14,19,00),"sessione 1",2,"pt1",60);
-		nS+=1;
-		Sessione s2=new Sessione(nS,LocalDateTime.of(2023,7,14,14,00),"sessione 2",5,"pt2",60);
-		nS+=1;
-		sessioni.add(s1);
-		sessioni.add(s2);
-		this.getServletContext().setAttribute("sessioni", sessioni);
-		this.getServletContext().setAttribute("nS", nS);
-	
-	
 	}
 	
 	
@@ -105,19 +56,19 @@ public class LogIn extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		HttpSession session = req.getSession();
-		if(req.getParameter("azione")!= null && req.getParameter("azione").equals("registra")) {
-			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/registrazioneCliente.jsp");
-			rd.forward(req, resp);
-			return;
-		}
+		//if(req.getParameter("azione")!= null && req.getParameter("azione").equals("registra")) {
+		//	RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/registrazioneCliente.jsp");
+		//	rd.forward(req, resp);
+		//	return;
+		//}
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
 		
 		
-		//CONTROLLO CHE UTENTE SIA ADMIN
-		Amministratore admin = (Amministratore) this.getServletContext().getAttribute("Amministratore");
-		if(username.equals(admin.getUsername()) && password.equals(admin.getPassword())) {
+		//CONTROLLO CHE UTENTE SIA SOCIETà
+		Società societa1 = (Società) this.getServletContext().getAttribute("Societa1");
+		if(username.equals(societa1.getUsername()) && password.equals("admin")) {
 			session.setAttribute("admin", true);
 			Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/admin.jsp");
