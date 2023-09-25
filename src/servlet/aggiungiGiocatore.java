@@ -50,6 +50,7 @@ public class aggiungiGiocatore  extends HttpServlet{
 				String nome= req.getParameter("nome");
 				String cognome= req.getParameter("cognome");
 				Integer altezza=Integer.parseInt( req.getParameter("altezza"));
+				
 				String id= req.getParameter("id");
 				//per fare in modo che gli id siano tutti diversi direi di salavre una variabile id sul context che indica il primo id libero, man mano che si creano giocatori facciamo id+1 e la risalviamo sul contesto
 				//perche passarlo della jsp è sbagliato in quanto sarebbe l'utente a metterlo e non c'è la garanzia che siano tutti diversi
