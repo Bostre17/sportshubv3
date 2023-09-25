@@ -83,6 +83,14 @@ public class Squadra {
 		this.giocatori.add(g);
 		return true;
 	}
+	
+	public void eliminaGiocatore(Giocatore g) {
+		this.giocatori.remove(g);
+	}
+	
+	public void eliminaAllenatore(Allenatore a) {
+		this.allenatori.remove(a);
+	}
 
 	@Override
 	public String toString() {
