@@ -9,6 +9,9 @@ public class Calendario {
     public Calendario() {
         this.giorni = new ArrayList<>();
     }
+    public Calendario(List<Impegno> giorni) {
+        this.giorni = new ArrayList<>(giorni);
+    }
     public void addImpegno(Impegno i){ 
         this.giorni.add(i);
     }
