@@ -35,7 +35,8 @@ public class RichiestaAllenamento extends HttpServlet{
 	
 		ArrayList<Richiesta> richieste = (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
 		String idRichiesta=req.getParameter("id");
-        String titolo=req.getParameter("");
+		String idAllenatore=req.getParameter("idAllenatore");
+        String titolo=req.getParameter("titolo");
         String dataInizio=req.getParameter("dInizio");
         String dataFine=req.getParameter("dFine");
         String oraInizio=req.getParameter("oInizio");
@@ -54,7 +55,7 @@ public class RichiestaAllenamento extends HttpServlet{
         // Combinare la data e l'ora per creare un oggetto LocalDateTime
         LocalDateTime dateTimeI = dateI.withHour(timeI.getHour()).withMinute(timeI.getMinute());
         LocalDateTime dateTimeF = dateF.withHour(timeF.getHour()).withMinute(timeF.getMinute());
-		Richiesta x= new Richiesta(idRichiesta, tipo,titolo, dateTimeI, dateTimeF);
+		Richiesta x= new Richiesta(idAllenatore,idRichiesta, tipo,titolo, dateTimeI, dateTimeF);
 		richieste.add(x);
 	
 		this.getServletContext().setAttribute("richieste", richieste);
