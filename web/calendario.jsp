@@ -50,7 +50,7 @@
 
     <footer>
         <div class="footer-container">
-            <p>Â© 2023 SportsHub</p>
+            <p>© 2023 SportsHub</p>
             <p>Informazioni sul gruppo | Contatti</p>
         </div>
     </footer>

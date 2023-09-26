@@ -54,7 +54,7 @@
 
     <footer>
         <div class="footer-container">
-            <p>Â© 2023 SportsHub</p>
+            <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>
     </footer>
