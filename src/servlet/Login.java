@@ -62,6 +62,13 @@ public class Login extends HttpServlet{
 		squadra1.aggiungiGiocatore(giocatore2);
 		squadra1.aggiungiGiocatore(giocatore3);
 		
+		
+		//creazione impegno per squadra 1
+		LocalDateTime inizioPartita = LocalDateTime.of(2023, 11, 20, 18, 0);
+		LocalDateTime finePartita = LocalDateTime.of(2023, 11, 20, 20, 0);
+		Partita p= new Partita("00000001", "pulcini", inizioPartita, finePartita, "orlando tragic", "cusb");
+		squadra1.getCalendario().addImpegno(p);
+		
 		// Aggiunta squadra a società
 		societa1.aggiungiSquadra(squadra1);
 		
@@ -101,6 +108,7 @@ public class Login extends HttpServlet{
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		
+		session.setAttribute("username", username);
 	// Controlli tipo utente
 		
 		// Controllo tutte le società ed i suoi membri
