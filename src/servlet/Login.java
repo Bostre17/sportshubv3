@@ -67,6 +67,9 @@ public class Login extends HttpServlet{
 		// Aggiunta società a lista società
 		listSocieta.add(societa1);
 		
+		
+		ArrayList<Richiesta> richieste = new ArrayList<Richiesta>();
+		
 		// Aggiunta lista società a servlet context
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
 
