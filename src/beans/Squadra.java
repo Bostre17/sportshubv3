@@ -18,6 +18,8 @@ public class Squadra {
 		this.id = id;
 		this.nome = nome;
 		this.calendario = new Calendario();
+		this.allenatori= new ArrayList<Allenatore>();
+		this.giocatori= new ArrayList<Giocatore>();
 	}
 
 	public String getId() {
