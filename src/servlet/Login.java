@@ -24,7 +24,7 @@ import com.google.gson.Gson;
 
 import beans.*;
 
-public class LogIn extends HttpServlet{
+public class Login extends HttpServlet{
 
 	/**
 	 * 
