@@ -33,15 +33,24 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Seleziona</option>
-                        <option value="#" data-url="visualizzaRis.jsp">Visualizza risultati</option>
-                        <option value="#" data-url="gestioneSquadra.jsp">Gestione squadra</option>
-                        <option value="#" data-url="gestioneCalendario.jsp">Gestione calendario</option>
+                        <option value="visualizzaRis.jsp" data-url="visualizzaRis.jsp">Visualizza risultati</option>
+                        <option value="gestioneSquadra.jsp" data-url="gestioneSquadra.jsp">Gestione squadra</option>
+                        <option value="gestioneCalendario.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
             </div>
         </div>
     </header>
+    <script>
+    
+ 	document.getElementById("dropdown-menu").addEventListener("change", function() {
+    var selectedValue = this.value;
+    if (selectedValue !== "#") {
+      window.location.href = selectedValue;
+    }
+  });
+</script>
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
