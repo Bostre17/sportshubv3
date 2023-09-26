@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calendario {
-    private List<Impegno> giorni;
+    private ArrayList<Impegno> giorni;
     
     public Calendario() {
         this.giorni = new ArrayList<>();
