@@ -19,7 +19,6 @@ public class Squadra {
 		this.nome = nome;
 		this.calendario = new Calendario();
 		this.allenatori= new ArrayList<Allenatore>();
-		//dio merda
 		this.giocatori= new ArrayList<Giocatore>();
 		
 	}

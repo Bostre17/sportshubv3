@@ -82,7 +82,9 @@ public class Login extends HttpServlet{
 		
 		// Creazione del formato per la data
 		//DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
 
+		session.setAttribute("credenzialiErrate", 0);
 		
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 
@@ -97,7 +99,7 @@ public class Login extends HttpServlet{
 			if(username.equals(so.getUsername()) && password.equals("societa"))
 			{
 				// Accesso Società
-				session.setAttribute("societa", true);
+				session.setAttribute("societa", 1);
 				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-societa.jsp");
 				rd.forward(req, resp);
@@ -107,8 +109,6 @@ public class Login extends HttpServlet{
 			{
 				// L'username contiene il nome della società
 				// Controllo tutti gli allenatori e giocatori delle squadre
-
-				session.setAttribute("credenzialiErrate", false);
 				
 				ArrayList<Squadra> listSquadre = so.getSquadre();
 				
@@ -122,7 +122,7 @@ public class Login extends HttpServlet{
 						if(username.equals(a.getUsername()) && password.equals("allenatore"))
 						{
 							// Accesso Allenatore
-							session.setAttribute("allenatore", true);
+							session.setAttribute("allenatore", 1);
 							session.setAttribute("username", a.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-allenatore.jsp");
@@ -135,7 +135,7 @@ public class Login extends HttpServlet{
 						if(username.equals(g.getUsername()) && password.equals("giocatore"))
 						{
 							// Accesso Giocatore
-							session.setAttribute("giocatore", true);
+							session.setAttribute("giocatore", 1);
 							session.setAttribute("username", g.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-giocatore.jsp");
@@ -147,7 +147,7 @@ public class Login extends HttpServlet{
 			}
 		}
 
-		session.setAttribute("credenzialiErrate", true);
+		session.setAttribute("credenzialiErrate", 1);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/login.jsp");
 		rd.forward(req, resp);
 		return;
