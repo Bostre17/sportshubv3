@@ -46,7 +46,7 @@ public class AggiungiImpegno  extends HttpServlet{
 		String idSoc = (String) session.getAttribute("idSoc");
         
         
-		boolean res=false;
+		boolean res=true;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
         String idImpegno=req.getParameter("id");
         String nomeSquadra=req.getParameter("nomeSq");
@@ -84,12 +84,10 @@ public class AggiungiImpegno  extends HttpServlet{
 		for (Societa s: listSocieta)//non c'è la parte di squadra che un impegno si aggiunge alla società totale così che se ne rendano tutti conto
 		{
             if(s.getId().compareTo(idSoc)==0) {
-                if(tipo.compareTo("P")==0){
-                    s.getCalendario().addImpegno(x);
-                    res=true;
-                }else{
-                    s.getCalendario().addImpegno(x);
-                    res=true;//basta aggiungere in soc perchè poi mostra calendario costruisce in base al nomesquadra
+                for(Squadra sq: s.getSquadre()) 
+                {
+                	if(sq.getNome().equals(nomeSquadra))
+                		sq.getCalendario().addImpegno(x);
                 }
             }
 			

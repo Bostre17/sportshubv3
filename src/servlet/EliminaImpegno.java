@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 
 
 import beans.Societa;
+import beans.Squadra;
 
 
 public class EliminaImpegno  extends HttpServlet{
@@ -43,12 +44,21 @@ public class EliminaImpegno  extends HttpServlet{
 		boolean res=false;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
         String idImpegno=req.getParameter("id");
+        String idSquadra=req.getParameter("idSquadra");
 
 		for (Societa s: listSocieta)//non c'è la parte di squadra che un impegno si aggiunge alla società totale così che se ne rendano tutti conto
 		{
             if(s.getId().compareTo(idSoc)==0) {
-                s.getCalendario().remove(idImpegno);
-                res=true;
+            	
+                for(Squadra sq: s.getSquadre())
+                {
+                	if(sq.getId().equals(idSquadra))
+                	{
+                		sq.getCalendario().remove(idImpegno);
+                		res=true;
+                		break;
+                	}
+                }
             }
 			
 		}
