@@ -43,14 +43,26 @@
 %>
 =======
        
+<<<<<<< HEAD
 
 >>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
         <p style="font-size:16px; font-weight: bold;">La tua piattaforma di gestione per squadre di basket.</p>
+=======
+<%
+		Integer errato = (Integer)session.getAttribute("credenzialiErrate");
+		if (errato != null && errato == 1) {
+%>
+		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p>
+<%
+		}
+%>
+        <p style="font-size:16px;">La tua piattaforma di gestione per squadre di basket.</p>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
         
         <!-- Pagina di login -->
         <div class="login-container">
 			<h2>Accesso</h2>
-			<form action="Login" method="POST">
+			<form action="login" method="POST">
 				<label for="username">Username:</label>
 				<br>
 				<input type="text" id="username" name="username" required>

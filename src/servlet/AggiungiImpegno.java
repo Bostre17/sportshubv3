@@ -98,9 +98,9 @@ public class AggiungiImpegno  extends HttpServlet{
 		session.setAttribute("result", res);
 		
 		//lo risalvo sul contesto dopo che ho aggiunto il giocatore
-		if(res==true)
+		if(res==true){
 			this.getServletContext().setAttribute("listSocieta", listSocieta);
-		
+        }
 		
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/calendario.jsp");
 		rd.forward(req, resp);

@@ -19,7 +19,7 @@ import beans.Squadra;
 
 
 
-public class MostraCalendario extends HttpServlet{
+public class MostraRichieste extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	//da fare onload SEMPRE così anche con gli aggiungi e rimuovi basta fare forward e ricaricare la pagina
 	private int nS=0;//numero Sessioni create per segnare id crescenti (non va mai decrementato)
@@ -35,35 +35,7 @@ public class MostraCalendario extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		HttpSession session = req.getSession();
-		String idSoc = (String) session.getAttribute("idSoc");
-		String idSquadra= (String) session.getAttribute("idSquadra");
-		Calendario res=null;
-		Societa temp=null;
-		String nomesq="no";
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
-		for (Societa s: listSocieta){
-			if(s.getId().equals(idSoc)){
-				res=s.getCalendario();
-				temp=s;
-			}
-		}
-		for(Squadra sq : temp.getSquadre()){
-			if(sq.getId().compareTo(idSquadra)==0) nomesq=sq.getNome();
-		}
-		if(nomesq.compareTo("no")!=0)// se ha una squadra settata pesca il calendario della rispettiva sq altrimenti soc
-			res=new Calendario(res.getImpegniSquadra(nomesq));
-		
-		session.setAttribute("calendario", res);
-		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-società.jsp");
-		rd.forward(req, resp);
-		return;
-		
-
-			
-			
-			
+		ArrayList Richieste=new ArraListreq.getServletContext().getAttribute("richieste");
 	}
 	
 	
