@@ -34,15 +34,25 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
-                        <option value="#">Opzione 1</option>
-                        <option value="#">Opzione 2</option>
-                        <option value="#">Opzione 3</option>
+                        <option value="visualizza-squadra-gio.jsp">Visualizza squadra</option>
+                        <option value="visualizza-risultati-gio.jsp">Visualizza risultati</option>
+                        <option value="visualizza-calendario-gio.jsp">Visualizza calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
             </div>
         </div>
     </header>
+
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
