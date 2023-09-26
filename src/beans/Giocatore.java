@@ -10,6 +10,9 @@ public class Giocatore extends Membro{
 	public Giocatore(String username, String id, String nome, String cognome,int altezza) {
 		super(username, id, nome, cognome);
 		this.altezza = altezza;
+		this.puntiPartita = 0;
+		this.assistPartita = 0;
+		this.rimbalziPartita = 0;
 	}
 
 	public int getAltezza() {
