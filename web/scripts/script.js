@@ -38,23 +38,3 @@ document.addEventListener('DOMContentLoaded', function () {
     
     createCalendar(2023, 8); // Inizialmente mostra il calendario per settembre 2023
 });
-
-// JavaScript per il menu a tendina
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    // Aggiungi un gestore per l'evento change del menu a tendina
-    dropdownMenu.addEventListener('change', function () {
-        const selectedOption = dropdownMenu.options[dropdownMenu.selectedIndex].value;
-        
-        // Esegui l'azione desiderata in base all'opzione selezionata
-        if (selectedOption === 'Opzione 1') {
-            // Codice per l'opzione 1
-        } else if (selectedOption === 'Opzione 2') {
-            // Codice per l'opzione 2
-        } else if (selectedOption === 'Opzione 3') {
-            // Codice per l'opzione 3
-        }
-        // Aggiungi altre condizioni per le opzioni aggiuntive se necessario
-    });
-});

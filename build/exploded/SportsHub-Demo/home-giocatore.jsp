@@ -17,14 +17,15 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home</title>
+    <title>Home Gicoatore</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <img src="images/SportsHub.png" class="center">
+        		<p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->

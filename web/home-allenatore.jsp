@@ -17,14 +17,14 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home</title>
+    <title>Home Allenatore</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <h1 class="logo">Homepage Allenatore</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -32,10 +32,11 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Seleziona</option>
-                        <option value="#">Opzione 1</option>
-                        <option value="#">Opzione 2</option>
-                        <option value="#">Opzione 3</option>
+                        <option value="#">Menù</option>
+                        <option value="#visualizza-squadra.jsp">Visualizza squadra</option>
+                        <option value="#visualizza-risultati.jsp">Visualizza risultati</option>
+                        <option value="#inserisci-risultati.jsp">Inserisci risultati</option>
+                        <option value="#gestione-calendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -43,9 +44,19 @@
         </div>
     </header>
 
-    <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
-        <p>La tua piattaforma di gestione per squadre di basket.</p>
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
+
+	<div class="content-container">
+        <img src="images/SportsHub.png" class="center">
+        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
 
     <footer>
