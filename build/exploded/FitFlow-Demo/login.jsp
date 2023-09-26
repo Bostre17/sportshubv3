@@ -31,7 +31,15 @@
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
-
+        
+<%
+	int credenzialiErrate = (int)session.getAttribute("credenzialiErrate");
+	if(credenzialiErrate == 1) {
+%>
+		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p>
+<%
+	}
+%>
         <p style="font-size:16px; font-weight: bold;">La tua piattaforma di gestione per squadre di basket.</p>
         
         <!-- Pagina di login -->
