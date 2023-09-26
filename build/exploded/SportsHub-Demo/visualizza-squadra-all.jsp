@@ -33,10 +33,10 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
-                        <option value="#visualizza-squadra-all.jsp">Visualizza squadra</option>
-                        <option value="#visualizza-risultati-all.jsp">Visualizza risultati</option>
-                        <option value="#inserisci-risultati-all.jsp">Inserisci risultati</option>
-                        <option value="#gestione-calendario-all.jsp">Gestione calendario</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
+                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
+                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -60,7 +60,7 @@
 		String input = (String)session.getAttribute("username");
 		String[] username = input.split("\\.");
 		
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>) session.getAttribute("listSocieta");
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
 		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
 		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
 		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
@@ -85,9 +85,9 @@
         <h3>Allenatori</h3>
 		<table>
 			<tr>
-				<td>ID</td>
-				<td>Cognome</td>
-				<td>Nome</td>
+				<td><b>ID</b></td>
+				<td><b>Cognome</b></td>
+				<td><b>Nome</b></td>
 			</tr>
 		<%
 		for(int i = 0 ; i < allenatori.size(); i++) {
@@ -105,13 +105,13 @@
         <h3>Giocatori</h3>
 		<table>
 			<tr>
-				<td>ID</td>
-				<td>Cognome</td>
-				<td>Nome</td>
-				<td>Altezza</td>
-				<td>Punti partita</td>
-				<td>Assist partita</td>
-				<td>Rimbalzi partita</td>
+				<td><b>ID</b></td>
+				<td><b>Cognome</b></td>
+				<td><b>Nome</b></td>
+				<td><b>Altezza</b></td>
+				<td><b>Punti partita</b></td>
+				<td><b>Assist partita</b></td>
+				<td><b>Rimbalzi partita</b></td>
 			</tr>
 		<%
 		for(int i = 0 ; i < giocatori.size(); i++) {

@@ -33,10 +33,10 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
-                        <option value="#visualizza-squadra.jsp">Visualizza squadra</option>
-                        <option value="#visualizza-risultati.jsp">Visualizza risultati</option>
-                        <option value="#inserisci-risultati.jsp">Inserisci risultati</option>
-                        <option value="#gestione-calendario.jsp">Gestione calendario</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
+                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
+                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
