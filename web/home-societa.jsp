@@ -17,14 +17,14 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home</title>
+    <title>Home Società</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <h1 class="logo">Homepage Società</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -32,7 +32,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Seleziona</option>
+                        <option value="#">Menù</option>
                         <option value="visualizzaRis.jsp" data-url="visualizzaRis.jsp">Visualizza risultati</option>
                         <option value="gestioneSquadra.jsp" data-url="gestioneSquadra.jsp">Gestione squadra</option>
                         <option value="gestioneCalendario.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
@@ -42,19 +42,19 @@
             </div>
         </div>
     </header>
-    <script>
-    
- 	document.getElementById("dropdown-menu").addEventListener("change", function() {
-    var selectedValue = this.value;
-    if (selectedValue !== "#") {
-      window.location.href = selectedValue;
-    }
-  });
-</script>
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
 
-    <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
-        <p>La tua piattaforma di gestione per squadre di basket.</p>
+	<div class="content-container">
+        <img src="images/SportsHub.png" class="center">
+        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
 
     <footer>

@@ -17,14 +17,14 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home</title>
+    <title>Home Allenatore</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <h1 class="logo">Homepage Allenatore</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -44,8 +44,8 @@
     </header>
 
     <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
-        <p>La tua piattaforma di gestione per squadre di basket.</p>
+        <img src="images/SportsHub.png" class="center">
+        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
 
     <footer>
