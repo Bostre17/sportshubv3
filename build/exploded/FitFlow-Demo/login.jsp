@@ -31,6 +31,7 @@
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
+<<<<<<< HEAD
         
 <%
 	int credenzialiErrate = (int)session.getAttribute("credenzialiErrate");
@@ -40,6 +41,10 @@
 <%
 	}
 %>
+=======
+       
+
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
         <p style="font-size:16px; font-weight: bold;">La tua piattaforma di gestione per squadre di basket.</p>
         
         <!-- Pagina di login -->
