@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.Calendario;
 import beans.Giocatore;
+import beans.Richiesta;
 import beans.Societa;
 import beans.Squadra;
 
@@ -35,7 +36,7 @@ public class MostraRichieste extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		ArrayList Richieste=new ArraListreq.getServletContext().getAttribute("richieste");
+		ArrayList<Richiesta> richieste=new ArrayList<>(this.getServletContext().getAttribute("richieste"));
 	}
 	
 	
