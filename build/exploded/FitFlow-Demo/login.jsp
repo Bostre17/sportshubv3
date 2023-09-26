@@ -31,6 +31,16 @@
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
+        
+<%
+	boolean credenzialiErrate = (boolean)request.getSession().getAttribute("credenzialiErrate");
+	if(credenzialiErrate)
+	{
+		%>
+		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p>
+		<%
+	}
+%>
         <p>La tua piattaforma di gestione per squadre di basket.</p>
 
         <!-- Pagina di login -->
@@ -54,7 +64,7 @@
 
     <footer>
         <div class="footer-container">
-            <p>Â© 2023 SportsHub</p>
+            <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>
     </footer>
