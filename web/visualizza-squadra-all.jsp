@@ -59,10 +59,76 @@
 	<%
 		String input = (String)session.getAttribute("username");
 		String[] username = input.split("\\.");
+		
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) session.getAttribute("listSocieta");
+		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
+		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
+		
+		for(Societa so : listSocieta)
+		{
+			if(so.getUsername().equals(username[3]))
+			{
+				for(Squadra sq : so.getSquadre())
+				{
+					if(sq.getNome().equals(username[2]))
+					{
+						allenatori = sq.getAllenatori();
+						giocatori = sq.getGiocatori();
+					}
+				}
+			}
+		}
 	%>
         
         <h2>Squadra</h2>
-        
+        <h3>Allenatori</h3>
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Cognome</td>
+				<td>Nome</td>
+			</tr>
+		<%
+		for(int i = 0 ; i < allenatori.size(); i++) {
+		%>
+			<tr>
+				<td><%=allenatori.get(i).getId()%></td>
+				<td><%=allenatori.get(i).getCognome()%></td>
+				<td><%=allenatori.get(i).getNome()%></td>
+			</tr>
+		<%
+		}
+		%>
+		
+		</table>
+        <h3>Giocatori</h3>
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Cognome</td>
+				<td>Nome</td>
+				<td>Altezza</td>
+				<td>Punti partita</td>
+				<td>Assist partita</td>
+				<td>Rimbalzi partita</td>
+			</tr>
+		<%
+		for(int i = 0 ; i < giocatori.size(); i++) {
+		%>
+			<tr>
+				<td><%=giocatori.get(i).getId()%></td>
+				<td><%=giocatori.get(i).getCognome()%></td>
+				<td><%=giocatori.get(i).getNome()%></td>
+				<td><%=giocatori.get(i).getAltezza()%></td>
+				<td><%=giocatori.get(i).getPuntiPartita()%></td>
+				<td><%=giocatori.get(i).getAssistPartita()%></td>
+				<td><%=giocatori.get(i).getRimbalziPartita()%></td>
+			</tr>
+        <%
+		}
+        %>
+		</table>
     </div>
 
     <footer>
