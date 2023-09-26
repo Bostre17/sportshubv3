@@ -5,12 +5,9 @@
 <%@ page session="true"%>
 
 <!-- import di classi Java -->
-<%@ page import="beans.User"%>
-<%@ page import="beans.Group"%>
 <%@ page import="beans.*"%>
 <%@ page import="java.time.LocalDateTime"%>
 <%@ page import="java.util.*"%>
-<%@ page import="beans.PersonalTrainer" %>
 
 <!DOCTYPE html>
 <html lang="it">
