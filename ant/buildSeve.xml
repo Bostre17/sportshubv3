@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="FitFlow-Demo" basedir=".." default="02.print.properties">
+<project name="SportsHub-Demo" basedir=".." default="02.print.properties">
 
 	<!-- ================ -->
 	<!-- Properties setup -->
