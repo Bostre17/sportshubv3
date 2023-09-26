@@ -68,17 +68,17 @@ public class AggiungiImpegno  extends HttpServlet{
         // Combinare la data e l'ora per creare un oggetto LocalDateTime
         LocalDateTime dateTimeI = dateI.withHour(timeI.getHour()).withMinute(timeI.getMinute());
         LocalDateTime dateTimeF = dateF.withHour(timeF.getHour()).withMinute(timeF.getMinute());
-        //Impegno x=null;
+        Impegno x;
         if(tipo.compareTo("P")==0){
         	String avversario=req.getParameter("avversario");
         	String competizione=req.getParameter("competizione");
-            Partita x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione);
+            x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione);
             
         }else{//facciamo che se parte da richiesta apre il form già fillato
             String tipologia=req.getParameter("tipologia");
             String titolo=req.getParameter("titolo");
             String idRichiedente=req.getParameter("idRic");
-            Allenamento x=new Allenamento(idImpegno,nomeSquadra,dateTimeI,dateTimeF,tipologia,titolo,idRichiedente);
+            x=new Allenamento(idImpegno,nomeSquadra,dateTimeI,dateTimeF,tipologia,titolo,idRichiedente);
         }
 
 		for (Societa s: listSocieta)//non c'è la parte di squadra che un impegno si aggiunge alla società totale così che se ne rendano tutti conto
