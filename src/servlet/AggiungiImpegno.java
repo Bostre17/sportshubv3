@@ -70,7 +70,10 @@ public class AggiungiImpegno  extends HttpServlet{
         LocalDateTime dateTimeF = dateF.withHour(timeF.getHour()).withMinute(timeF.getMinute());
         Impegno x=null;
         if(tipo.compareTo("P")==0){
-            x=new Impegno(idImpegno,nomeSquadra,dateTimeI,dateTimeF);
+        	String avversario=req.getParameter("avversario");
+        	String competizione=req.getParameter("competizione");
+            x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione);
+            
         }else{//facciamo che se parte da richiesta apre il form già fillato
             String tipologia=req.getParameter("tipologia");
             String titolo=req.getParameter("titolo");
