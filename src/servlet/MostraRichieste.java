@@ -36,7 +36,7 @@ public class MostraRichieste extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
-		ArrayList<Richiesta> richieste=new ArrayList<>(this.getServletContext().getAttribute("richieste"));
+		ArrayList<Richiesta> richieste=new ArrayList<Richiesta>(this.getServletContext().getAttribute("richiesta"));
 	}
 	
 	
