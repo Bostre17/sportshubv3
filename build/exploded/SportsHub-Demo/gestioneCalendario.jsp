@@ -21,10 +21,12 @@
 </head>
 <body>
 <div id="eventi">
+dio cane
 <%
 
 	String username= (String)session.getAttribute("username");
 	ArrayList<Societa> listSocieta= (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+	
 	for(Societa s: listSocieta )
 	{
 		if(s.getNome().equals(username))
@@ -34,7 +36,8 @@
 				for(Impegno i: sq.getCalendario().getImpegniSquadra())
 				{
 					%>
-					<%= i.toString(); %>
+					<%=i.toString() %>
+					
 					<% 
 				
 				}

@@ -4,21 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calendario {
-    private ArrayList<Impegno> giorni;
+    private ArrayList<Impegno> impegni;
     
     public Calendario() {
-        this.giorni = new ArrayList<>();
+        this.impegni = new ArrayList<>();
     }
-    public Calendario(List<Impegno> giorni) {
-        this.giorni = new ArrayList<>(giorni);
-    }
+    
     public void addImpegno(Impegno i){ 
-        this.giorni.add(i);
+        this.impegni.add(i);
     }
     public void remove(String idImpegno){
-        for(int i=0;i<this.giorni.size();i++){
-            if(this.giorni.get(i).getIdImpegno().compareTo(idImpegno)==0) this.giorni.remove(i);
-        }
+        
     }
 
     public Impegno getImpegno(String id){
@@ -41,7 +37,7 @@ public class Calendario {
     }
     public  List<Impegno> getImpegniSquadra(){
         
-        return this.getImpegniSquadra();
+        return this.giorni;
     }
 
 }
