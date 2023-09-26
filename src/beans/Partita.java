@@ -62,6 +62,12 @@ public class Partita extends Impegno {
 	public void setAvversario(String avversario) {
 		this.avversario = avversario;
 	}
+	@Override
+	public String toString() {
+		return "Partita [punteggioCasa=" + punteggioCasa + ", punteggioOspiti=" + punteggioOspiti + ", stats=" + stats
+				+ ", avversario=" + avversario + ", competizione=" + competizione + ", quarti=" + quarti + ", session="
+				+ session + "]";
+	}
 
     
 }

@@ -39,14 +39,9 @@ public class Calendario {
         }
         return res;
     }
-    public  List<Impegno> getImpegniSquadra(String nomeSquadra){
-        ArrayList<Impegno> res= new ArrayList<>();
-        for (int i=0; i<giorni.size();i++){
-            if(giorni.get(i).getNomeSquadra().compareTo(nomeSquadra)==0){
-                res.add(giorni.get(i));
-            }
-        }
-        return res;
+    public  List<Impegno> getImpegniSquadra(){
+        
+        return this.getImpegniSquadra();
     }
 
 }
