@@ -15,6 +15,12 @@ public class Calendario {
     public void addImpegno(Impegno i){ 
         this.giorni.add(i);
     }
+    public void remove(String idImpegno){
+        for(int i=0;i<this.giorni.size();i++){
+            if(this.giorni.get(i).getIdImpegno().compareTo(idImpegno)==0) this.giorni.remove(i);
+        }
+    }
+
     public Impegno getImpegno(String id){
         for (int i=0; i<giorni.size();i++){
             if(giorni.get(i).getIdImpegno().compareTo(id)==0){
