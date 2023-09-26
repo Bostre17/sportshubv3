@@ -1,3 +1,14 @@
+<!-- pagina per la gestione di errori -->
+<%@ page errorPage="../errors/failure.jsp"%>
+
+<!-- accesso alla sessione -->
+<%@ page session="true"%>
+
+<!-- import di classi Java -->
+<%@ page import="beans.*"%>
+<%@ page import="java.time.LocalDateTime"%>
+<%@ page import="java.util.*"%>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
