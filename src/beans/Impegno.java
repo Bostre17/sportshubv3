@@ -39,7 +39,13 @@ public abstract class Impegno {
     public void setFine(LocalDateTime fine) {
         this.fine = fine;
     }
-    public void inviaNotifica(){}
+
+	@Override
+	public String toString() {
+		return "Impegno [idImpegno=" + idImpegno + ", nomeSquadra=" + nomeSquadra + ", inizio=" + inizio + ", fine="
+				+ fine + "]";
+	}
+  
    
 
     

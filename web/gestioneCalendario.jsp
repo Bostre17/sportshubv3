@@ -30,7 +30,10 @@
 		{
 			for(Squadra sq: s.getSquadre())
 			{
-				for(Impegno i: sq.getCalendario().getImpegniSquadra(nomeSquadra))
+				for(Impegno i: sq.getCalendario().getImpegniSquadra())
+				{
+					
+				}
 			}
 		}
 	}
