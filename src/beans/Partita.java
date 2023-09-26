@@ -15,15 +15,10 @@ public class Partita extends Impegno {
 	private HttpSession session;
     
 
-    public Partita(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine, int punteggioCasa,
-            int punteggioOspiti, List<Statistica> stats, String avversario, String competizione, List<Integer> quarti) {
+    public Partita(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine, String avversario, String competizione) {
         super(idImpegno, nomeSquadra, inizio, fine);
-        this.punteggioCasa = punteggioCasa;
-        this.punteggioOspiti = punteggioOspiti;
-        this.stats = stats;
         this.avversario = avversario;
         this.competizione = competizione;
-        this.quarti = quarti;
     }
     public int getPunteggioCasa() {
         return punteggioCasa;
@@ -42,6 +37,30 @@ public class Partita extends Impegno {
 	}
 	public void setSession(HttpSession session) {
 		this.session = session;
+	}
+	public String getCompetizione() {
+		return competizione;
+	}
+	public void setCompetizione(String competizione) {
+		this.competizione = competizione;
+	}
+	public List<Integer> getQuarti() {
+		return quarti;
+	}
+	public void setQuarti(List<Integer> quarti) {
+		this.quarti = quarti;
+	}
+	public void setPunteggioCasa(int punteggioCasa) {
+		this.punteggioCasa = punteggioCasa;
+	}
+	public void setPunteggioOspiti(int punteggioOspiti) {
+		this.punteggioOspiti = punteggioOspiti;
+	}
+	public void setStats(List<Statistica> stats) {
+		this.stats = stats;
+	}
+	public void setAvversario(String avversario) {
+		this.avversario = avversario;
 	}
 
     

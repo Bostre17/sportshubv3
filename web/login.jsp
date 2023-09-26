@@ -1,5 +1,5 @@
 <!-- pagina per la gestione di errori -->
-<!-- <%@ page errorPage="../errors/failure.jsp"%> -->
+<%@ page errorPage="../errors/failure.jsp"%>
 
 <!-- accesso alla sessione -->
 <%@ page session="true"%>
