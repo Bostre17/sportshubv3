@@ -67,15 +67,15 @@ public class Login extends HttpServlet{
 		
 		// Aggiunta società a lista società
 		listSocieta.add(societa1);
-		
+		/*
 		LocalDateTime inizio = LocalDateTime.of(2023, 11, 18, 0, 0);
 		LocalDateTime fine = LocalDateTime.of(2023, 11, 20, 30, 0);
 		ArrayList<Richiesta> richieste = new ArrayList<Richiesta>();
-		Richiesta r1= new Richiesta("00000000", "00000000","A","Allenamento", inizio,fine );
+		Richiesta r1= new Richiesta("00000000", "00000000","A","Allenamento", inizio, fine);
 		richieste.add(r1);
 		this.getServletContext().setAttribute("richieste", richieste);
 		
-		
+		*/
 		// Aggiunta lista società a servlet context
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
 
