@@ -33,6 +33,7 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
+<<<<<<< HEAD
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
@@ -112,6 +113,87 @@
 				<td><b>Punti partita</b></td>
 				<td><b>Assist partita</b></td>
 				<td><b>Rimbalzi partita</b></td>
+=======
+                        <option value="#visualizza-squadra-all.jsp">Visualizza squadra</option>
+                        <option value="#visualizza-risultati-all.jsp">Visualizza risultati</option>
+                        <option value="#inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="#gestione-calendario-all.jsp">Gestione calendario</option>
+                        <!-- Aggiungi altre opzioni del menu qui -->
+                    </select>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
+
+	<div class="content-container">
+	
+	<%
+		String input = (String)session.getAttribute("username");
+		String[] username = input.split("\\.");
+		
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) session.getAttribute("listSocieta");
+		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
+		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
+		
+		for(Societa so : listSocieta)
+		{
+			if(so.getUsername().equals(username[3]))
+			{
+				for(Squadra sq : so.getSquadre())
+				{
+					if(sq.getNome().equals(username[2]))
+					{
+						allenatori = sq.getAllenatori();
+						giocatori = sq.getGiocatori();
+					}
+				}
+			}
+		}
+	%>
+        
+        <h2>Squadra</h2>
+        <h3>Allenatori</h3>
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Cognome</td>
+				<td>Nome</td>
+			</tr>
+		<%
+		for(int i = 0 ; i < allenatori.size(); i++) {
+		%>
+			<tr>
+				<td><%=allenatori.get(i).getId()%></td>
+				<td><%=allenatori.get(i).getCognome()%></td>
+				<td><%=allenatori.get(i).getNome()%></td>
+			</tr>
+		<%
+		}
+		%>
+		
+		</table>
+        <h3>Giocatori</h3>
+		<table>
+			<tr>
+				<td>ID</td>
+				<td>Cognome</td>
+				<td>Nome</td>
+				<td>Altezza</td>
+				<td>Punti partita</td>
+				<td>Assist partita</td>
+				<td>Rimbalzi partita</td>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 			</tr>
 		<%
 		for(int i = 0 ; i < giocatori.size(); i++) {
