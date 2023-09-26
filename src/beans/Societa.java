@@ -8,7 +8,6 @@ public class Societa extends Utente{
 	private ArrayList<Palestra> palestre;
 	private ArrayList<Squadra> squadre;
 	private String nome;
-	private Calendario calendario;
 	
 	
 	public Societa(String username, String id, String nome) {
@@ -16,7 +15,6 @@ public class Societa extends Utente{
 		this.nome = nome;
 		this.palestre= new ArrayList<Palestra>();
 		this.squadre= new ArrayList<Squadra>();
-		this.calendario = new Calendario();
 	}
 	public ArrayList<Palestra> getPalestre() {
 		return palestre;
@@ -35,12 +33,6 @@ public class Societa extends Utente{
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public Calendario getCalendario() {
-		return calendario;
-	}
-	public void setCalendario(Calendario calendario) {
-		this.calendario = calendario;
 	}
 	public void aggiungiSquadra(Squadra s) {
 		this.squadre.add(s);
