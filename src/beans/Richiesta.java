@@ -11,14 +11,16 @@ public class Richiesta {
 	private LocalDateTime inizio;
 	private LocalDateTime fine;
 	private HttpSession session;
+	private String idAllenatore;
 	
-	public Richiesta(String id, String tipo, String titolo, LocalDateTime inizio, LocalDateTime fine) {
+	public Richiesta(String idAllenatore, String id, String tipo, String titolo, LocalDateTime inizio, LocalDateTime fine) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
 		this.titolo = titolo;
 		this.inizio = inizio;
 		this.fine = fine;
+		this.idAllenatore=idAllenatore;
 	}
 
 	public String getId() {
