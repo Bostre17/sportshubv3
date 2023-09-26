@@ -39,8 +39,6 @@ public class Login extends HttpServlet{
 		
 		
 	// Creazione e aggiunta attori alla servlet
-		
-		MostraCalendario calendario = new MostraCalendario();
 		ArrayList<Societa> listSocieta = new ArrayList<Societa>();
 		
 		// Societa

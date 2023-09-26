@@ -26,19 +26,6 @@
                 <h1 class="logo">SportsHub</h1>
             </div>
             
-            <!-- Container per il menu a tendina a sinistra -->
-            <div class="menu-container">
-                <!-- Menu a tendina a sinistra -->
-                <nav class="menu">
-                    <select id="dropdown-menu">
-                        <option value="#">Seleziona</option>
-                        <option value="#">Opzione 1</option>
-                        <option value="#">Opzione 2</option>
-                        <option value="#">Opzione 3</option>
-                        <!-- Aggiungi altre opzioni del menu qui -->
-                    </select>
-                </nav>
-            </div>
         </div>
     </header>
 
@@ -49,7 +36,7 @@
         <!-- Pagina di login -->
         <div class="login-container">
 			<h2>Accesso</h2>
-			<form action="login.php" method="POST">
+			<form action="Login" method="POST">
 				<label for="username">Username:</label>
 				<br>
 				<input type="text" id="username" name="username" required>
