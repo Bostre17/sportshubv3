@@ -33,9 +33,9 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Seleziona</option>
-                        <option value="#">Opzione 1</option>
-                        <option value="#">Opzione 2</option>
-                        <option value="#">Opzione 3</option>
+                        <option value="#" data-url="visualizzaRis.jsp">Visualizza risultati</option>
+                        <option value="#" data-url="gestioneSquadra.jsp">Gestione squadra</option>
+                        <option value="#" data-url="gestioneCalendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
