@@ -82,7 +82,9 @@ public class Login extends HttpServlet{
 		
 		// Creazione del formato per la data
 		//DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
 
+		session.setAttribute("credenzialiErrate", false);
 		
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 
