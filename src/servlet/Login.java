@@ -84,7 +84,7 @@ public class Login extends HttpServlet{
 		//DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 
-		session.setAttribute("credenzialiErrate", 0);
+		session.setAttribute("credenzialiErrate", false);
 		
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 
@@ -109,6 +109,8 @@ public class Login extends HttpServlet{
 			{
 				// L'username contiene il nome della società
 				// Controllo tutti gli allenatori e giocatori delle squadre
+
+				session.setAttribute("credenzialiErrate", 0);
 				
 				ArrayList<Squadra> listSquadre = so.getSquadre();
 				

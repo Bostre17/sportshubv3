@@ -31,7 +31,7 @@
 
     <div class="content-container">
         <h2>Benvenuti su SportsHub</h2>
-        
+       
 <%
 	int credenzialiErrate = (int)session.getAttribute("credenzialiErrate");
 	if(credenzialiErrate == 1) {
