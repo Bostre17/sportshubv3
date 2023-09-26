@@ -34,7 +34,7 @@
 				for(Impegno i: sq.getCalendario().getImpegniSquadra())
 				{
 					%>
-					<% i.toString(); %>
+					<%= i.toString(); %>
 					<% 
 				
 				}
