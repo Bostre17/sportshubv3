@@ -45,7 +45,7 @@
             String idSoc = (String) session.getAttribute("idSoc");
                 for (Societa s: listSocieta){
                     if(s.getId().equals(idSoc)){
-                        this.getServletContext().setAttribute("squadre",s.getSquadre );
+                        ArrayList<Squadra> listSquadre = new ArrayList<>(s.getSquadre());
                     }
                 }
 %>
@@ -55,20 +55,15 @@
     </head>
     <body>
       <h1>Lista Squadre e Giocatori</h1>
-    <c:forEach var="squadra" items="${squadre}">
-        <h2>${squadra.nome}</h2>
-        <table>
-            <tr>
-                
-            </tr>
-            <c:forEach var="giocatore" items="${squadra.giocatori}">
-                <tr>
-                    <td>${giocatore.nome}</td>
-                    <td>${giocatore.numeroMaglia}</td>
-                </tr>
-            </c:forEach>
-        </table>
-    </c:forEach>
+      <%
+        for(Squadra s: listSquadre){
+        %>
+        <li><%= s.getNome %></li>
+            
+        <%
+        }
+      %>
+        
 </body>
 </html>
 

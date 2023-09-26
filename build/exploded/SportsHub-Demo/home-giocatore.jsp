@@ -17,7 +17,7 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home Gicoatore</title>
+    <title>Home Giocatore</title>
 </head>
 <body>
     <header>
@@ -33,7 +33,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Seleziona</option>
+                        <option value="#">Menù</option>
                         <option value="#">Opzione 1</option>
                         <option value="#">Opzione 2</option>
                         <option value="#">Opzione 3</option>

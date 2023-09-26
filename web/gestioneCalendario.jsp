@@ -22,6 +22,7 @@
 <body>
 <div id="eventi">
 <%
+
 	String username= (String)session.getAttribute("username");
 	ArrayList<Societa> listSocieta= (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 	for(Societa s: listSocieta )
@@ -33,12 +34,15 @@
 				for(Impegno i: sq.getCalendario().getImpegniSquadra())
 				{
 					%>
-					<%=i.toString() %>
-					<%
+					<% i.toString(); %>
+					<% 
+				
 				}
 			}
 		}
 	}
+					
+	
 %>
 </div>
 

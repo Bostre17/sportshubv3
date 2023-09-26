@@ -32,10 +32,11 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Seleziona</option>
-                        <option value="#">Opzione 1</option>
-                        <option value="#">Opzione 2</option>
-                        <option value="#">Opzione 3</option>
+                        <option value="#">Menù</option>
+                        <option value="#visualizza-squadra.jsp">Visualizza squadra</option>
+                        <option value="#visualizza-risultati.jsp">Visualizza risultati</option>
+                        <option value="#inserisci-risultati.jsp">Inserisci risultati</option>
+                        <option value="#gestione-calendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -43,7 +44,17 @@
         </div>
     </header>
 
-    <div class="content-container">
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
+
+	<div class="content-container">
         <img src="images/SportsHub.png" class="center">
         <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
