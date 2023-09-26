@@ -99,7 +99,7 @@ public class Login extends HttpServlet{
 				// Accesso Società
 				session.setAttribute("societa", true);
 				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-admin.jsp");
+				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-societa.jsp");
 				rd.forward(req, resp);
 				return;
 			}
@@ -138,7 +138,7 @@ public class Login extends HttpServlet{
 							session.setAttribute("giocatore", true);
 							session.setAttribute("username", g.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.jsp");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-giocatore.jsp");
 							rd.forward(req, resp);
 							return;
 						}
