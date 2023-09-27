@@ -112,6 +112,7 @@
 				<td><b>ID</b></td>
 				<td><b>Cognome</b></td>
 				<td><b>Nome</b></td>
+				<td><b>Altezza</b></td>
 
 			</tr>
 			<%
@@ -124,6 +125,7 @@
 				<td><%=giocatori.get(i).getId()%></td>
 				<td><%=giocatori.get(i).getCognome()%></td>
 				<td><%=giocatori.get(i).getNome()%></td>
+				<td><%=giocatori.get(i).getAltezza()%></td>
 
 			</tr>
 			<%
