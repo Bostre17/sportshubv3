@@ -46,7 +46,7 @@ public class Login extends HttpServlet{
 		Societa societa1 = new Societa("dukes", "00000000","Dukes Sansepolcro");
 		
 		// Squadra
-		Squadra squadra1 = new Squadra("pulcini", "00000000");
+		Squadra squadra1 = new Squadra("Pulcini", "00000000");
 		
 		// Allenatore
 		Allenatore allenatore1 = new Allenatore("lebron.james.pulcini.dukes", "00000000", "Lebron", "James");
@@ -66,7 +66,7 @@ public class Login extends HttpServlet{
 		//creazione impegno per squadra 1
 		LocalDateTime inizioPartita = LocalDateTime.of(2023, 11, 20, 18, 0);
 		LocalDateTime finePartita = LocalDateTime.of(2023, 11, 20, 20, 0);
-		Partita p= new Partita("00000001", "pulcini", inizioPartita, finePartita, "orlando tragic", "cusb", true);
+		Partita p= new Partita("00000001", "Pulcini", inizioPartita, finePartita, "Orlando Tragic", "CUSB", true);
 		squadra1.getCalendario().addImpegno(p);
 		
 		// Aggiunta squadra a società
@@ -119,6 +119,7 @@ public class Login extends HttpServlet{
 				// Accesso Società
 				session.setAttribute("societa", 1);
 				session.setAttribute("arrivederci", 0);
+				session.setAttribute("username_societa", so.getUsername());
 				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-soc.jsp");
 				rd.forward(req, resp);
@@ -146,6 +147,10 @@ public class Login extends HttpServlet{
 							session.setAttribute("allenatore", 1);
 							session.setAttribute("username", a.getUsername());
 							session.setAttribute("arrivederci", 0);
+							session.setAttribute("nome_allenatore", a.getNome());
+							session.setAttribute("cognome_allenatore", a.getCognome());
+							session.setAttribute("nome_squadra", sq.getNome());
+							session.setAttribute("username_societa", so.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-all.jsp");
 							rd.forward(req, resp);
@@ -160,6 +165,10 @@ public class Login extends HttpServlet{
 							session.setAttribute("giocatore", 1);
 							session.setAttribute("username", g.getUsername());
 							session.setAttribute("arrivederci", 0);
+							session.setAttribute("nome_giocatore", g.getNome());
+							session.setAttribute("cognome_giocatore", g.getCognome());
+							session.setAttribute("nome_squadra", sq.getNome());
+							session.setAttribute("username_societa", so.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
 							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-gio.jsp");
 							rd.forward(req, resp);

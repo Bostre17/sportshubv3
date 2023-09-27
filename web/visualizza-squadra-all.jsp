@@ -56,9 +56,17 @@
 	<div class="content-container">
 	
 	<%
-		String input = (String)session.getAttribute("username");
-		String[] username = input.split("\\.");
 		
+	String nome_allenatore = (String)session.getAttribute("nome_allenatore");
+	String cognome_allenatore = (String)session.getAttribute("cognome_allenatore");
+	String username_societa = (String)session.getAttribute("username_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
+
+	System.out.println(nome_allenatore);
+	System.out.println(cognome_allenatore);
+	System.out.println(nome_squadra);
+	System.out.println(username_societa);
+	
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
 		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
 		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
@@ -66,11 +74,11 @@
 		
 		for(Societa so : listSocieta)
 		{
-			if(so.getUsername().equals(username[3]))
+			if(so.getUsername().equals(username_societa))
 			{
 				for(Squadra sq : so.getSquadre())
 				{
-					if(sq.getNome().equals(username[2]))
+					if(sq.getNome().equals(nome_squadra))
 					{
 						allenatori = sq.getAllenatori();
 						giocatori = sq.getGiocatori();
@@ -80,7 +88,7 @@
 		}
 	%>
         
-        <h2>Squadra</h2>
+        <h2>Squadra <%= nome_squadra%></h2>
         <h3>Allenatori</h3>
 		<table>
 			<tr>
@@ -132,6 +140,9 @@
 
     <footer>
         <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>

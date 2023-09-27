@@ -153,7 +153,11 @@ footer {
     font-size: 16px; /* Imposta la dimensione del testo */
 }
 
-/* Stile per il pulsante quando è stato cliccato o è attivo */
+.btn-logout:hover {
+    background-color: grey; /* Cambia il colore al clic */
+}
+
+/* Stile per il prgb(128, 128, 128)quando è stato cliccato o è attivo */
 .btn-logout:active {
     background-color: darkgray; /* Cambia il colore al clic */
 }
@@ -171,4 +175,8 @@ footer {
 /* Stile per il pulsante quando è stato cliccato o è attivo */
 .btn-login:active {
     background-color: darkgray; /* Cambia il colore al clic */
+}
+
+.btn-login:hover {
+    background-color: grey; /* Cambia il colore al clic */
 }
