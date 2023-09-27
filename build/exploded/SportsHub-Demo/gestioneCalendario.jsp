@@ -253,7 +253,7 @@
         <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
 
         <label for="data">Data della partita:</label>
-        <input type="date" id="data" name="data" required><br><br>
+        <input type="text" id="data" name="data" required><br><br>
 
         <label for="oraInizio">Ora di inizio:</label>
         <input type="text" id="oraInizio" name="oraInizio" required><br><br>
@@ -268,9 +268,22 @@
         <input type="text" id="competizione" name="competizione" required><br><br>
 
         <label for="partitaCasa">Partita in casa:</label>
+<<<<<<< HEAD
         <input type="text" id="partitaCasa" name="partitaCasa"><br><br>
+=======
+        <input type="text" id="casa" name="casa"><br><br>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 
         <button type="submit" name="submit">Invia</button>
+    </form>
+</div>
+
+<h3>Elimina impegno</h3>
+    <div class="custom-form">
+    <form action="eliminaImpegno" method="post">
+        <label for="inputText">Inserisci Id impegno:</label>
+        <input type="text" id="idImpegno" name="idImpegno" required>
+        <button type="submit" name="elimina">Elimina</button>
     </form>
 </div>
 

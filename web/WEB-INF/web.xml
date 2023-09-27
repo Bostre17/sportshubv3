@@ -81,12 +81,30 @@
 		<url-pattern>/aggiungiGiocatore</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>aggiungiSquadra</servlet-name>
+		<servlet-class>servlet.aggiungiSquadra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aggiungiSquadra</servlet-name>
+		<url-pattern>/aggiungiSquadra</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>RimuoviGiocatore</servlet-name>
 		<servlet-class>servlet.RimuoviGiocatore</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RimuoviGiocatore</servlet-name>
 		<url-pattern>/RimuoviGiocatore</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>EliminaImpegno</servlet-name>
+		<servlet-class>servlet.EliminaImpegno</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminaImpegno</servlet-name>
+		<url-pattern>/eliminaImpegno</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Welcome pages -->

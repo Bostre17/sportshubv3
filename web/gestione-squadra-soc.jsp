@@ -132,7 +132,7 @@
 		}
 	}
         %>
-	<div>
+	
 	<h3>Inserimento Giocatore</h3>
 
    <div class="aggiungiGiocatore">
@@ -166,6 +166,16 @@
         <button type="submit" name="submit">Invia</button>
     </form>
     </div>
+    <h3>Inserimento Squadra</h3>
+
+   <div class="aggiungiSquadra">
+    <form action="aggiungiSquadra" method="post">
+        <label for="nomeSquadra">Nome della squadra:</label>
+        <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
+         <label for="nomeSquadra">Id</label>
+        <input type="text" id="id" name="id" required><br><br>
+		<button type="submit" name="submit">Invia</button>
+    </form>
 
     <footer>
         <div class="footer-container">
