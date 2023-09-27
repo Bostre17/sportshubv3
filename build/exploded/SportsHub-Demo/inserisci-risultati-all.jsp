@@ -87,7 +87,6 @@
 			%>
 	    </div>
 	    
-		<br><br>
 		<%
 		String username_societa = (String) session.getAttribute("username_societa");
 		String nome_squadra = (String) session.getAttribute("nome_squadra");
@@ -125,6 +124,9 @@
 					}
 			%>
 			<%
+
+			Collections.sort(partite, Comparator.comparing(Partita::getInizio));
+			
 			for (int i = 0; i < partite.size(); i++) {
 				LocalDate data = partite.get(i).getInizio().toLocalDate();
 			%>
