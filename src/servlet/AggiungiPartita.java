@@ -48,12 +48,12 @@ public class AggiungiPartita extends HttpServlet{
 		String dataInizio= (String) req.getAttribute("data");
 		String oraInizio= (String) req.getAttribute("oraInizio");
 		String oraFine= (String) req.getAttribute("oraFine");
-		Boolean casa= (Boolean) req.getAttribute("casa");
-		/*if(casa.equalsIgnoreCase("casa"))
+		String casa= (String) req.getAttribute("casa");
+		if(casa.equalsIgnoreCase("casa"))
 			partita_casa=true;
-		String oraFine= (String) req.getAttribute("oraFine");
+		
 		// Definisci il formato per la data e l'ora
-		 */
+		 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
