@@ -33,6 +33,7 @@
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 	
+	
 	<servlet>
 		<servlet-name>AccettaRichiesta</servlet-name>
 		<servlet-class>servlet.AccettaRichiesta</servlet-class>
@@ -50,6 +51,16 @@
 	<servlet-mapping>
 		<servlet-name>EliminaRichiesta</servlet-name>
 		<url-pattern>/eliminaRichiesta</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>InserisciRisultato</servlet-name>
+		<servlet-class>servlet.InserisciRisultato</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InserisciRisultato</servlet-name>
+		<url-pattern>/inserisciRisultato</url-pattern>
 	</servlet-mapping>
 	
 	

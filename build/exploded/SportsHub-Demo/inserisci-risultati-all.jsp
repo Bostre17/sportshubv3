@@ -55,8 +55,39 @@
 	</script>
 
 	<div class="content-container">
-
-
+		
+		<div>
+			<h2>Aggiorna risultato</h2>
+			<form action="inserisciRisultato" method="POST">
+		        <label for="id">ID:</label>
+		        <input type="text" id="id" name="id" required><br><br>
+		
+		        <label for="punteggioCasa">Punteggio Casa:</label>
+		        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
+		
+		        <label for="punteggioOspiti">Punteggio Ospiti:</label>
+		        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
+		
+				<button type="submit" class="btn-base">Inserisci</button>
+		    </form>
+		    <%
+				Integer errato = (Integer)session.getAttribute("inserimento-errato");
+				System.out.println(errato);
+				if(errato != null && errato == 1){
+					%>
+					<p style="font-size:16px; color: red; font-weight: bold;">ID errato.</p><br>
+					<%
+				}
+				else if(errato != null && errato == 0)
+				{
+					%>
+					<p style="font-size:16px;">Risultato aggiornato correttamente.</p><br>
+					<%
+				}
+			%>
+	    </div>
+	    
+		<br><br>
 		<%
 		String username_societa = (String) session.getAttribute("username_societa");
 		String nome_squadra = (String) session.getAttribute("nome_squadra");
@@ -137,6 +168,7 @@
 			}
 			%>
 		</table>
+<<<<<<< HEAD
 		<br><br>
 		<div>
 			<!-- Stampare qualcosa se l'id non è corretto -->
@@ -154,6 +186,9 @@
 				<button type="submit" class="btn-base">Inserisci</button>
 		    </form>
 	    </div>
+=======
+		
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 	</div>
 
     <footer>

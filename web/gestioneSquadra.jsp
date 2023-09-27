@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Homepage Allenatore</h1>
+                <img src="images/SportsHub.png" class="center">
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -32,7 +32,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menï¿½</option>
+                        <option value="#">Menù</option>
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>

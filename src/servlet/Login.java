@@ -75,9 +75,15 @@ public class Login extends HttpServlet{
 		Partita p2= new Partita("00000001", "Pulcini", inizioPartita2, finePartita2, "Lakers", "CUSB", false);
 		p2.setPunteggioCasa(50);
 		p2.setPunteggioOspiti(130);
+		
+		LocalDateTime inizioPartita3 = LocalDateTime.of(2023, 9, 30, 18, 0);
+		LocalDateTime finePartita3 = LocalDateTime.of(2023, 9, 30, 20, 0);
+		Partita p3= new Partita("00000001", "Pulcini", inizioPartita3, finePartita3, "Miami Heets", "CUSB", false);
+		
+		
 		squadra1.getCalendario().addImpegno(p1);
 		squadra1.getCalendario().addImpegno(p2);
-
+		squadra1.getCalendario().addImpegno(p3);
 		
 		// Aggiunta squadra a società
 		societa1.aggiungiSquadra(squadra1);
