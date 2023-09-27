@@ -45,13 +45,15 @@ public class AggiungiPartita extends HttpServlet{
 		String nomeSquadra=(String) req.getAttribute("idImpegno");
 		String avversario=(String) req.getAttribute("avversario");
 		String competizione=(String) req.getAttribute("competizione");
-		String dataInizio= (String) req.getAttribute("dataInizio");
+		String dataInizio= (String) req.getAttribute("data");
 		String oraInizio= (String) req.getAttribute("oraInizio");
-		String casa= (String) req.getAttribute("casa");
-		if(casa.equalsIgnoreCase("casa"))
+		String oraFine= (String) req.getAttribute("oraFine");
+		Boolean casa= (Boolean) req.getAttribute("casa");
+		/*if(casa.equalsIgnoreCase("casa"))
 			partita_casa=true;
 		String oraFine= (String) req.getAttribute("oraFine");
 		// Definisci il formato per la data e l'ora
+		 */
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -63,6 +65,7 @@ public class AggiungiPartita extends HttpServlet{
         // Combina la data e l'ora in un oggetto LocalDateTime
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
+        
 		Partita p = new Partita(idImpegno, nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
 		
 		for(Societa s: listSocieta)

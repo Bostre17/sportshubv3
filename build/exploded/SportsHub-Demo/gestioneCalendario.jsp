@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Gestione Calendario</h1>
+                <img src="images/SportsHub.png" class="center">
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -248,7 +248,7 @@
 <h3>Inserimento Partite</h3>
 
    <div class="inserisciPartita">
-    <form action="process.php" method="post">
+    <form action="aggiungiPartita" method="post">
         <label for="nomeSquadra">Nome della squadra:</label>
         <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
 
