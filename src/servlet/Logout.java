@@ -58,8 +58,10 @@ public class Logout extends HttpServlet{
 			session.setAttribute("giocatore", false);
 		}
 		*/
+		session.invalidate();
 		
-		session.setAttribute("arrivederci", 1);
+		HttpSession newSession = req.getSession(true);
+		newSession.setAttribute("arrivederci", 1);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/login.jsp");
 		rd.forward(req, resp);
 		return;

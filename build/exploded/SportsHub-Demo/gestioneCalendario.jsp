@@ -78,12 +78,23 @@
 				&emsp;Squadra: 
 				<%=sq.getNome() %>
 				<br>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Tipo</b></td>
+						<td><b>Inizio</b></td>
+						<td><b>Fine</b></td>
+						<td><b>Avversario</b></td>
+						<td><b>competizione</b></td>
+						<td><b>Titolo</b></td>
+					</tr>
 				<%
 				
 				for(Impegno i: sq.getCalendario().getImpegni())
 				{
 					if(i.getInizio().isAfter(LocalDateTime.now()))
 					{
+						i.
 						%>
 						&emsp;&emsp;<%=i.toString() %>
 						<br>
