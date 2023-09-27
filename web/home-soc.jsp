@@ -34,7 +34,7 @@
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
                         <option value="visualizzaRis.jsp" data-url="visualizzaRis.jsp">Visualizza risultati</option>
-                        <option value="gestioneSquadra.jsp" data-url="gestioneSquadra.jsp">Gestione squadra</option>
+                        <option value="gestione-squadra-soc.jsp" data-url="gestione-squadra-soc.jsp">Gestione squadra</option>
                         <option value="gestioneCalendario.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>

@@ -64,6 +64,16 @@
 	</servlet-mapping>
 	
 	
+	<servlet>
+		<servlet-name>AggiungiPartita</servlet-name>
+		<servlet-class>servlet.AggiungiPartita</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiPartita</servlet-name>
+		<url-pattern>/aggiungiPartita</url-pattern>
+	</servlet-mapping>
+	
+	
 	<!-- Welcome pages -->
 	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
 	<welcome-file-list>
