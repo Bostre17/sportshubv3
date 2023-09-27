@@ -1,5 +1,6 @@
 package beans;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,13 @@ public class Calendario {
     public  ArrayList<Impegno> getImpegni(){
         
         return this.impegni;
+    }
+    
+    public void aggiungiRichiesta(Richiesta r, String nomeSquadra) {
+    	
+    	Allenamento a= new Allenamento(r.getId(),nomeSquadra, r.getInizio(), r.getFine(), r.getTitolo(), r.getIdAllenatore());
+    	this.impegni.add(a);
+    	
     }
 
 }

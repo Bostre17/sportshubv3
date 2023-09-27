@@ -109,7 +109,7 @@ public class Login extends HttpServlet{
 		String password = req.getParameter("password");
 
 		session.setAttribute("username", username);
-	// Controlli tipo utente
+	    // Controlli tipo utente
 		
 		// Controllo tutte le società ed i suoi membri
 		for(Societa so : listSocieta)

@@ -13,12 +13,12 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
-
+import beans.Richiesta;
 import beans.Societa;
 import beans.Squadra;
 
 
-public class EliminaImpegno  extends HttpServlet{
+public class EliminaRichiesta  extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private Gson g;
 	
@@ -38,9 +38,21 @@ public class EliminaImpegno  extends HttpServlet{
         //viene infinito
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String idSoc = (String) session.getAttribute("idSoc");
+		String username = (String) session.getAttribute("username");
+		
+		String idRichiesta = req.getParameter("idRichiesta");
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+		ArrayList<Richiesta> richieste = (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
+		Richiesta r = null;
+		for(Richiesta ric: richieste)
+			if(ric.getId().equals(idRichiesta))
+			{
+				r=ric;
+				break;
+			}
+        richieste
         
-        
+     /*   
 		boolean res=false;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
         String idImpegno=req.getParameter("id");
@@ -75,7 +87,7 @@ public class EliminaImpegno  extends HttpServlet{
 		return;
 		
 		
-		
+		*/
 	}
 	
 

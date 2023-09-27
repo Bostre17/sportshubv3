@@ -12,7 +12,7 @@ public class Richiesta {
 	private LocalDateTime fine;
 	private HttpSession session;
 	private String idAllenatore;
-	
+	//private String titolo;
 	public Richiesta(String idAllenatore, String id, String tipo, String titolo, LocalDateTime inizio, LocalDateTime fine) {
 		super();
 		this.id = id;
@@ -80,6 +80,8 @@ public class Richiesta {
 		this.idAllenatore = idAllenatore;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "Richiesta [id=" + id + ", tipo=" + tipo + ", titolo=" + titolo + ", inizio=" + inizio + ", fine=" + fine
