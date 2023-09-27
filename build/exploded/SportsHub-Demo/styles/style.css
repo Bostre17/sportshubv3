@@ -104,7 +104,7 @@ footer {
 }
 
 /* Stile per il campo di input all'interno della classe "custom-form" */
-.custom-form input[type="text"] {
+input{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -113,6 +113,7 @@ footer {
 }
 
 /* Stile per i pulsanti all'interno della classe "custom-form" */
+/*
 .custom-form button {
     background-color: #4CAF50;
     color: white;
@@ -122,24 +123,15 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-
+*/
 /* Stile per il pulsante "Rifiuta" all'interno della classe "custom-form" */
-.custom-form button[name="rifiutaButton"] {
-    background-color: #f44336;
-}
 
 /* Stile per il testo all'interno della form all'interno della classe "custom-form" */
 .custom-form label {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold;
 }
 
-/* Stile per il testo all'interno dei pulsanti all'interno della classe "custom-form" */
-.custom-form button {
-    font-weight: bold;
-    text-transform: uppercase;
-}
 
 /* Regole di stile per la classe "center" rimangono inalterate */
 
@@ -198,6 +190,7 @@ footer {
     }
 
     /* Stile per i pulsanti */
+    /*
     .inserisciPartita button {
         background-color: #4CAF50;
         color: white;
@@ -209,8 +202,12 @@ footer {
         font-weight: bold;
         text-transform: uppercase;
     }
-
+	*7
     /* Stile per il pulsante "Rifiuta" */
+    /*
     .inserisciPartita button[name="rifiutaButton"] {
         background-color: #f44336;
     }
+    */
+
+

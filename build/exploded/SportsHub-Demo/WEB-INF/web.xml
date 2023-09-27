@@ -81,6 +81,14 @@
 		<url-pattern>/aggiungiGiocatore</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>aggiungiSquadra</servlet-name>
+		<servlet-class>servlet.aggiungiSquadra</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aggiungiSquadra</servlet-name>
+		<url-pattern>/aggiungiSquadra</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>RimuoviGiocatore</servlet-name>
 		<servlet-class>servlet.RimuoviGiocatore</servlet-class>
 	</servlet>

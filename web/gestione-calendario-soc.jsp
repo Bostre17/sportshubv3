@@ -63,18 +63,15 @@
 	for(Societa s: listSocieta )
 	{
 		%>
-		società: 
-		<%=s.getNome() %>
-		<br>
-		<br>
 		<%
 		if(s.getUsername().equals(username))
 		{
 			for(Squadra sq: s.getSquadre())
 			{
 				%>
-				&emsp;Squadra: 
+				<h2>Impegni squadra 
 				<%=sq.getNome() %>
+				</h2>
 				<br>
 				<table>
 					<tr>
@@ -154,23 +151,21 @@
 </div>
 <br>
 <br>
+<br>
+<br>
 <div id="richieste">
 <%
 	ArrayList<Richiesta> richieste= (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
 	for(Societa s: listSocieta)
 	{
-		%>
-		società: 
-		<%=s.getNome() %>
-		<br>
-		<br>
-		<%
 		if(s.getUsername().equals(username))
 			for(Squadra sq: s.getSquadre())
 			{
 				%>
-				&emsp;Squadra: 
+				<h2>
+				Richieste squadra
 				<%=sq.getNome() %>
+				</h2>
 				<br>
 				<table>
 					<tr>
@@ -209,16 +204,20 @@
 
 </div>
 
+<br>
+<br>
+<br>
+<br>
 
-<h4>Accetta o rifiuta richieste</h4>
     
-    <div class="custom-form">
+ <div class="custom-form">
+	<h2>Accetta o rifiuta richieste</h2>
     <form id="myForm" method="post">
-        <label for="inputText">Inserisci Id richiesta:</label>
+        <label for="inputText">ID richiesta</label>
         <input type="text" id="idRichiesta" name="idRichiesta" required>
         
-        <button type="button" name="accettaButton" onclick="submitForm('accetta')">Accetta</button>
-        <button type="button" name="rifiutaButton" onclick="submitForm('rifiuta')">Rifiuta</button>
+        <button type="button" name="accettaButton" onclick="submitForm('accetta')" class="btn-base">Accetta</button>
+        <button type="button" name="rifiutaButton" onclick="submitForm('rifiuta')" class="btn-base">Rifiuta</button>
     </form>
 </div>
 
@@ -240,45 +239,50 @@
 </script>
 
 <br>
-
 <br>
-
-<h3>Inserimento Partite</h3>
+<br>
+<br>
+<h2>Inserimento Partite</h2>
 
    <div class="inserisciPartita">
     <form action="aggiungiPartita" method="post">
-        <label for="nomeSquadra">Nome della squadra:</label>
+        <label for="nomeSquadra">Nome della squadra</label>
         <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
 
-        <label for="data">Data della partita:</label>
+        <label for="data">Data della partita</label>
         <input type="text" id="data" name="data" required><br><br>
 
-        <label for="oraInizio">Ora di inizio:</label>
+        <label for="oraInizio">Ora di inizio</label>
         <input type="text" id="oraInizio" name="oraInizio" required><br><br>
 
-        <label for="oraFine">Ora di fine:</label>
+        <label for="oraFine">Ora di fine</label>
         <input type="text" id="oraFine" name="oraFine" required><br><br>
 
-        <label for="avversario">Avversario:</label>
+        <label for="avversario">Avversario</label>
         <input type="text" id="avversario" name="avversario" required><br><br>
 
-        <label for="competizione">Competizione:</label>
+        <label for="competizione">Competizione</label>
         <input type="text" id="competizione" name="competizione" required><br><br>
 
-        <label for="partitaCasa">Partita in casa:</label>
+        <label for="partitaCasa">Partita in casa</label>
         <input type="text" id="casa" name="casa"><br><br>
 
-        <button type="submit" name="submit">Invia</button>
+        <button type="submit" name="submit" class="btn-base">Invia</button>
     </form>
     
 </div>
 
-<h3>Elimina impegno</h3>
+<br>
+<br>
+<br>
+<br>
+
+<h2>Elimina impegno</h2>
     <div class="custom-form">
     <form action="eliminaImpegno" method="post">
-        <label for="inputText">Inserisci Id impegno:</label>
+        <label for="inputText">Inserisci ID impegno</label>
         <input type="text" id="idImpegno" name="idImpegno" required>
-        <button type="submit" name="elimina">Elimina</button>
+        <button type="submit" name="elimina" class="btn-base">Elimina</button>
     </form>
 </div>
 
