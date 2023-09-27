@@ -35,7 +35,6 @@
 		Integer errato = (Integer)session.getAttribute("credenzialiErrate");
 		Integer arrivederci = (Integer)session.getAttribute("arrivederci");
 		
-		System.out.println(arrivederci);
 		if (errato != null && errato == 1) {
 %>
 		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p><br>
