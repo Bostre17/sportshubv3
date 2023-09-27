@@ -57,23 +57,28 @@
 		
 	
 		String username_societa = (String)session.getAttribute("username_societa");
+		System.out.println(username_societa);
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
 		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
 		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
 		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
 		System.out.println(username_societa);
 		for(Societa so : listSocieta)
-		{
+		{	
+			System.out.println(so.getNome());
 			if(so.getUsername().equals(username_societa))
 			{
+				System.out.println(so.getNome());
 				for(Squadra sq : so.getSquadre())
 				{
+					System.out.println(sq.getNome());
 					allenatori = sq.getAllenatori();
 					giocatori = sq.getGiocatori();
 			
 	%>
-		        
+		      
 		        <h2>Squadra <%= sq.getNome()%></h2>
+		        
 		        <h3>Allenatori</h3>
 				<table>
 					<tr>
@@ -84,8 +89,10 @@
 				<%
 				int j;
 				for(j = 0 ; j < allenatori.size(); j++) {
+					System.out.println(allenatori.get(j).getCognome());
 				%>
 					<tr>
+						
 						<td><%=allenatori.get(j).getId()%></td>
 						<td><%=allenatori.get(j).getCognome()%></td>
 						<td><%=allenatori.get(j).getNome()%></td>
@@ -93,12 +100,7 @@
 				<%
 				}
 				%>
-				 <tr>
-						<td><%=allenatori.get(j).getId()+1%></td>
-						<td></td>
-						<td></td>
-						<td>Aggiungi</td>
-					</tr>
+				 
 				</table>
 		        <h3>Giocatori</h3>
 				<table>
@@ -111,8 +113,10 @@
 				<%
 				int i=0;
 				for(i = 0 ; i < giocatori.size(); i++) {
+					System.out.println(giocatori.get(i).getCognome());
 				%>
 					<tr>
+					
 						<td><%=giocatori.get(i).getId()%></td>
 						<td><%=giocatori.get(i).getCognome()%></td>
 						<td><%=giocatori.get(i).getNome()%></td>
@@ -121,20 +125,44 @@
 		        <%
 				}
 				%>
-				<tr>
-				<td><%=giocatori.get(i).getId()+1%></td>
-				<td></td>
-				<td></td>
-				<td>Aggiungi</td>
-			</tr>
+				
 		</table>
 		<%
 			}
 		}
 	}
         %>
-	
-        
+	<div>
+	<h3>Inserimento Giocatore</h3>
+
+   <div class="aggiungiGiocatore">
+    <form action="aggiungiGiocatore" method="post">
+    	<label for="id">id</label>
+        <input type="text" id="id" name="id" required><br><br>
+    	<label for="nomeSquadra">nomeSuqadra</label>
+        <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
+        <label for="username">username</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="nome">nome</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="cognome">cognome</label>
+        <input type="text" id="cognome" name="cognome" required><br><br>
+
+        <label for="altezza">altezza:</label>
+        <input type="text" id="altezza" name="altezza" required><br><br>
+
+        <button type="submit" name="submit">Invia</button>
+    </form>
+    </div>
+    <div class="RimuoviGiocatore">
+    <form action="RimuoviGiocatore" method="post">
+    	<label for="id">id</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <button type="submit" name="submit">Invia</button>
+    </form>
     </div>
 
     <footer>
