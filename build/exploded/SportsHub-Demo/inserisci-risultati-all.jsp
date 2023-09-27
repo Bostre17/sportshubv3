@@ -57,9 +57,14 @@
 	<div class="content-container">
 
 
-		<h2>Risultati partite</h2>
+		<%
+		String username_societa = (String) session.getAttribute("username_societa");
+		String nome_squadra = (String) session.getAttribute("nome_squadra");
+		%>
+		<h2>Risultati partite della squadra <%=nome_squadra%></h2>
 		<table>
 			<tr>
+				<td><b>ID</b></td>
 				<td><b>Data</b></td>
 				<td><b>Avversario</b></td>
 				<td><b>Luogo</b></td>
@@ -67,55 +72,85 @@
 				<td><b>Competizione</b></td>
 			</tr>
 			<%
-			String input = (String) session.getAttribute("username");
-				String[] username = input.split("\\.");
+			ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+					ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+					ArrayList<Partita> partite = new ArrayList<Partita>();
 
-				ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
-				ArrayList<Squadra> squadre = new ArrayList<Squadra>();
-				ArrayList<Partita> partite = new ArrayList<Partita>();
-
-				for (Societa so : listSocieta) {
-					if (so.getUsername().equals(username[3])) {
-						for (Squadra sq : so.getSquadre()) {
-							if (sq.getNome().equals(username[2])) {
-								for (Impegno i : sq.getCalendario().getImpegni()) {
-									if (i instanceof Partita) {
-										Partita partita = (Partita) i;
-										if (LocalDateTime.now().isBefore(partita.getFine())) {
-											partite.add(partita);
+					for (Societa so : listSocieta) {
+						if (so.getUsername().equals(username_societa)) {
+							for (Squadra sq : so.getSquadre()) {
+								if (sq.getNome().equals(nome_squadra)) {
+									for (Impegno i : sq.getCalendario().getImpegni()) {
+										if (i instanceof Partita) {
+											Partita partita = (Partita) i;
+											if (LocalDateTime.now().isAfter(partita.getFine())) {
+												partite.add(partita);
+											}
 										}
 									}
 								}
 							}
 						}
 					}
-				}
 			%>
 			<%
 			for (int i = 0; i < partite.size(); i++) {
-					LocalDate data = partite.get(i).getInizio().toLocalDate();
+				LocalDate data = partite.get(i).getInizio().toLocalDate();
 			%>
 			<tr>
+				<td><%=partite.get(i).getIdImpegno()%></td>
 				<td><%=data%></td>
 				<td><%=partite.get(i).getAvversario()%></td>
 				<%
 				if (partite.get(i).isPartita_casa()) {
-				%>
+					%>
 					<td>Casa</td>
-				<%
+					<%
+					if (partite.get(i).getPunteggioCasa() == 0 && partite.get(i).getPunteggioOspiti() == 0) {
+					%>
+						<td>Risultato non ancora inserito</td>
+					<%
+					} else {
+					%>
+						<td><b><%=partite.get(i).getPunteggioCasa()%></b>&nbsp;-&nbsp;<%=partite.get(i).getPunteggioOspiti()%></td>
+					<%
+					}
 				} else {
 				%>
-					<td>Ospiti</td>
+				<td>Ospiti</td>
 				<%
+					if (partite.get(i).getPunteggioCasa() == 0 && partite.get(i).getPunteggioOspiti() == 0) {
+					%>
+						<td>Risultato non ancora inserito</td>
+					<%
+					} else {
+					%>
+						<td><%=partite.get(i).getPunteggioCasa()%>&nbsp;-&nbsp;<b><%=partite.get(i).getPunteggioOspiti()%></b></td>
+					<%
+					}
 				}
 				%>
-				<td><%=partite.get(i).getPunteggioCasa()%>-<%=partite.get(i).getPunteggioOspiti()%></td>
+
 				<td><%=partite.get(i).getCompetizione()%></td>
 			</tr>
 			<%
 			}
 			%>
 		</table>
+		<br><br>
+		<h2>Inserisci risultati</h2>
+		<form action="processa_dati.jsp" method="post">
+	        <label for="id">ID:</label>
+	        <input type="text" id="id" name="id" required><br><br>
+	
+	        <label for="punteggioCasa">Punteggio Casa:</label>
+	        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
+	
+	        <label for="punteggioOspiti">Punteggio Ospiti:</label>
+	        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
+	
+	        <input type="submit" value="Inserisci">
+	    </form>
 	</div>
 
     <footer>

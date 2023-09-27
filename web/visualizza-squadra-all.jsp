@@ -54,62 +54,54 @@
 	</script>
 
 	<div class="content-container">
-	
-	<%
-		
-	String nome_allenatore = (String)session.getAttribute("nome_allenatore");
-	String cognome_allenatore = (String)session.getAttribute("cognome_allenatore");
-	String username_societa = (String)session.getAttribute("username_societa");
-	String nome_squadra = (String)session.getAttribute("nome_squadra");
 
-	System.out.println(nome_allenatore);
-	System.out.println(cognome_allenatore);
-	System.out.println(nome_squadra);
-	System.out.println(username_societa);
-	
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
+		<%
+		String nome_allenatore = (String) session.getAttribute("nome_allenatore");
+		String cognome_allenatore = (String) session.getAttribute("cognome_allenatore");
+		String username_societa = (String) session.getAttribute("username_societa");
+		String nome_squadra = (String) session.getAttribute("nome_squadra");
+
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
 		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
 		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
-		
-		for(Societa so : listSocieta)
-		{
-			if(so.getUsername().equals(username_societa))
-			{
-				for(Squadra sq : so.getSquadre())
-				{
-					if(sq.getNome().equals(nome_squadra))
-					{
-						allenatori = sq.getAllenatori();
-						giocatori = sq.getGiocatori();
-					}
+
+		for (Societa so : listSocieta) {
+			if (so.getUsername().equals(username_societa)) {
+				for (Squadra sq : so.getSquadre()) {
+			if (sq.getNome().equals(nome_squadra)) {
+				allenatori = sq.getAllenatori();
+				giocatori = sq.getGiocatori();
+			}
 				}
 			}
 		}
-	%>
-        
-        <h2>Squadra <%= nome_squadra%></h2>
-        <h3>Allenatori</h3>
+		%>
+
+		<h2>
+			Squadra
+			<%=nome_squadra%></h2>
+		<h3>Allenatori</h3>
 		<table>
 			<tr>
 				<td><b>ID</b></td>
 				<td><b>Cognome</b></td>
 				<td><b>Nome</b></td>
 			</tr>
-		<%
-		for(int i = 0 ; i < allenatori.size(); i++) {
-		%>
+			<%
+			for (int i = 0; i < allenatori.size(); i++) {
+			%>
 			<tr>
 				<td><%=allenatori.get(i).getId()%></td>
 				<td><%=allenatori.get(i).getCognome()%></td>
 				<td><%=allenatori.get(i).getNome()%></td>
 			</tr>
-		<%
-		}
-		%>
-		
+			<%
+			}
+			%>
+
 		</table>
-        <h3>Giocatori</h3>
+		<h3>Giocatori</h3>
 		<table>
 			<tr>
 				<td><b>ID</b></td>
@@ -120,7 +112,7 @@
 				<td><b>Assist partita</b></td>
 				<td><b>Rimbalzi partita</b></td>
 			</tr>
-		<%
+			<%
 		for(int i = 0 ; i < giocatori.size(); i++) {
 		%>
 			<tr>
@@ -132,11 +124,11 @@
 				<td><%=giocatori.get(i).getAssistPartita()%></td>
 				<td><%=giocatori.get(i).getRimbalziPartita()%></td>
 			</tr>
-        <%
+			<%
 		}
         %>
 		</table>
-    </div>
+	</div>
 
     <footer>
         <div class="footer-container">

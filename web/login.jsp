@@ -23,9 +23,8 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Login</h1>
+        		<img src="images/SportsHub.png" class="center">
             </div>
-            
         </div>
     </header>
 
@@ -48,7 +47,6 @@
 			<%
 		}
 %>
-        <img src="images/SportsHub.png" class="center">
         <h1 style="font-size:16px;">La tua piattaforma di gestione per squadre di basket.</h1>
 
         <!-- Pagina di login -->
@@ -64,7 +62,7 @@
 				<input type="password" id="password" name="password" required>
 				<br><br> <!-- Aggiunto spazio tra gli input -->
 
-				<button type="submit" class="btn-login">Accedi</button>
+				<button type="submit" class="btn-base">Accedi</button>
 			</form>
 </div>
     </div>
