@@ -94,3 +94,52 @@ footer {
   width: 50%;
 }
 
+/* Stile per la form all'interno della classe "custom-form" */
+.custom-form form {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px; /* Spazio sopra la form */
+}
+
+/* Stile per il campo di input all'interno della classe "custom-form" */
+.custom-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Stile per i pulsanti all'interno della classe "custom-form" */
+.custom-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stile per il pulsante "Rifiuta" all'interno della classe "custom-form" */
+.custom-form button[name="rifiutaButton"] {
+    background-color: #f44336;
+}
+
+/* Stile per il testo all'interno della form all'interno della classe "custom-form" */
+.custom-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Stile per il testo all'interno dei pulsanti all'interno della classe "custom-form" */
+.custom-form button {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Regole di stile per la classe "center" rimangono inalterate */
+
+

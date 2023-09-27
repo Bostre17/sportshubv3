@@ -64,10 +64,14 @@ public class Partita extends Impegno {
 	}
 	@Override
 	public String toString() {
-		return "Partita [punteggioCasa=" + punteggioCasa + ", punteggioOspiti=" + punteggioOspiti + ", stats=" + stats
-				+ ", avversario=" + avversario + ", competizione=" + competizione + ", quarti=" + quarti + ", session="
-				+ session + "]";
+		if(this.punteggioCasa!=0)
+			return "Partita [punteggioCasa=" + punteggioCasa + ", punteggioOspiti=" + punteggioOspiti + ", avversario="
+				   + avversario + ", competizione=" + competizione + ", inizio= "+super.getInizio() +", fine="+super.getFine() +"]";
+		else
+			return "Partita [avversario="+ avversario + ", competizione=" + competizione + ", inizio= "+super.getInizio() +", fine="+super.getFine() +"]";
+			
 	}
+	
 
     
 }

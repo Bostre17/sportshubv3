@@ -94,6 +94,15 @@ public class Squadra {
 	public void eliminaAllenatore(Allenatore a) {
 		this.allenatori.remove(a);
 	}
+	
+	public boolean esisteAllenatore(String idAllenatore) {
+		for(Allenatore a: this.getAllenatori())
+		{
+			if(a.getId().equals(idAllenatore))
+				return true;
+		}
+		return false;
+	}
 
 	@Override
 	public String toString() {

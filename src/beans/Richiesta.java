@@ -70,6 +70,15 @@ public class Richiesta {
 	public void setSession(HttpSession session) {
 		this.session = session;
 	}
+	
+
+	public String getIdAllenatore() {
+		return idAllenatore;
+	}
+
+	public void setIdAllenatore(String idAllenatore) {
+		this.idAllenatore = idAllenatore;
+	}
 
 	@Override
 	public String toString() {

@@ -40,6 +40,12 @@ public abstract class Impegno {
         this.fine = fine;
     }
 
+	@Override
+	public String toString() {
+		return "Impegno [idImpegno=" + idImpegno + ", nomeSquadra=" + nomeSquadra + ", inizio=" + inizio + ", fine="
+				+ fine + "]";
+	}
+
 
   
    
