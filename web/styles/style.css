@@ -44,6 +44,7 @@ header {
     border: none;
     padding: 10px;
     font-size: 16px;
+    text-align: center;
 }
 
 /* Stile per il logo SportsHub */
@@ -94,6 +95,7 @@ footer {
   width: 50%;
 }
 
+<<<<<<< HEAD
 /* Stile per la form all'interno della classe "custom-form" */
 .custom-form form {
     width: 300px;
@@ -143,3 +145,34 @@ footer {
 /* Regole di stile per la classe "center" rimangono inalterate */
 
 
+=======
+.btn-logout {
+    background-color: #333;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px; /* Imposta il raggio del bordo arrotondato */
+    padding: 10px 20px; /* Imposta spaziatura interna per il pulsante */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    font-size: 16px; /* Imposta la dimensione del testo */
+}
+
+/* Stile per il pulsante quando è stato cliccato o è attivo */
+.btn-logout:active {
+    background-color: darkgray; /* Cambia il colore al clic */
+}
+
+.btn-login {
+    background-color: white;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 20px; /* Imposta il raggio del bordo arrotondato */
+    padding: 10px 20px; /* Imposta spaziatura interna per il pulsante */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    font-size: 16px; /* Imposta la dimensione del testo */
+}
+
+/* Stile per il pulsante quando è stato cliccato o è attivo */
+.btn-login:active {
+    background-color: darkgray; /* Cambia il colore al clic */
+}
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git

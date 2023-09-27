@@ -43,8 +43,8 @@ public class Logout extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		HttpSession session = req.getSession();
-		String tipo;
 		
+		/*
 		if((boolean)session.getAttribute("societa"))
 		{
 			session.setAttribute("societa", false);
@@ -57,8 +57,10 @@ public class Logout extends HttpServlet{
 		{
 			session.setAttribute("giocatore", false);
 		}
+		*/
 		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/index.jsp");
+		session.setAttribute("arrivederci", 1);
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/login.jsp");
 		rd.forward(req, resp);
 		return;
 	}

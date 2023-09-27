@@ -30,14 +30,24 @@
     </header>
 
     <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
+        <h2>Benvenuto</h2>
        
 <%
 		Integer errato = (Integer)session.getAttribute("credenzialiErrate");
+		Integer arrivederci = (Integer)session.getAttribute("arrivederci");
+		
+		System.out.println(arrivederci);
 		if (errato != null && errato == 1) {
 %>
 		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p>
 <%
+		}
+		if (arrivederci != null && arrivederci == 1)
+		{
+			%>
+		<p style="font-size:16px;">Arrivederci!</p>
+		<p style="font-size:16px;">Effettua login con credenziali diverse per accedere con un altro account.</p>
+			<%
 		}
 %>
         <p style="font-size:16px;">La tua piattaforma di gestione per squadre di basket.</p>
@@ -56,7 +66,7 @@
 				<input type="password" id="password" name="password" required>
 				<br><br> <!-- Aggiunto spazio tra gli input -->
 
-				<button type="submit">Accedi</button>
+				<button type="submit" class="btn-login">Accedi</button>
 			</form>
 </div>
     </div>

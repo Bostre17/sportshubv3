@@ -101,13 +101,13 @@ public class Login extends HttpServlet{
 		//DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 
-		session.setAttribute("credenzialiErrate", false);
+		session.setAttribute("credenzialiErrate", 0);
 		
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		
+
 		session.setAttribute("username", username);
 	// Controlli tipo utente
 		
@@ -118,8 +118,9 @@ public class Login extends HttpServlet{
 			{
 				// Accesso Società
 				session.setAttribute("societa", 1);
+				session.setAttribute("arrivederci", 0);
 				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-societa.jsp");
+				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-soc.jsp");
 				rd.forward(req, resp);
 				return;
 			}
@@ -144,8 +145,9 @@ public class Login extends HttpServlet{
 							// Accesso Allenatore
 							session.setAttribute("allenatore", 1);
 							session.setAttribute("username", a.getUsername());
+							session.setAttribute("arrivederci", 0);
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-allenatore.jsp");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-all.jsp");
 							rd.forward(req, resp);
 							return;
 						}
@@ -157,8 +159,9 @@ public class Login extends HttpServlet{
 							// Accesso Giocatore
 							session.setAttribute("giocatore", 1);
 							session.setAttribute("username", g.getUsername());
+							session.setAttribute("arrivederci", 0);
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-giocatore.jsp");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-gio.jsp");
 							rd.forward(req, resp);
 							return;
 						}

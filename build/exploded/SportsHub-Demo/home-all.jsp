@@ -61,8 +61,12 @@
 
     <footer>
         <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
+            
         </div>
     </footer>
 
