@@ -39,7 +39,6 @@ public class EffettuaRichiesta extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String username = (String) session.getAttribute("username");
 		String id=(String) req.getParameter("id");
 		//String idImpegno=(String) req.getParameter("idImpegno");
 		String tipo=(String) req.getParameter("tipo");
@@ -47,7 +46,7 @@ public class EffettuaRichiesta extends HttpServlet{
 		String oraInizio= (String) req.getParameter("oraInizio");
 		String oraFine= (String) req.getParameter("oraFine");
 		String titolo= (String) req.getParameter("titolo");
-
+		System.out.println(id+tipo+dataInizio+oraInizio+oraFine+titolo);
 		// Definisci il formato per la data e l'ora
 		 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -61,7 +60,8 @@ public class EffettuaRichiesta extends HttpServlet{
         // Combina la data e l'ora in un oggetto LocalDateTime
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
-        String idrichiesta=(String) this.getServletContext().getAttribute("lastIdRichieata");
+        String idrichiesta=(String) this.getServletContext().getAttribute("lastIdRichieste");
+        System.out.println(idrichiesta+inizio+fine);
         Integer idInt=Integer.parseInt(idrichiesta);
         idInt++;
         //id=Integer.toString(idInt);

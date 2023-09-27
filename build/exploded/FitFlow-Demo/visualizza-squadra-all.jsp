@@ -108,9 +108,6 @@
 				<td><b>Cognome</b></td>
 				<td><b>Nome</b></td>
 				<td><b>Altezza</b></td>
-				<td><b>Punti partita</b></td>
-				<td><b>Assist partita</b></td>
-				<td><b>Rimbalzi partita</b></td>
 			</tr>
 			<%
 		for(int i = 0 ; i < giocatori.size(); i++) {
@@ -120,9 +117,6 @@
 				<td><%=giocatori.get(i).getCognome()%></td>
 				<td><%=giocatori.get(i).getNome()%></td>
 				<td><%=giocatori.get(i).getAltezza()%></td>
-				<td><%=giocatori.get(i).getPuntiPartita()%></td>
-				<td><%=giocatori.get(i).getAssistPartita()%></td>
-				<td><%=giocatori.get(i).getRimbalziPartita()%></td>
 			</tr>
 			<%
 		}
