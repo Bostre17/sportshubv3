@@ -57,7 +57,7 @@ public class aggiungiGiocatore  extends HttpServlet{
 		        
 		        idInt++;
 		        id=Integer.toString(idInt);
-				
+		        this.getServletContext().setAttribute("lastIdGiocatore", id);
 				//String id= req.getParameter("nomeSquadra");
 				//per fare in modo che gli id siano tutti diversi direi di salavre una variabile id sul context che indica il primo id libero, man mano che si creano giocatori facciamo id+1 e la risalviamo sul contesto
 				//perche passarlo della jsp è sbagliato in quanto sarebbe l'utente a metterlo e non c'è la garanzia che siano tutti diversi
