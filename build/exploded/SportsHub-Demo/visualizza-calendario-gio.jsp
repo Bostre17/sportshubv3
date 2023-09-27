@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="styles/style.css">
 <script src="scripts/script.js"></script>
-<title>Home Allenatore</title>
+<title>Visualizza calendario</title>
 </head>
 <body>
 	<header>

@@ -18,7 +18,7 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Visualizza e inserisci risultati</title>
+    <title>Inserisci risultati</title>
 </head>
 <body>
     <header>
