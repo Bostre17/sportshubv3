@@ -124,6 +124,9 @@
 					}
 			%>
 			<%
+
+			Collections.sort(partite, Comparator.comparing(Partita::getInizio));
+			
 			for (int i = 0; i < partite.size(); i++) {
 				LocalDate data = partite.get(i).getInizio().toLocalDate();
 			%>

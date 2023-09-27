@@ -8,6 +8,8 @@
 <%@ page import="beans.*"%>
 <%@ page import="java.time.LocalDateTime"%>
 <%@ page import="java.time.LocalDate"%>
+<%@ page import="java.util.Collections"%>
+<%@ page import="java.util.Comparator"%>
 <%@ page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -94,6 +96,8 @@
 					}
 			%>
 			<%
+			Collections.sort(partite, Comparator.comparing(Partita::getInizio));
+			
 			for (int i = 0; i < partite.size(); i++) {
 				LocalDate data = partite.get(i).getInizio().toLocalDate();
 			%>
