@@ -14,61 +14,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>SportsHub Login</title>
+    <title>Home Allenatore</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <h1 class="logo">Homepage Allenatore</h1>
             </div>
             
+            <!-- Container per il menu a tendina a sinistra -->
+            <div class="menu-container">
+                <!-- Menu a tendina a sinistra -->
+                <nav class="menu">
+                    <select id="dropdown-menu">
+                        <option value="#">Men�</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
+                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
+                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
+                        <!-- Aggiungi altre opzioni del menu qui -->
+                    </select>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
-       
-<%
-		Integer errato = (Integer)session.getAttribute("credenzialiErrate");
-		if (errato != null && errato == 1) {
-%>
-		<p style="font-size:16px; color: red; font-weight: bold;">Credenziali errate.</p>
-<%
-		}
-%>
-<%
-            ArrayList<Societa> listSocieta = (ArrayList<Societa>)=this.getServletContext().getAttribute("listSocieta");
-            String idSoc = (String) session.getAttribute("idSoc");
-                for (Societa s: listSocieta){
-                    if(s.getId().equals(idSoc)){
-                        ArrayList<Squadra> listSquadre = new ArrayList<>(s.getSquadre());
-                    }
-                }
-%>
+	<script>
+		document.getElementById("dropdown-menu").addEventListener("change",
+				function() {
+					var selectedValue = this.value;
+					if (selectedValue !== "#") {
+						window.location.href = selectedValue;
+					}
+				});
+	</script>
 
-    <head>
-        <title>Lista Squadre e Giocatori</title>
-    </head>
-    <body>
-      <h1>Lista Squadre e Giocatori</h1>
-      <%
-        for(Squadra s: listSquadre){
-        %>
-        <li><%= s.getNome %></li>
-            
-        <%
-        }
-      %>
-        
-</body>
-</html>
+	<div class="content-container">
+    <div id="squadre">
+
+	<%
+
+	String username= (String)session.getAttribute("username");
+	ArrayList<Societa> listSocieta= (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+	
+	for(Societa s: listSocieta )
+	{
+		%>
+		societ�: 
+		<%=s.getNome() %>
+		<br>
+		<br>
+		<%
+		if(s.getUsername().equals(username))
+		{
+			for(Squadra sq: s.getSquadre())
+			{
+				%>
+				&emsp;Squadra: 
+				<%=sq.getNome() %>
+				<br>
+				<%
+				
+				for(Allenatore a: sq.getAllenatori())
+				{
+						%>
+						&emsp;&emsp;<%=a.toString() %>
+						<br>
+						<% 
+				}
+                for(Giocatore g: sq.getGiocatori())
+				{
+						%>
+						&emsp;&emsp;<%=g.toString() %>
+						<br>
+						<% 
+				}
+				
+			}
+		}
+	}
+					
+	
+    %>
+    </div>
 
 </div>
-    </div>
 
     <footer>
         <div class="footer-container">

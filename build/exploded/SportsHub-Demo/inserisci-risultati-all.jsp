@@ -68,28 +68,28 @@
 			</tr>
 			<%
 			String input = (String) session.getAttribute("username");
-			String[] username = input.split("\\.");
+				String[] username = input.split("\\.");
 
-			ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
-			ArrayList<Squadra> squadre = new ArrayList<Squadra>();
-			ArrayList<Partita> partite = new ArrayList<Partita>();
+				ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+				ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+				ArrayList<Partita> partite = new ArrayList<Partita>();
 
-			for (Societa so : listSocieta) {
-				if (so.getUsername().equals(username[3])) {
-					for (Squadra sq : so.getSquadre()) {
-				if (sq.getNome().equals(username[2])) {
-					for (Impegno i : sq.getCalendario().getImpegni()) {
-						if (i instanceof Partita) {
-							Partita partita = (Partita) i;
-							if (LocalDateTime.now().isAfter(i.getFine())) {
-								partite.add(partita);
+				for (Societa so : listSocieta) {
+					if (so.getUsername().equals(username[3])) {
+						for (Squadra sq : so.getSquadre()) {
+							if (sq.getNome().equals(username[2])) {
+								for (Impegno i : sq.getCalendario().getImpegni()) {
+									if (i instanceof Partita) {
+										Partita partita = (Partita) i;
+										if (LocalDateTime.now().isAfter(i.getFine())) {
+											partite.add(partita);
+										}
+									}
+								}
 							}
 						}
 					}
 				}
-					}
-				}
-			}
 			%>
 			<%
 			for (int i = 0; i < partite.size(); i++) {
