@@ -7,6 +7,7 @@
 <!-- import di classi Java -->
 <%@ page import="beans.*"%>
 <%@ page import="java.time.LocalDateTime"%>
+<%@ page import="java.time.LocalDate"%>
 <%@ page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Visualizza Squadra</h1>
+                <h1 class="logo">Visualizza ed inserisci risultati</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -34,7 +35,6 @@
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
-                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
                         <option value="gestione-calendario-all.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
@@ -55,85 +55,72 @@
 	</script>
 
 	<div class="content-container">
-	
-	<%
-		String input = (String)session.getAttribute("username");
-		String[] username = input.split("\\.");
-		
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
-		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
-		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
-		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
-		
-		for(Societa so : listSocieta)
-		{
-			if(so.getUsername().equals(username[3]))
-			{
-				for(Squadra sq : so.getSquadre())
-				{
-					if(sq.getNome().equals(username[2]))
-					{
-						allenatori = sq.getAllenatori();
-						giocatori = sq.getGiocatori();
+
+
+		<h2>Risultati partite</h2>
+		<table>
+			<tr>
+				<td><b>Data</b></td>
+				<td><b>Avversario</b></td>
+				<td><b>Luogo</b></td>
+				<td><b>Risultato</b></td>
+				<td><b>Competizione</b></td>
+			</tr>
+			<%
+			String input = (String) session.getAttribute("username");
+			String[] username = input.split("\\.");
+
+			ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+			ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+			ArrayList<Partita> partite = new ArrayList<Partita>();
+
+			for (Societa so : listSocieta) {
+				if (so.getUsername().equals(username[3])) {
+					for (Squadra sq : so.getSquadre()) {
+				if (sq.getNome().equals(username[2])) {
+					for (Impegno i : sq.getCalendario().getImpegni()) {
+						if (i instanceof Partita) {
+							Partita partita = (Partita) i;
+							if (LocalDateTime.now().isAfter(i.getFine())) {
+								partite.add(partita);
+							}
+						}
+					}
+				}
 					}
 				}
 			}
-		}
-	%>
-        
-        <h2>Squadra</h2>
-        <h3>Allenatori</h3>
-		<table>
+			%>
+			<%
+			for (int i = 0; i < partite.size(); i++) {
+					LocalDate data = partite.get(i).getInizio().toLocalDate();
+			%>
 			<tr>
-				<td><b>ID</b></td>
-				<td><b>Cognome</b></td>
-				<td><b>Nome</b></td>
+				<td><%=data%></td>
+				<td><%=partite.get(i).getAvversario()%></td>
+				<%
+				if (partite.get(i).isPartita_casa()) {
+				%>
+					<td>Casa</td>
+				<%
+				} else {
+				%>
+					<td>Ospiti</td>
+				<%
+				}
+				%>
+				<td><%=partite.get(i).getPunteggioCasa()%>-<%=partite.get(i).getPunteggioOspiti()%></td>
+				<td><%=partite.get(i).getCompetizione()%></td>
 			</tr>
-		<%
-		for(int i = 0 ; i < allenatori.size(); i++) {
-		%>
-			<tr>
-				<td><%=allenatori.get(i).getId()%></td>
-				<td><%=allenatori.get(i).getCognome()%></td>
-				<td><%=allenatori.get(i).getNome()%></td>
-			</tr>
-		<%
-		}
-		%>
-		
+			<%
+			}
+			%>
 		</table>
-        <h3>Giocatori</h3>
-		<table>
-			<tr>
-				<td><b>ID</b></td>
-				<td><b>Cognome</b></td>
-				<td><b>Nome</b></td>
-				<td><b>Altezza</b></td>
-				<td><b>Punti partita</b></td>
-				<td><b>Assist partita</b></td>
-				<td><b>Rimbalzi partita</b></td>
-			</tr>
-		<%
-		for(int i = 0 ; i < giocatori.size(); i++) {
-		%>
-			<tr>
-				<td><%=giocatori.get(i).getId()%></td>
-				<td><%=giocatori.get(i).getCognome()%></td>
-				<td><%=giocatori.get(i).getNome()%></td>
-				<td><%=giocatori.get(i).getAltezza()%></td>
-				<td><%=giocatori.get(i).getPuntiPartita()%></td>
-				<td><%=giocatori.get(i).getAssistPartita()%></td>
-				<td><%=giocatori.get(i).getRimbalziPartita()%></td>
-			</tr>
-        <%
-		}
-        %>
-		</table>
-    </div>
+	</div>
 
     <footer>
         <div class="footer-container">
-            <p>© 2023 SportsHub</p>
+            <p>� 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>
     </footer>

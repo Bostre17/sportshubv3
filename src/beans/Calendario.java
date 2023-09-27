@@ -31,7 +31,7 @@ public class Calendario {
 
     }
    
-    public  List<Impegno> getImpegni(){
+    public  ArrayList<Impegno> getImpegni(){
         
         return this.impegni;
     }

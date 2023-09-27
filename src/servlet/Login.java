@@ -66,7 +66,7 @@ public class Login extends HttpServlet{
 		//creazione impegno per squadra 1
 		LocalDateTime inizioPartita = LocalDateTime.of(2023, 11, 20, 18, 0);
 		LocalDateTime finePartita = LocalDateTime.of(2023, 11, 20, 20, 0);
-		Partita p= new Partita("00000001", "pulcini", inizioPartita, finePartita, "orlando tragic", "cusb");
+		Partita p= new Partita("00000001", "pulcini", inizioPartita, finePartita, "orlando tragic", "cusb", true);
 		squadra1.getCalendario().addImpegno(p);
 		
 		// Aggiunta squadra a società
