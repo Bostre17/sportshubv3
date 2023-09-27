@@ -23,7 +23,7 @@ import beans.Richiesta;
 import beans.Societa;
 import beans.Squadra;
 
-public class AggiungiImpegno  extends HttpServlet{
+public class AccettaRichiesta  extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	private Gson g;
 	
@@ -43,9 +43,43 @@ public class AggiungiImpegno  extends HttpServlet{
         //viene infinito
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String idSoc = (String) session.getAttribute("idSoc");
+		String username = (String) session.getAttribute("username");
+		
+		String idRichiesta = req.getParameter("idRichiesta");
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+		ArrayList<Richiesta> richieste = (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
+		Richiesta r = null;
+		for(Richiesta ric: richieste)
+			if(ric.getId().equals(idRichiesta))
+			{
+				r=ric;
+				break;
+			}
         
-        
+		for(Societa s: listSocieta)
+		{
+			if(s.getUsername().equals(username))
+			{
+				for(Squadra sq: s.getSquadre())
+				{
+					if(sq.esisteAllenatore(r.getIdAllenatore()))
+					{
+						sq.getCalendario().aggiungiRichiesta(r, sq.getNome());
+						richieste.remove(r);
+						break;
+					}
+				}
+			}
+				
+		}
+		this.getServletContext().setAttribute("richieste", richieste);
+		this.getServletContext().setAttribute("listSocieta", listSocieta);
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+		rd.forward(req, resp);
+		return;
+		
+		
+      /*  
 		boolean res=true;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
         String idImpegno=req.getParameter("id");
@@ -110,7 +144,7 @@ public class AggiungiImpegno  extends HttpServlet{
 		return;
 		
 		
-		
+		*/
 	}
 	
 

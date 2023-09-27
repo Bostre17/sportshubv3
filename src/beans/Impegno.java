@@ -7,12 +7,14 @@ public abstract class Impegno {
     private String nomeSquadra;
     private LocalDateTime inizio;
     private LocalDateTime fine;
+    private String tipo;
 
-    public Impegno(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine) {
+    public Impegno(String tipo,String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine) {
         this.idImpegno = idImpegno;
         this.nomeSquadra = nomeSquadra;
         this.inizio = inizio;
         this.fine = fine;
+        this.tipo=tipo;
     }
     
     public String getIdImpegno() {
@@ -39,6 +41,15 @@ public abstract class Impegno {
     public void setFine(LocalDateTime fine) {
         this.fine = fine;
     }
+
+    
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public String toString() {

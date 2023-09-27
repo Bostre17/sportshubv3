@@ -78,12 +78,23 @@
 				&emsp;Squadra: 
 				<%=sq.getNome() %>
 				<br>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Tipo</b></td>
+						<td><b>Inizio</b></td>
+						<td><b>Fine</b></td>
+						<td><b>Avversario</b></td>
+						<td><b>competizione</b></td>
+						<td><b>Titolo</b></td>
+					</tr>
 				<%
 				
 				for(Impegno i: sq.getCalendario().getImpegni())
 				{
 					if(i.getInizio().isAfter(LocalDateTime.now()))
 					{
+						i.
 						%>
 						&emsp;&emsp;<%=i.toString() %>
 						<br>
@@ -140,14 +151,31 @@
 <h4>Accetta o rifiuta richieste</h4>
     
     <div class="custom-form">
-        <form action="process.php" method="post">
-            <label for="inputText">Inserisci Id richiesta:</label>
-            <input type="text" id="idRichiesta" name="idRichiesta" required>
-            
-            <button type="submit" name="accettaButton">Accetta</button>
-            <button type="submit" name="rifiutaButton">Rifiuta</button>
-        </form>
-    </div>
+    <form id="myForm" method="post">
+        <label for="inputText">Inserisci Id richiesta:</label>
+        <input type="text" id="idRichiesta" name="idRichiesta" required>
+        
+        <button type="button" name="accettaButton" onclick="submitForm('accetta')">Accetta</button>
+        <button type="button" name="rifiutaButton" onclick="submitForm('rifiuta')">Rifiuta</button>
+    </form>
+</div>
+
+<script>
+    function submitForm(action) {
+        // Recupera il form
+        var form = document.getElementById("myForm");
+
+        // Modifica l'azione del form in base al pulsante cliccato
+        if (action === "accetta") {
+            form.action = "accettaRichiesta"; // Sostituisci con l'URL della servlet "Accetta"
+        } else if (action === "rifiuta") {
+            form.action = "eliminaRichiesta"; // Sostituisci con l'URL della servlet "Rifiuta"
+        }
+
+        // Invia il modulo
+        form.submit();
+    }
+</script>
 
 
 

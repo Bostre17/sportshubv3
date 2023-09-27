@@ -33,6 +33,26 @@
 		<url-pattern>/logout</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AccettaRichiesta</servlet-name>
+		<servlet-class>servlet.AccettaRichiesta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccettaRichiesta</servlet-name>
+		<url-pattern>/accettaRichiesta</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>EliminaRichiesta</servlet-name>
+		<servlet-class>servlet.EliminaRichiesta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EliminaRichiesta</servlet-name>
+		<url-pattern>/eliminaRichiesta</url-pattern>
+	</servlet-mapping>
+	
+	
 	<!-- Welcome pages -->
 	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
 	<welcome-file-list>
