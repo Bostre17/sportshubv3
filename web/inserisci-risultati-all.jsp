@@ -81,7 +81,7 @@
 								for (Impegno i : sq.getCalendario().getImpegni()) {
 									if (i instanceof Partita) {
 										Partita partita = (Partita) i;
-										if (LocalDateTime.now().isAfter(i.getFine())) {
+										if (LocalDateTime.now().isBefore(partita.getFine())) {
 											partite.add(partita);
 										}
 									}
@@ -120,6 +120,9 @@
 
     <footer>
         <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>

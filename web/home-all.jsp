@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Homepage Allenatore</h1>
+                <h1 class="logo">Homepage</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -54,8 +54,39 @@
 	</script>
 
 	<div class="content-container">
-        <img src="images/SportsHub.png" class="center">
-        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
+		<p style="font-size:20px; font-weight: bold;"> Benvenuto, <%
+			String input = (String)session.getAttribute("username");
+			String[] username = input.split("\\.");
+			ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
+			String nome_societa;
+			String nome_allenatore;
+			String nome_squadra;
+			
+			for(Societa so : listSocieta)
+			{
+				if(so.getUsername().equals(username[3]))
+				{
+					nome_societa = so.getNome();
+					for(Squadra sq : so.getSquadre())
+					{
+						if(sq.getNome().equals(username[2]))
+						{
+							nome_squadra = sq.getNome();
+							for(Allenatore a : sq.getAllenatori())
+							{
+								if(a.getUsername().equals(input))
+								{
+									nome_allenatore = a.getNome();
+								}
+							}
+						}
+					}
+				}
+			}
+		%>
+		<%=nome_allenatore %>!</p>
+		<p style="font-size:16px;"> Sei nella società <%= nome_societa %> e la tua squadra è <%=nome_squadra %>.</p>
+        <p style="font-size:16px;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
 
     <footer>
