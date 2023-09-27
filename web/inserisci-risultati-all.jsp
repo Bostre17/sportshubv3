@@ -67,21 +67,21 @@
 				<td><b>Competizione</b></td>
 			</tr>
 			<%
-			String input = (String) session.getAttribute("username");
-				String[] username = input.split("\\.");
+				String username_societa = (String) session.getAttribute("username_societa");
+				String nome_squadra = (String) session.getAttribute("nome_squadra");
 
 				ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 				ArrayList<Squadra> squadre = new ArrayList<Squadra>();
 				ArrayList<Partita> partite = new ArrayList<Partita>();
 
 				for (Societa so : listSocieta) {
-					if (so.getUsername().equals(username[3])) {
+					if (so.getUsername().equals(username_societa)) {
 						for (Squadra sq : so.getSquadre()) {
-							if (sq.getNome().equals(username[2])) {
+							if (sq.getNome().equals(nome_squadra)) {
 								for (Impegno i : sq.getCalendario().getImpegni()) {
 									if (i instanceof Partita) {
 										Partita partita = (Partita) i;
-										if (LocalDateTime.now().isBefore(partita.getFine())) {
+										if (LocalDateTime.now().isAfter(partita.getFine())) {
 											partite.add(partita);
 										}
 									}
@@ -102,14 +102,17 @@
 				if (partite.get(i).isPartita_casa()) {
 				%>
 					<td>Casa</td>
+					<td><b><%=partite.get(i).getPunteggioCasa()%></b>&nbsp;-&nbsp;<%=partite.get(i).getPunteggioOspiti()%></td>
 				<%
 				} else {
 				%>
 					<td>Ospiti</td>
+					<td><%=partite.get(i).getPunteggioCasa()%>&nbsp;-&nbsp;<b><%=partite.get(i).getPunteggioOspiti()%></b></td>
+					
 				<%
 				}
 				%>
-				<td><%=partite.get(i).getPunteggioCasa()%>-<%=partite.get(i).getPunteggioOspiti()%></td>
+				
 				<td><%=partite.get(i).getCompetizione()%></td>
 			</tr>
 			<%

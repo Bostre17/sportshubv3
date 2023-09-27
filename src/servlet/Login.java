@@ -63,11 +63,19 @@ public class Login extends HttpServlet{
 		squadra1.aggiungiGiocatore(giocatore3);
 		
 		
-		//creazione impegno per squadra 1
-		LocalDateTime inizioPartita = LocalDateTime.of(2023, 11, 20, 18, 0);
-		LocalDateTime finePartita = LocalDateTime.of(2023, 11, 20, 20, 0);
-		Partita p= new Partita("00000001", "Pulcini", inizioPartita, finePartita, "Orlando Tragic", "CUSB", true);
-		squadra1.getCalendario().addImpegno(p);
+		//creazione impegni
+		LocalDateTime inizioPartita1 = LocalDateTime.of(2023, 11, 20, 18, 0);
+		LocalDateTime finePartita1 = LocalDateTime.of(2023, 11, 20, 20, 0);
+		Partita p1= new Partita("00000000", "Pulcini", inizioPartita1, finePartita1, "Orlando Tragic", "CUSB", true);
+		
+		LocalDateTime inizioPartita2 = LocalDateTime.of(2023, 9, 20, 18, 0);
+		LocalDateTime finePartita2 = LocalDateTime.of(2023, 9, 20, 20, 0);
+		Partita p2= new Partita("00000001", "Pulcini", inizioPartita2, finePartita2, "Lakers", "CUSB", false);
+		p2.setPunteggioCasa(50);
+		p2.setPunteggioOspiti(130);
+		squadra1.getCalendario().addImpegno(p1);
+		squadra1.getCalendario().addImpegno(p2);
+
 		
 		// Aggiunta squadra a società
 		societa1.aggiungiSquadra(squadra1);
