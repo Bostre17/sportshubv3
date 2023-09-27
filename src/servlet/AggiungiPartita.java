@@ -80,13 +80,13 @@ public class AggiungiPartita extends HttpServlet{
 			//System.out.println("primo ciclo");
 			if(s.getUsername().equals(username))
 			{
-				System.out.println("trovata la società");
+				//System.out.println("trovata la società");
 				for(Squadra sq:s.getSquadre())
 				{
-					System.out.println("secondo ciclo");
+					//System.out.println("secondo ciclo");
 					if(sq.getNome().equalsIgnoreCase(nomeSquadra))
 					{
-						System.out.println("DAJE------------------------------------------");
+						//System.out.println("DAJE------------------------------------------");
 						sq.getCalendario().addImpegno(p);
 						break;
 					}
