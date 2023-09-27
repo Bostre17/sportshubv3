@@ -8,6 +8,8 @@
 <%@ page import="beans.*"%>
 <%@ page import="java.time.LocalDateTime"%>
 <%@ page import="java.time.LocalDate"%>
+<%@ page import="java.util.Collections"%>
+<%@ page import="java.util.Comparator"%>
 <%@ page import="java.util.*"%>
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Inserisci risultati</title>
+    <title>Visualizza risultati</title>
 </head>
 <body>
     <header>
@@ -33,10 +35,10 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
-                        <option value="home-all.jsp">Homepage</option>
-                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
-                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
+                        <option value="visualizza-risultati-gio.jsp">Visualizza risultati</option>
+                        <option value="home-gio.jsp">Homepage</option>
+                        <option value="visualizza-squadra-gio.jsp">Visualizza squadra</option>
+                        <option value="visualizza-calendario-gio.jsp">Visualizza calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -56,37 +58,7 @@
 
 	<div class="content-container">
 		
-		<div>
-			<h2>Aggiorna risultato</h2>
-			<form action="inserisciRisultato" method="POST">
-		        <label for="id">ID</label>
-		        <input type="text" id="id" name="id" required><br><br>
-		
-		        <label for="punteggioCasa">Punteggio Casa</label>
-		        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
-		
-		        <label for="punteggioOspiti">Punteggio Ospiti</label>
-		        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
-		
-				<button type="submit" class="btn-base">Inserisci</button>
-		    </form>
-		    <%
-				Integer errato = (Integer)session.getAttribute("inserimento-errato");
-				System.out.println(errato);
-				if(errato != null && errato == 1){
-					%>
-					<p style="font-size:16px; color: red; font-weight: bold;">ID errato.</p><br>
-					<%
-				}
-				else if(errato != null && errato == 0)
-				{
-					%>
-					<p style="font-size:16px;">Risultato aggiornato correttamente.</p><br>
-					<%
-				}
-			%>
-	    </div>
-	    
+			    
 		<%
 		String username_societa = (String) session.getAttribute("username_societa");
 		String nome_squadra = (String) session.getAttribute("nome_squadra");
@@ -124,7 +96,6 @@
 					}
 			%>
 			<%
-
 			Collections.sort(partite, Comparator.comparing(Partita::getInizio));
 			
 			for (int i = 0; i < partite.size(); i++) {

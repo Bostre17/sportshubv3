@@ -17,7 +17,7 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Visualizza squadra</title>
+    <title>Homepage Allenatore</title>
 </head>
 <body>
     <header>
@@ -32,8 +32,8 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="home-all.jsp">Homepage</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
                         <option value="gestione-calendario-all.jsp">Gestione impegni</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
@@ -50,87 +50,38 @@
 					if (selectedValue !== "#") {
 						window.location.href = selectedValue;
 					}
-				});
+
+		});
 	</script>
 
+	<%
+	String nome_allenatore = (String)session.getAttribute("nome_allenatore");
+	String nome_societa = (String)session.getAttribute("nome_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
+		%>
 	<div class="content-container">
-
-		<%
-		String nome_allenatore = (String) session.getAttribute("nome_allenatore");
-		String cognome_allenatore = (String) session.getAttribute("cognome_allenatore");
-		String username_societa = (String) session.getAttribute("username_societa");
-		String nome_squadra = (String) session.getAttribute("nome_squadra");
-
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
-		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
-		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
-		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
-
-		for (Societa so : listSocieta) {
-			if (so.getUsername().equals(username_societa)) {
-				for (Squadra sq : so.getSquadre()) {
-			if (sq.getNome().equals(nome_squadra)) {
-				allenatori = sq.getAllenatori();
-				giocatori = sq.getGiocatori();
-			}
-				}
-			}
-		}
-		%>
-
-		<h2>
-			Squadra
-			<%=nome_squadra%></h2>
-		<h3>Allenatori</h3>
-		<table>
-			<tr>
-				<td><b>ID</b></td>
-				<td><b>Cognome</b></td>
-				<td><b>Nome</b></td>
-			</tr>
-			<%
-			for (int i = 0; i < allenatori.size(); i++) {
-			%>
-			<tr>
-				<td><%=allenatori.get(i).getId()%></td>
-				<td><%=allenatori.get(i).getCognome()%></td>
-				<td><%=allenatori.get(i).getNome()%></td>
-			</tr>
-			<%
-			}
-			%>
-
-		</table>
-		<h3>Giocatori</h3>
-		<table>
-			<tr>
-				<td><b>ID</b></td>
-				<td><b>Cognome</b></td>
-				<td><b>Nome</b></td>
-				<td><b>Altezza</b></td>
-			</tr>
-			<%
-		for(int i = 0 ; i < giocatori.size(); i++) {
-		%>
-			<tr>
-				<td><%=giocatori.get(i).getId()%></td>
-				<td><%=giocatori.get(i).getCognome()%></td>
-				<td><%=giocatori.get(i).getNome()%></td>
-				<td><%=giocatori.get(i).getAltezza()%></td>
-			</tr>
-			<%
-		}
-        %>
-		</table>
+		<p style="font-size: 20px; font-weight: bold;">
+			Benvenuto,
+			<%=nome_allenatore%>!
+		</p>
+		<p style="font-size: 16px;">
+			Fai parte della società 
+			<%=nome_societa%>
+			e la tua squadra è 
+			<%=nome_squadra%>.
+		</p>
+		<p style="font-size: 16px;">Per accedere alle funzionalità aprire
+			il menù a tendina in alto.</p>
 	</div>
 
-    <footer>
+	<footer>
         <div class="footer-container">
         	<form action="logout" method="POST">
     			<button type="submit" class="btn-logout">Logout</button>
    			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
+            
         </div>
     </footer>
 

@@ -80,7 +80,8 @@
 						<td><b>Inizio</b></td>
 						<td><b>Fine</b></td>
 						<td><b>Avversario</b></td>
-						<td><b>competizione</b></td>
+						<td><b>Luogo</b></td>
+						<td><b>Competizione</b></td>
 						<td><b>Titolo</b></td>
 					</tr>
 				<%
@@ -106,6 +107,26 @@
 									%>
 									<%=p.getAvversario()%>
 									<% 
+								}
+							%>
+						</td>
+						<td>
+							<%
+								if(i.getTipo().equals("P"))
+								{
+									p=(Partita)i;
+									if(p.isPartita_casa())
+									{
+										%>
+										Casa
+										<% 
+									}
+									else
+									{
+										%>
+										Ospiti
+										<% 
+									}
 								}
 							%>
 						</td>
@@ -173,7 +194,7 @@
 						<td><b>Tipo</b></td>
 						<td><b>Inizio</b></td>
 						<td><b>Fine</b></td>
-						<td><b>ID_allenatore</b></td>
+						<td><b>ID richiedente</b></td>
 						<td><b>Titolo</b></td>
 					</tr>
 				<%
@@ -264,7 +285,7 @@
         <label for="competizione">Competizione</label>
         <input type="text" id="competizione" name="competizione" required><br><br>
 
-        <label for="partitaCasa">Partita in casa</label>
+        <label for="partitaCasa">Luogo (Casa/Ospiti)</label>
         <input type="text" id="casa" name="casa"><br><br>
 
         <button type="submit" name="submit" class="btn-base">Invia</button>
@@ -292,6 +313,9 @@
 
     <footer>
         <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>
