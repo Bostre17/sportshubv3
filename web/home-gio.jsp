@@ -32,7 +32,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menù</option>
+                        <option value="home-gio.jsp">Homepage</option>
                         <option value="visualizza-squadra-gio.jsp">Visualizza squadra</option>
                         <option value="visualizza-risultati-gio.jsp">Visualizza risultati</option>
                         <option value="visualizza-calendario-gio.jsp">Visualizza calendario</option>
