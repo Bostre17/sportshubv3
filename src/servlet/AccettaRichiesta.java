@@ -56,6 +56,14 @@ public class AccettaRichiesta  extends HttpServlet{
 				break;
 			}
         
+		String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
+        Integer idInt=Integer.parseInt(id);
+        idInt++;
+        id = String.format("%08d", idInt);
+        //id=Integer.toString(idInt);
+        
+        this.getServletContext().setAttribute("lastIdImpegno", id);
+		
 		for(Societa s: listSocieta)
 		{
 			if(s.getUsername().equals(username))
@@ -64,7 +72,7 @@ public class AccettaRichiesta  extends HttpServlet{
 				{
 					if(sq.esisteAllenatore(r.getIdAllenatore()))
 					{
-						sq.getCalendario().aggiungiRichiesta(r, sq.getNome());
+						sq.getCalendario().aggiungiRichiesta(r, sq.getNome(),id);
 						richieste.remove(r);
 						break;
 					}

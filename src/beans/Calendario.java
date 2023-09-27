@@ -47,9 +47,9 @@ public class Calendario {
         return this.impegni;
     }
     
-    public void aggiungiRichiesta(Richiesta r, String nomeSquadra) {
+    public void aggiungiRichiesta(Richiesta r, String nomeSquadra,String id) {
     	
-    	Allenamento a= new Allenamento(r.getId(),nomeSquadra, r.getInizio(), r.getFine(), r.getTitolo(), r.getIdAllenatore());
+    	Allenamento a= new Allenamento(id,nomeSquadra, r.getInizio(), r.getFine(), r.getTitolo(), r.getIdAllenatore());
     	this.impegni.add(a);
     	
     }

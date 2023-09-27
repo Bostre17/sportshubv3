@@ -20,6 +20,7 @@
 <title>Visualizza squadra</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<header>
 		<div class="header-container">
 			<!-- Container per la scritta "SportsHub" al centro -->
@@ -43,6 +44,30 @@
 			</div>
 		</div>
 	</header>
+=======
+    <header>
+        <div class="header-container">
+            <!-- Container per la scritta "SportsHub" al centro -->
+            <div class="logo-container">
+                <h1 class="logo">SportsHub</h1>
+            </div>
+            
+            <!-- Container per il menu a tendina a sinistra -->
+            <div class="menu-container">
+                <!-- Menu a tendina a sinistra -->
+                <nav class="menu">
+                    <select id="dropdown-menu">
+                        <option value="#">Menù</option>
+                        <option value="gestione-squadra-soc.jsp" data-url="gestione-squadra-soc.jsp">Gestione squadra</option>
+                        <option value="home-soc.jsp">Homepage</option>
+                        <option value="gestione-calendario-soc.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
+                        <!-- Aggiungi altre opzioni del menu qui -->
+                    </select>
+                </nav>
+            </div>
+        </div>
+    </header>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 
 	<script>
 		document.getElementById("dropdown-menu").addEventListener("change",
@@ -136,6 +161,11 @@
 		}
 	}
         %>
+<<<<<<< HEAD
+=======
+	
+	<h3>Inserimento Giocatore</h3>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 
 		<br>
 		<br>
@@ -167,6 +197,7 @@
 				<label for="id">ID: </label> <input type="text" id="id" name="id"
 					required><br> <br>
 
+<<<<<<< HEAD
 				<button type="submit" class="btn-base" name="submit">Invia</button>
 			</form>
 		</div>
@@ -190,5 +221,41 @@
 			<p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
 		</div>
 	</footer>
+=======
+        <button type="submit" name="submit">Invia</button>
+    </form>
+ 
+    </div>
+    <h3>Rimozione Giocatore</h3>
+    <div class="RimuoviGiocatore">
+    <form action="RimuoviGiocatore" method="post">
+    	<label for="id">id</label>
+        <input type="text" id="id" name="id" required><br><br>
+
+        <button type="submit" name="submit">Invia</button>
+    </form>
+    </div>
+    <h3>Inserimento Squadra</h3>
+
+   <div class="aggiungiSquadra">
+    <form action="aggiungiSquadra" method="post">
+        <label for="nomeSquadra">Nome della squadra:</label>
+        <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
+         <label for="nomeSquadra">Id</label>
+        <input type="text" id="id" name="id" required><br><br>
+		<button type="submit" name="submit">Invia</button>
+    </form>
+
+    <footer>
+        <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
+            <p>© 2023 SportsHub</p>
+            <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
+        </div>
+    </footer>
+
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 </body>
 </html>
