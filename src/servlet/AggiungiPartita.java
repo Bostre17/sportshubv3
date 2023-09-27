@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,14 +42,14 @@ public class AggiungiPartita extends HttpServlet{
 		String username = (String) session.getAttribute("username");
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 		boolean partita_casa=false;
-		String idImpegno=(String) req.getAttribute("idImpegno");
-		String nomeSquadra=(String) req.getAttribute("idImpegno");
-		String avversario=(String) req.getAttribute("avversario");
-		String competizione=(String) req.getAttribute("competizione");
-		String dataInizio= (String) req.getAttribute("data");
-		String oraInizio= (String) req.getAttribute("oraInizio");
-		String oraFine= (String) req.getAttribute("oraFine");
-		String casa= (String) req.getAttribute("casa");
+		//String idImpegno=(String) req.getParameter("idImpegno");
+		String nomeSquadra=(String) req.getParameter("nomeSquadra");
+		String avversario=(String) req.getParameter("avversario");
+		String competizione=(String) req.getParameter("competizione");
+		String dataInizio= (String) req.getParameter("data");
+		String oraInizio= (String) req.getParameter("oraInizio");
+		String oraFine= (String) req.getParameter("oraFine");
+		String casa= (String) req.getParameter("casa");
 		if(casa.equalsIgnoreCase("casa"))
 			partita_casa=true;
 		
@@ -66,22 +67,32 @@ public class AggiungiPartita extends HttpServlet{
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
         
-		Partita p = new Partita(idImpegno, nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
+		Partita p = new Partita("11111111", nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
 		
 		for(Societa s: listSocieta)
 		{
+			System.out.println("primo ciclo");
 			if(s.getUsername().equals(username))
 			{
+				System.out.println("trovata la società");
 				for(Squadra sq:s.getSquadre())
 				{
-					if(sq.getNome().equals(nomeSquadra))
+					System.out.println("secondo ciclo");
+					if(sq.getNome().equalsIgnoreCase(nomeSquadra))
 					{
+						System.out.println("DAJE------------------------------------------");
 						sq.getCalendario().addImpegno(p);
 						break;
 					}
 				}
 			}
 		}
+		
+		// Aggiunta lista società a servlet context
+		this.getServletContext().setAttribute("listSocieta", listSocieta);
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+		rd.forward(req, resp);
+		return;
 		
 		
 		

@@ -103,6 +103,18 @@ public class Squadra {
 		}
 		return false;
 	}
+	
+	public boolean esisteImpegno(String idImpegno) {
+		//System.out.println(idImpegno);
+		for(Impegno i: this.calendario.getImpegni())
+		{
+			System.out.println(i.getIdImpegno()+" trovato");
+			if(i.getIdImpegno().equals(idImpegno))
+				return true;
+		}
+		
+		return false;
+	}
 
 	@Override
 	public String toString() {

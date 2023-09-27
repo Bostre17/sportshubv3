@@ -78,7 +78,7 @@ public class Login extends HttpServlet{
 		
 		LocalDateTime inizioPartita3 = LocalDateTime.of(2023, 9, 30, 18, 0);
 		LocalDateTime finePartita3 = LocalDateTime.of(2023, 9, 30, 20, 0);
-		Partita p3= new Partita("00000001", "Pulcini", inizioPartita3, finePartita3, "Miami Heets", "CUSB", false);
+		Partita p3= new Partita("00000002", "Pulcini", inizioPartita3, finePartita3, "Miami Heets", "CUSB", false);
 		
 		
 		squadra1.getCalendario().addImpegno(p1);

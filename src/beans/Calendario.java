@@ -15,11 +15,21 @@ public class Calendario {
         this.impegni.add(i);
     }
     public void remove(String idImpegno){
-       for(Impegno i: this.impegni)
-       {
-    	   if(i.getIdImpegno().equals(idImpegno))
-    		   this.impegni.remove(i);
-       }
+    	//System.out.println("numero di impegni "+this.impegni.size());
+    	
+    	for(int i=0; i<this.impegni.size();i++)
+    	{
+    		if(this.impegni.get(i).getIdImpegno().equals(idImpegno))
+    			this.impegni.remove(i);
+    	}
+    	
+    	/*
+    	for(Impegno i: this.impegni)
+        {
+    		if(i.getIdImpegno().equals(idImpegno))
+    			this.impegni.remove(i);
+        }
+        */
     }
 
     public Impegno getImpegno(String idImpegno){

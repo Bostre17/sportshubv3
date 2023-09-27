@@ -253,13 +253,13 @@
         <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
 
         <label for="data">Data della partita:</label>
-        <input type="date" id="data" name="data" required><br><br>
+        <input type="text" id="data" name="data" required><br><br>
 
         <label for="oraInizio">Ora di inizio:</label>
-        <input type="time" id="oraInizio" name="oraInizio" required><br><br>
+        <input type="text" id="oraInizio" name="oraInizio" required><br><br>
 
         <label for="oraFine">Ora di fine:</label>
-        <input type="time" id="oraFine" name="oraFine" required><br><br>
+        <input type="text" id="oraFine" name="oraFine" required><br><br>
 
         <label for="avversario">Avversario:</label>
         <input type="text" id="avversario" name="avversario" required><br><br>
@@ -268,9 +268,18 @@
         <input type="text" id="competizione" name="competizione" required><br><br>
 
         <label for="partitaCasa">Partita in casa:</label>
-        <input type="checkbox" id="partitaCasa" name="partitaCasa"><br><br>
+        <input type="text" id="casa" name="casa"><br><br>
 
         <button type="submit" name="submit">Invia</button>
+    </form>
+</div>
+
+<h3>Elimina impegno</h3>
+    <div class="custom-form">
+    <form action="eliminaImpegno" method="post">
+        <label for="inputText">Inserisci Id impegno:</label>
+        <input type="text" id="idImpegno" name="idImpegno" required>
+        <button type="submit" name="elimina">Elimina</button>
     </form>
 </div>
 
