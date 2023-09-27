@@ -56,7 +56,8 @@ public class aggiungiGiocatore  extends HttpServlet{
 		        Integer idInt=Integer.parseInt(id);
 		        
 		        idInt++;
-		        id=Integer.toString(idInt);
+		        //id=Integer.toString(idInt);
+		        id= String.format("%08d", idInt);
 		        this.getServletContext().setAttribute("lastIdGiocatore", id);
 				//String id= req.getParameter("nomeSquadra");
 				//per fare in modo che gli id siano tutti diversi direi di salavre una variabile id sul context che indica il primo id libero, man mano che si creano giocatori facciamo id+1 e la risalviamo sul contesto

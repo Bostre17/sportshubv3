@@ -69,8 +69,9 @@ public class AggiungiPartita extends HttpServlet{
         String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
         Integer idInt=Integer.parseInt(id);
         idInt++;
-        id=Integer.toString(idInt);
-        
+        //id=Integer.toString(idInt);
+        id= String.format("%08d", idInt);
+
         this.getServletContext().setAttribute("lastIdImpegno", id);
         
 		Partita p = new Partita(id, nomeSquadra, inizio, fine, avversario, competizione, partita_casa);

@@ -59,7 +59,8 @@ public class AccettaRichiesta  extends HttpServlet{
 		String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
         Integer idInt=Integer.parseInt(id);
         idInt++;
-        id=Integer.toString(idInt);
+        id = String.format("%08d", idInt);
+        //id=Integer.toString(idInt);
         
         this.getServletContext().setAttribute("lastIdImpegno", id);
 		
