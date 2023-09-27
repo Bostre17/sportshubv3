@@ -54,6 +54,7 @@ public class aggiungiGiocatore  extends HttpServlet{
 				
 				String id=(String) this.getServletContext().getAttribute("lastIdGiocatore");
 		        Integer idInt=Integer.parseInt(id);
+		        
 		        idInt++;
 		        id=Integer.toString(idInt);
 				
