@@ -32,7 +32,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menï¿½</option>
+                        <option value="#">Menù</option>
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>

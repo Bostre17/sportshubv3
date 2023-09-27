@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Homepage Allenatore</h1>
+                <h1 class="logo">Gestione Calendario</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -96,7 +96,6 @@
 				{
 					if(i.getInizio().isAfter(LocalDateTime.now()))
 					{
-						i.
 						%>
 						
 						<tr>
