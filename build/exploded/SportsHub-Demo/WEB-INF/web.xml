@@ -115,6 +115,24 @@
 		<url-pattern>/EffettuaRichiesta</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AggiungiAllenatore</servlet-name>
+		<servlet-class>servlet.AggiungiAllenatore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AggiungiAllenatore</servlet-name>
+		<url-pattern>/aggiungiAllenatore</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>RimuoviAllenatore</servlet-name>
+		<servlet-class>servlet.RimuoviAllenatore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviAllenatore</servlet-name>
+		<url-pattern>/rimuoviAllenatore</url-pattern>
+	</servlet-mapping>
+	
 	<!-- Welcome pages -->
 	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->
 	<welcome-file-list>

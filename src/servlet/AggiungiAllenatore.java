@@ -18,7 +18,7 @@ import beans.Giocatore;
 import beans.Societa;
 import beans.Squadra;
 
-public class aggiungiAllenatore  extends HttpServlet{
+public class AggiungiAllenatore  extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	private Gson g;
@@ -36,20 +36,20 @@ public class aggiungiAllenatore  extends HttpServlet{
 	
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String idSocietà = (String) session.getAttribute("idSoc");
+		String nome_societa = (String) session.getAttribute("nome_societa");
 		
 		//recupero l'id della squadra
-		String idSquadra= (String) session.getAttribute("idSquadra");
 		boolean res=false;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 		
 		for (Societa s: listSocieta)
 		{
-			if(s.getId().equals(idSocietà))
+			if(s.getNome().equals(nome_societa))
 			{
 				String usn= req.getParameter("username");
 				String nome= req.getParameter("nome");
 				String cognome= req.getParameter("cognome");
+				String nome_squadra= req.getParameter("nomeSquadra");
 				
 				String id=(String) this.getServletContext().getAttribute("lastIdAllenatore");
 		        Integer idInt=Integer.parseInt(id);
@@ -63,7 +63,7 @@ public class aggiungiAllenatore  extends HttpServlet{
 				Allenatore a=new Allenatore(usn, id, nome, cognome);
 				for(Squadra sq: s.getSquadre())
 				{
-					if(sq.getId().equals(idSquadra))
+					if(sq.getNome().equals(nome_squadra))
 					{
 					    res=sq.aggiungiAllenatore(a);
 					    break;
@@ -80,7 +80,7 @@ public class aggiungiAllenatore  extends HttpServlet{
 			this.getServletContext().setAttribute("listSocieta", listSocieta);
 		
 		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-società.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-squadra-soc.jsp");
 		rd.forward(req, resp);
 		return;
 		

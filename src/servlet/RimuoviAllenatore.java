@@ -18,7 +18,7 @@ import beans.Giocatore;
 import beans.Societa;
 import beans.Squadra;
 
-public class RimuoviAllenatore extends HttpServlet{
+public class RimuoviAllenatore  extends HttpServlet{
 	
 	private static final long serialVersionUID = 1L;
 	private Gson g;
@@ -31,55 +31,45 @@ public class RimuoviAllenatore extends HttpServlet{
 		
 	}
 	
-	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String idSocietà = (String) session.getAttribute("idSoc");
+		String nome_societa = (String) session.getAttribute("nome_societa");
 		
 		//recupero l'id della squadra
-		String idSquadra= (String) session.getAttribute("idSquadra");
-		
-		//id dell'allenatore da eliminare
-		String idAllenatore= (String) session.getAttribute("idAllenatore");
-		
-		
-		
+		boolean res=false;
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 		
 		for (Societa s: listSocieta)
 		{
-			if(s.getId().equals(idSocietà))
+			if(s.getNome().equals(nome_societa))
 			{
+				String id_allenatore= req.getParameter("id");
+				
 				for(Squadra sq: s.getSquadre())
 				{
-					if(sq.getId().equals(idSquadra))
+					if(sq.esisteAllenatore(id_allenatore))
 					{
-					    for(Allenatore a: sq.getAllenatori())
-					    {
-					    	if(a.getId().equals(idAllenatore))
-					    	{
-					    		sq.eliminaAllenatore(a);
-					    		break;
-					    	}
-					    }
+					    sq.eliminaAllenatore(id_allenatore);
+					    break;
 					}
 				}
 				break;
 			}
 		}
+		//per capire poi una volta tornato sulla jsp se l'inserimento è anadto a buon fine
+		session.setAttribute("result", res);
 		
-		this.getServletContext().setAttribute("listSocieta", listSocieta);
 		
-		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-società.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-squadra-soc.jsp");
 		rd.forward(req, resp);
 		return;
 		
 		
 		
 	}
-
+	
+	
 }

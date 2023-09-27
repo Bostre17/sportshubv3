@@ -162,12 +162,39 @@
 		</div>
 		<br>
 		<br>
+		<h3>Inserimento Allenatore</h3>
+
+		<div class="aggiungiAllenatore">
+			<form action="aggiungiAllenatore" method="post">
+			<label for="nomeSquadra">Nome squadra</label>
+				<input type="text" id="nomeSquadra" name="nomeSquadra" required><br>
+				<br> <label for="username">Username</label> <input type="text"
+					id="username" name="username" required><br> <br>
+				<label for="nome">Nome</label> <input type="text" id="nome"
+					name="nome" required><br> <br> <label
+					for="cognome">Cognome</label> <input type="text" id="cognome"
+					name="cognome" required>
+				<button type="submit" class="btn-base" name="submit">Invia</button>
+			</form>
+		</div>
+		<br>
+		<br>
 		<h3>Rimozione Giocatore</h3>
 		<div class="RimuoviGiocatore">
 			<form action="RimuoviGiocatore" method="post">
 				<label for="id">ID</label> <input type="text" id="id" name="id"
 					required><br> <br>
 
+				<button type="submit" class="btn-base" name="submit">Invia</button>
+			</form>
+		</div>
+		<br>
+		<br>
+		<h3>Rimozione Allenatore</h3>
+		<div class="RimuoviAllenatore">
+			<form action="rimuoviAllenatore" method="post">
+				<label for="id">ID</label> <input type="text" id="id" name="id"
+					required><br> <br>
 				<button type="submit" class="btn-base" name="submit">Invia</button>
 			</form>
 		</div>
