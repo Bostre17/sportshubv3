@@ -78,20 +78,76 @@
 				&emsp;Squadra: 
 				<%=sq.getNome() %>
 				<br>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Tipo</b></td>
+						<td><b>Inizio</b></td>
+						<td><b>Fine</b></td>
+						<td><b>Avversario</b></td>
+						<td><b>competizione</b></td>
+						<td><b>Titolo</b></td>
+					</tr>
 				<%
 				
+				Partita p;
+				Allenamento a;
 				for(Impegno i: sq.getCalendario().getImpegni())
 				{
 					if(i.getInizio().isAfter(LocalDateTime.now()))
 					{
 						%>
-						&emsp;&emsp;<%=i.toString() %>
-						<br>
+						
+						<tr>
+						<td> <%=i.getIdImpegno() %> </td>
+						<td> <%=i.getTipo() %> </td>
+						<td> <%=i.getInizio() %> </td>
+						<td> <%=i.getFine() %> </td>
+						<td>
+							<%
+								if(i.getTipo().equals("P"))
+								{
+									p=(Partita)i;
+									%>
+									<%=p.getAvversario()%>
+									<% 
+								}
+							%>
+						</td>
+						<td>
+							<%
+								if(i.getTipo().equals("P"))
+								{
+									p=(Partita)i;
+									%>
+									<%=p.getCompetizione()%>
+									<% 
+								}
+							%>
+						</td>
+						<td>
+							<%
+								if(i.getTipo().equals("A"))
+								{
+									a=(Allenamento)i;
+									%>
+									<%=a.getTitolo()%>
+									<% 
+								}
+							%>
+						</td>
+						</tr>
+						
 						<% 
 					}
 				
 				}
 			}
+			
+			%>
+			</table>
+			<% 
+			
 		}
 	}
 					
@@ -118,19 +174,38 @@
 				&emsp;Squadra: 
 				<%=sq.getNome() %>
 				<br>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Tipo</b></td>
+						<td><b>Inizio</b></td>
+						<td><b>Fine</b></td>
+						<td><b>ID_allenatore</b></td>
+						<td><b>Titolo</b></td>
+					</tr>
 				<%
 				for(Richiesta r: richieste)
 				{
 					if(sq.esisteAllenatore(r.getIdAllenatore()))
 					{
 						%>
-						&emsp;&emsp;<%=r.toString() %>
-						<br>
+						<tr>
+						<td><%=r.getId() %></td>
+						<td><%=r.getTipo() %> </td>
+						<td><%=r.getInizio() %></td>
+						<td><%=r.getFine() %></td>
+						<td><%=r.getIdAllenatore() %></td>
+						<td><%=r.getTitolo() %></td>
+					</tr>
 						<% 
 					}
 						
 				}
 			}
+		
+		%>
+		</table>
+		<% 
 	}
 %>
 
