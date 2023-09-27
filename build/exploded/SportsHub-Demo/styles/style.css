@@ -162,7 +162,7 @@ footer {
     background-color: darkgray; /* Cambia il colore al clic */
 }
 
-.btn-login {
+.btn-base {
     background-color: white;
     color: #333;
     border: 2px solid #333;
@@ -173,10 +173,10 @@ footer {
 }
 
 /* Stile per il pulsante quando è stato cliccato o è attivo */
-.btn-login:active {
+.btn-base:active {
     background-color: darkgray; /* Cambia il colore al clic */
 }
 
-.btn-login:hover {
+.btn-base:hover {
     background-color: grey; /* Cambia il colore al clic */
 }

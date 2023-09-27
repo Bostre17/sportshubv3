@@ -25,7 +25,6 @@
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
                 <img src="images/SportsHub.png" class="center">
-        		<p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -54,10 +53,25 @@
 				});
 	</script>
 
-    <div class="content-container">
-        <h2>Benvenuti su SportsHub</h2>
-        <p>La tua piattaforma di gestione per squadre di basket.</p>
-    </div>
+    <%
+	String nome_giocatore = (String)session.getAttribute("nome_giocatore");
+	String nome_societa = (String)session.getAttribute("nome_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
+		%>
+	<div class="content-container">
+		<p style="font-size: 20px; font-weight: bold;">
+			Benvenuto,
+			<%=nome_giocatore%>!
+		</p>
+		<p style="font-size: 16px;">
+			Fai parte della società
+			<%=nome_societa%>
+			e la tua squadra è
+			<%=nome_squadra%>.
+		</p>
+		<p style="font-size: 16px;">Per accedere alle funzionalità aprire
+			il menù a tendina in alto.</p>
+	</div>
 
     <footer>
         <div class="footer-container">

@@ -65,9 +65,9 @@
 			<%=nome_allenatore%>!
 		</p>
 		<p style="font-size: 16px;">
-			Sei nella società
+			Fai parte della società 
 			<%=nome_societa%>
-			e la tua squadra è
+			e la tua squadra è 
 			<%=nome_squadra%>.
 		</p>
 		<p style="font-size: 16px;">Per accedere alle funzionalità aprire

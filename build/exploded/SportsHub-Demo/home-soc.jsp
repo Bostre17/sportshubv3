@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Homepage Società</h1>
+        		<img src="images/SportsHub.png" class="center">
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -52,10 +52,21 @@
 				});
 	</script>
 
+	<%
+	String nome_societa = (String)session.getAttribute("nome_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
+		%>
 	<div class="content-container">
-        <img src="images/SportsHub.png" class="center">
-        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
-    </div>
+		<p style="font-size: 20px; font-weight: bold;">
+			Benvenuto,
+			<%=nome_societa%>!
+		</p>
+		<p style="font-size: 16px;">
+			Questo è un account di gestione squadre, dove puoi gestire gli impegni ed i membri.
+		</p>
+		<p style="font-size: 16px;">Per accedere alle funzionalità aprire
+			il menù a tendina in alto.</p>
+	</div>
 
     <footer>
         <div class="footer-container">
