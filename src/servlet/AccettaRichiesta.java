@@ -72,7 +72,10 @@ public class AccettaRichiesta  extends HttpServlet{
 				{
 					if(sq.esisteAllenatore(r.getIdAllenatore()))
 					{
-						sq.getCalendario().aggiungiRichiesta(r, sq.getNome(),id);
+						if(r.getTipo().equals("I"))
+							sq.getCalendario().aggiungiRichiesta(r, sq.getNome(),id);
+						else
+							sq.getCalendario().rimuoviRichiesta(r, sq.getNome());
 						richieste.remove(r);
 						break;
 					}

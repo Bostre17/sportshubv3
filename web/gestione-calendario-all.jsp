@@ -131,18 +131,22 @@
 				%>
 				
 			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			
 			<h2>
 				Richieste effettuate
 			</h2>
-			<br>
 			<table>
 				<tr>
 					<td><b>ID</b></td>
+					<td><b>Titolo</b></td>
 					<td><b>Tipo</b></td>
 					<td><b>Inizio</b></td>
 					<td><b>Fine</b></td>
-					<td><b>idAllenatore</b></td>
-					<td><b>Titolo</b></td>
+					<td><b>ID richiedente</b></td>
 
 				</tr>
 			<%	
@@ -161,11 +165,11 @@
 						%>
 						<tr>
 						<td><%=r.getId() %></td>
-						<td><%=r.getTipo() %> </td>
+						<td><%=r.getTitolo() %></td>
+						<td><%=r.getTipo() %></td>
 						<td><%=r.getInizio() %></td>
 						<td><%=r.getFine() %></td>
 						<td><%=r.getIdAllenatore() %></td>
-						<td><%=r.getTitolo() %></td>
 					</tr>
 					<% 
 					}
@@ -175,27 +179,28 @@
 			%>
 			</table>
 			</div>
-			
-			<h3>Effettua una richiesta</h3>
-    		<div class="EffettuaRichiesta">
-    		<form action="EffettuaRichiesta" method="post">
-    		<label for="id">id</label>
-       		<input type="text" id="id" name="id" value=<%=idall %> required><br><br>
-       		<label for="tipo">Tipo</label>
-       		<input type="text" id="tipo" name="tipo" required><br><br>
-       		 <label for="data">Data della partita:</label>
-        	<input type="text" id="data" name="data" required><br><br>
-
-        	<label for="oraInizio">Ora di inizio:</label>
-        	<input type="text" id="oraInizio" name="oraInizio" required><br><br>
-
-        	<label for="oraFine">Ora di fine:</label>
-        	<input type="text" id="oraFine" name="oraFine" required><br><br>
-        	<label for="id">Titolo</label>
-       		<input type="text" id="titolo" name="titolo" required><br><br>
-        	<button type="submit" name="submit">Invia</button>
-    		</form>
-    		</div>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		<h3>Effettua una richiesta</h3>
+		<div class="EffettuaRichiesta">
+			<form action="EffettuaRichiesta" method="post">
+				<label for="id">Titolo</label> <input type="text" id="titolo"
+					name="titolo" required><br>
+				<br> <label for="id">Tipo (I/C)</label> <input type="text" id="tipo"
+					name="tipo" required><br>
+				<br> <label for="data">Data dell'impegno</label> <input
+					type="text" id="data" name="data" required><br>
+				<br> <label for="oraInizio">Ora di inizio</label> <input
+					type="text" id="oraInizio" name="oraInizio" required><br>
+				<br> <label for="oraFine">Ora di fine</label> <input
+					type="text" id="oraFine" name="oraFine" required><br>
+				<br>
+				<button type="submit" name="submit" class="btn-base">Invia</button>
+			</form>
+		</div>
 
 
 

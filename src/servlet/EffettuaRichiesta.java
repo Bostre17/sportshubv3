@@ -39,14 +39,13 @@ public class EffettuaRichiesta extends HttpServlet{
 		
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String id=(String) req.getParameter("id");
+		String id= (String)session.getAttribute("id_allenatore");
 		//String idImpegno=(String) req.getParameter("idImpegno");
-		String tipo=(String) req.getParameter("tipo");
+		String tipo= (String) req.getParameter("tipo");
 		String dataInizio= (String) req.getParameter("data");
 		String oraInizio= (String) req.getParameter("oraInizio");
 		String oraFine= (String) req.getParameter("oraFine");
 		String titolo= (String) req.getParameter("titolo");
-		System.out.println(id+tipo+dataInizio+oraInizio+oraFine+titolo);
 		// Definisci il formato per la data e l'ora
 		 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -61,18 +60,25 @@ public class EffettuaRichiesta extends HttpServlet{
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
         String idrichiesta=(String) this.getServletContext().getAttribute("lastIdRichieste");
-        System.out.println(idrichiesta+inizio+fine);
+        System.out.println(idrichiesta);
         Integer idInt=Integer.parseInt(idrichiesta);
         idInt++;
+        System.out.println(idInt);
         //id=Integer.toString(idInt);
         idrichiesta= String.format("%08d", idInt);
+        System.out.println(idrichiesta);
 
         ArrayList<Richiesta> richieste= (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
-        Richiesta r= new Richiesta(id,idrichiesta,tipo,titolo,inizio,fine);
+       
+        Richiesta r;
+        if(tipo.equals("I"))
+        	r = new Richiesta(id,idrichiesta,"I", titolo,inizio,fine);
+        else
+        	r = new Richiesta(id,idrichiesta,"C", titolo,inizio,fine);
         richieste.add(r);
 		
 		// Aggiunta lista società a servlet context
-        this.getServletContext().setAttribute("lastIdRichiesta", idrichiesta);
+        this.getServletContext().setAttribute("lastIdRichieste", idrichiesta);
 		this.getServletContext().setAttribute("Richiesta", richieste);
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-calendario-all.jsp");
 		rd.forward(req, resp);

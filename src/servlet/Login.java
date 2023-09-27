@@ -108,7 +108,7 @@ public class Login extends HttpServlet{
 		LocalDateTime fine = LocalDateTime.of(2023, 11, 18, 20, 0);
 		ArrayList<Richiesta> richieste = new ArrayList<Richiesta>();
 		
-		Richiesta r1= new Richiesta("00000001", "00000001","A","Allenamento", inizio, fine);
+		Richiesta r1= new Richiesta("00000001", "00000001","I","Allenamento", inizio, fine);
 		richieste.add(r1);
 		this.getServletContext().setAttribute("richieste", richieste);
 		
@@ -174,6 +174,7 @@ public class Login extends HttpServlet{
 						if(username.equals(a.getUsername()) && password.equals("allenatore"))
 						{
 							// Accesso Allenatore
+							session.setAttribute("id_allenatore", a.getId());
 							session.setAttribute("allenatore", 1);
 							session.setAttribute("username", a.getUsername());
 							session.setAttribute("arrivederci", 0);
@@ -193,6 +194,7 @@ public class Login extends HttpServlet{
 						if(username.equals(g.getUsername()) && password.equals("giocatore"))
 						{
 							// Accesso Giocatore
+							session.setAttribute("id_giocatore", g.getId());
 							session.setAttribute("giocatore", 1);
 							session.setAttribute("username", g.getUsername());
 							session.setAttribute("arrivederci", 0);

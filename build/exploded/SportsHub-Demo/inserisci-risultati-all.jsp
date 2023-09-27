@@ -59,13 +59,13 @@
 		<div>
 			<h2>Aggiorna risultato</h2>
 			<form action="inserisciRisultato" method="POST">
-		        <label for="id">ID:</label>
+		        <label for="id">ID</label>
 		        <input type="text" id="id" name="id" required><br><br>
 		
-		        <label for="punteggioCasa">Punteggio Casa:</label>
+		        <label for="punteggioCasa">Punteggio Casa</label>
 		        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
 		
-		        <label for="punteggioOspiti">Punteggio Ospiti:</label>
+		        <label for="punteggioOspiti">Punteggio Ospiti</label>
 		        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
 		
 				<button type="submit" class="btn-base">Inserisci</button>

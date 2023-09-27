@@ -53,5 +53,17 @@ public class Calendario {
     	this.impegni.add(a);
     	
     }
+    
+public void rimuoviRichiesta(Richiesta r, String nomeSquadra) {
+    	
+		for(int i = 0; i < impegni.size(); i++)
+		{
+			if(impegni.get(i).getInizio().equals(r.getInizio()))
+		    {
+		    	impegni.remove(i);
+		    }
+		}
+    	
+    }
 
 }
