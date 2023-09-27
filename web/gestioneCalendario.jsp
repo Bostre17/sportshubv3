@@ -241,6 +241,38 @@
     }
 </script>
 
+<br>
+
+<br>
+
+<h3>Inserimento Partite</h3>
+
+   <div class="inserisciPartita">
+    <form action="process.php" method="post">
+        <label for="nomeSquadra">Nome della squadra:</label>
+        <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
+
+        <label for="data">Data della partita:</label>
+        <input type="date" id="data" name="data" required><br><br>
+
+        <label for="oraInizio">Ora di inizio:</label>
+        <input type="time" id="oraInizio" name="oraInizio" required><br><br>
+
+        <label for="oraFine">Ora di fine:</label>
+        <input type="time" id="oraFine" name="oraFine" required><br><br>
+
+        <label for="avversario">Avversario:</label>
+        <input type="text" id="avversario" name="avversario" required><br><br>
+
+        <label for="competizione">Competizione:</label>
+        <input type="text" id="competizione" name="competizione" required><br><br>
+
+        <label for="partitaCasa">Partita in casa:</label>
+        <input type="checkbox" id="partitaCasa" name="partitaCasa"><br><br>
+
+        <button type="submit" name="submit">Invia</button>
+    </form>
+</div>
 
 
 

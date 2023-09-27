@@ -180,3 +180,37 @@ footer {
 .btn-base:hover {
     background-color: grey; /* Cambia il colore al clic */
 }
+
+/* Stile per la form */
+    .inserisciPartita {
+        width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 20px; /* Spazio sopra la form */
+    }
+
+    /* Stile per gli elementi di input e le etichette */
+    .inserisciPartita label,
+    .inserisciPartita input[type="text"] {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 10px;
+    }
+
+    /* Stile per i pulsanti */
+    .inserisciPartita button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Stile per il pulsante "Rifiuta" */
+    .inserisciPartita button[name="rifiutaButton"] {
+        background-color: #f44336;
+    }

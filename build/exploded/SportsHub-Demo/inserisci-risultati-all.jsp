@@ -138,19 +138,22 @@
 			%>
 		</table>
 		<br><br>
-		<h2>Inserisci risultati</h2>
-		<form action="processa_dati.jsp" method="post">
-	        <label for="id">ID:</label>
-	        <input type="text" id="id" name="id" required><br><br>
-	
-	        <label for="punteggioCasa">Punteggio Casa:</label>
-	        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
-	
-	        <label for="punteggioOspiti">Punteggio Ospiti:</label>
-	        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
-	
-	        <input type="submit" value="Inserisci">
-	    </form>
+		<div>
+			<!-- Stampare qualcosa se l'id non è corretto -->
+			<h2>Inserisci risultati</h2>
+			<form action="processa_dati.jsp" method="post">
+		        <label for="id">ID:</label>
+		        <input type="text" id="id" name="id" required><br><br>
+		
+		        <label for="punteggioCasa">Punteggio Casa:</label>
+		        <input type="number" id="punteggioCasa" name="punteggioCasa" required><br><br>
+		
+		        <label for="punteggioOspiti">Punteggio Ospiti:</label>
+		        <input type="number" id="punteggioOspiti" name="punteggioOspiti" required><br><br>
+		
+				<button type="submit" class="btn-base">Inserisci</button>
+		    </form>
+	    </div>
 	</div>
 
     <footer>
