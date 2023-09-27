@@ -156,9 +156,9 @@
 
         // Modifica l'azione del form in base al pulsante cliccato
         if (action === "accetta") {
-            form.action = "aggiungiImpegno"; // Sostituisci con l'URL della servlet "Accetta"
+            form.action = "accettaRichiesta"; // Sostituisci con l'URL della servlet "Accetta"
         } else if (action === "rifiuta") {
-            form.action = "eliminaImpegno"; // Sostituisci con l'URL della servlet "Rifiuta"
+            form.action = "eliminaRichiesta"; // Sostituisci con l'URL della servlet "Rifiuta"
         }
 
         // Invia il modulo

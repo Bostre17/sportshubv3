@@ -63,14 +63,18 @@ public class AccettaRichiesta  extends HttpServlet{
 				for(Squadra sq: s.getSquadre())
 				{
 					if(sq.esisteAllenatore(r.getIdAllenatore()))
+					{
 						sq.getCalendario().aggiungiRichiesta(r, sq.getNome());
+						richieste.remove(r);
+						break;
+					}
 				}
 			}
 				
 		}
-		
+		this.getServletContext().setAttribute("richieste", richieste);
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/calendario.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
 		rd.forward(req, resp);
 		return;
 		
