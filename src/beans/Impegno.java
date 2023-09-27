@@ -7,8 +7,9 @@ public abstract class Impegno {
     private String nomeSquadra;
     private LocalDateTime inizio;
     private LocalDateTime fine;
+    private String tipo;
 
-    public Impegno(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine) {
+    public Impegno(String tipo,String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine) {
         this.idImpegno = idImpegno;
         this.nomeSquadra = nomeSquadra;
         this.inizio = inizio;
