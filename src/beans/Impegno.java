@@ -14,6 +14,7 @@ public abstract class Impegno {
         this.nomeSquadra = nomeSquadra;
         this.inizio = inizio;
         this.fine = fine;
+        this.tipo=tipo;
     }
     
     public String getIdImpegno() {
@@ -40,6 +41,15 @@ public abstract class Impegno {
     public void setFine(LocalDateTime fine) {
         this.fine = fine;
     }
+
+    
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	@Override
 	public String toString() {

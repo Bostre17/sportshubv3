@@ -18,7 +18,7 @@ public class Partita extends Impegno {
     
 
     public Partita(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine, String avversario, String competizione, boolean partita_casa) {
-        super(idImpegno, nomeSquadra, inizio, fine);
+        super("P",idImpegno, nomeSquadra, inizio, fine);
         this.partita_casa = partita_casa;
         this.avversario = avversario;
         this.competizione = competizione;

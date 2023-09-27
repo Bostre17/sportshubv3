@@ -12,7 +12,7 @@ public class Allenamento extends Impegno{
 	
     public Allenamento(String idImpegno, String nomeSquadra, LocalDateTime inizio, LocalDateTime fine, 
             String titolo, String idRichedente) {
-        super(idImpegno, nomeSquadra, inizio, fine);
+        super("A",idImpegno, nomeSquadra, inizio, fine);
         
         this.titolo = titolo;
         this.idRichedente = idRichedente;
