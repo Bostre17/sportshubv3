@@ -25,7 +25,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <img src="images/SportsHub.png" class="center">
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
