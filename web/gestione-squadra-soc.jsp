@@ -163,7 +163,7 @@
 		<h3>Rimozione Giocatore</h3>
 		<div class="RimuoviGiocatore">
 			<form action="RimuoviGiocatore" method="post">
-				<label for="id">ID: </label> <input type="text" id="id" name="id"
+				<label for="id">ID</label> <input type="text" id="id" name="id"
 					required><br> <br>
 
 				<button type="submit" class="btn-base" name="submit">Invia</button>
