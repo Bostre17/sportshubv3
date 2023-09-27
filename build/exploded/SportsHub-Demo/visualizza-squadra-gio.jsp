@@ -34,7 +34,7 @@
                     <select id="dropdown-menu">
                         <option value="visualizza-squadra-gio.jsp">Visualizza squadra</option>
                         <option value="home-gio.jsp">Homepage</option>
-                        <option value="inserisci-risultati-gio.jsp">Inserisci risultati</option>
+                        <option value="visualizza-risultati-gio.jsp">Inserisci risultati</option>
                         <option value="gestione-calendario-gio.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
