@@ -50,14 +50,31 @@
 					if (selectedValue !== "#") {
 						window.location.href = selectedValue;
 					}
-				});
+
+		});
 	</script>
 
+	<%
+	String nome_allenatore = (String)session.getAttribute("nome_allenatore");
+	String nome_societa = (String)session.getAttribute("nome_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
+		%>
 	<div class="content-container">
-        <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
-    </div>
+		<p style="font-size: 20px; font-weight: bold;">
+			Benvenuto,
+			<%=nome_allenatore%>!
+		</p>
+		<p style="font-size: 16px;">
+			Sei nella società
+			<%=nome_societa%>
+			e la tua squadra è
+			<%=nome_squadra%>.
+		</p>
+		<p style="font-size: 16px;">Per accedere alle funzionalità aprire
+			il menù a tendina in alto.</p>
+	</div>
 
-    <footer>
+	<footer>
         <div class="footer-container">
         	<form action="logout" method="POST">
     			<button type="submit" class="btn-logout">Logout</button>

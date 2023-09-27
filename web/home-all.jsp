@@ -50,46 +50,31 @@
 					if (selectedValue !== "#") {
 						window.location.href = selectedValue;
 					}
-				});
+
+		});
 	</script>
 
-	<div class="content-container">
-		<p style="font-size:20px; font-weight: bold;"> Benvenuto, <%
-			String input = (String)session.getAttribute("username");
-			String[] username = input.split("\\.");
-			ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
-			String nome_societa;
-			String nome_allenatore;
-			String nome_squadra;
-			
-			for(Societa so : listSocieta)
-			{
-				if(so.getUsername().equals(username[3]))
-				{
-					nome_societa = so.getNome();
-					for(Squadra sq : so.getSquadre())
-					{
-						if(sq.getNome().equals(username[2]))
-						{
-							nome_squadra = sq.getNome();
-							for(Allenatore a : sq.getAllenatori())
-							{
-								if(a.getUsername().equals(input))
-								{
-									nome_allenatore = a.getNome();
-								}
-							}
-						}
-					}
-				}
-			}
+	<%
+	String nome_allenatore = (String)session.getAttribute("nome_allenatore");
+	String nome_societa = (String)session.getAttribute("nome_societa");
+	String nome_squadra = (String)session.getAttribute("nome_squadra");
 		%>
-		<%=nome_allenatore %>!</p>
-		<p style="font-size:16px;"> Sei nella società <%= nome_societa %> e la tua squadra è <%=nome_squadra %>.</p>
-        <p style="font-size:16px;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
-    </div>
+	<div class="content-container">
+		<p style="font-size: 20px; font-weight: bold;">
+			Benvenuto,
+			<%=nome_allenatore%>!
+		</p>
+		<p style="font-size: 16px;">
+			Sei nella società
+			<%=nome_societa%>
+			e la tua squadra è
+			<%=nome_squadra%>.
+		</p>
+		<p style="font-size: 16px;">Per accedere alle funzionalità aprire
+			il menù a tendina in alto.</p>
+	</div>
 
-    <footer>
+	<footer>
         <div class="footer-container">
         	<form action="logout" method="POST">
     			<button type="submit" class="btn-logout">Logout</button>
