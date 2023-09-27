@@ -119,7 +119,7 @@ public class Login extends HttpServlet{
 				// Accesso Società
 				session.setAttribute("societa", 1);
 				//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-societa.jsp");
+				RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-soc.jsp");
 				rd.forward(req, resp);
 				return;
 			}
@@ -145,7 +145,7 @@ public class Login extends HttpServlet{
 							session.setAttribute("allenatore", 1);
 							session.setAttribute("username", a.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-allenatore.jsp");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-all.jsp");
 							rd.forward(req, resp);
 							return;
 						}
@@ -158,7 +158,7 @@ public class Login extends HttpServlet{
 							session.setAttribute("giocatore", 1);
 							session.setAttribute("username", g.getUsername());
 							//Log.writeLog("admin", LocalDateTime.now(), "LogIn Admin");
-							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-giocatore.jsp");
+							RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-gio.jsp");
 							rd.forward(req, resp);
 							return;
 						}

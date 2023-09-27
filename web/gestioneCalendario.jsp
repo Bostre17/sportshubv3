@@ -29,11 +29,14 @@ dio cane
 	
 	for(Societa s: listSocieta )
 	{
-		if(s.getNome().equals(username))
+		%>
+		<%=s.getNome() %>
+		<%
+		if(s.getUsername().equals(username))
 		{
 			for(Squadra sq: s.getSquadre())
 			{
-				for(Impegno i: sq.getCalendario().getImpegniSquadra())
+				for(Impegno i: sq.getCalendario().getImpegni())
 				{
 					%>
 					<%=i.toString() %>
