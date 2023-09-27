@@ -37,7 +37,6 @@
                         <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
                         <option value="gestione-calendario-all.jsp">Gestione calendario</option>
-                        <option value="logout.jsp">Logout</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -49,25 +48,7 @@
 		document.getElementById("dropdown-menu").addEventListener("change",
 				function() {
 					var selectedValue = this.value;
-					if(selectedValue == "logout.jsp")
-					{
-						fetch('logout', {
-					        method: 'POST', // Puoi utilizzare 'POST' al posto di 'GET' se necessario
-					        // Puoi aggiungere altre opzioni come intestazioni (headers) o dati (body) qui
-					    })
-					    .then(function(response) {
-					        if (response.ok) {
-					            // La richiesta alla servlet ha avuto successo
-					            // Puoi gestire la risposta qui, se necessario
-					        } else {
-					            throw new Error('Errore nella richiesta alla servlet');
-					        }
-					    })
-					    .catch(function(error) {
-					        console.error(error);
-					    });
-					}
-					else if (selectedValue !== "#") {
+					if (selectedValue !== "#") {
 						window.location.href = selectedValue;
 					}
 				});
@@ -80,8 +61,12 @@
 
     <footer>
         <div class="footer-container">
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
             <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
+            
         </div>
     </footer>
 
