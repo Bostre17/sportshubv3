@@ -24,7 +24,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Homepage Allenatore</h1>
+                <h1 class="logo">Homepage</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -54,7 +54,6 @@
 	</script>
 
 	<div class="content-container">
-        <img src="images/SportsHub.png" class="center">
         <p style="font-size:16px; font-weight: bold;">Per accedere alle funzionalità aprire il menù a tendina in alto.</p>
     </div>
 

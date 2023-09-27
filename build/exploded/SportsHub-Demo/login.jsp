@@ -23,7 +23,7 @@
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">SportsHub</h1>
+                <h1 class="logo">Login</h1>
             </div>
             
         </div>
@@ -50,7 +50,8 @@
 		else
 		{
 %>
-        <p style="font-size:16px;">La tua piattaforma di gestione per squadre di basket.</p>
+        <img src="images/SportsHub.png" class="center">
+        <h1 style="font-size:16px;">La tua piattaforma di gestione per squadre di basket.</h1>
 <%
 		}
 %>
