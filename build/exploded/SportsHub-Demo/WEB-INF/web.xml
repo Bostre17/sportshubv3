@@ -72,7 +72,22 @@
 		<servlet-name>AggiungiPartita</servlet-name>
 		<url-pattern>/aggiungiPartita</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>
+		<servlet-name>aggiungiGiocatore</servlet-name>
+		<servlet-class>servlet.aggiungiGiocatore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aggiungiGiocatore</servlet-name>
+		<url-pattern>/aggiungiGiocatore</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RimuoviGiocatore</servlet-name>
+		<servlet-class>servlet.RimuoviGiocatore</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RimuoviGiocatore</servlet-name>
+		<url-pattern>/RimuoviGiocatore</url-pattern>
+	</servlet-mapping>
 	
 	
 	<servlet>

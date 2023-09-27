@@ -33,9 +33,8 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
-                        <option value="gestione-squadra-soc.jsp" data-url="gestione-squadra-soc.jsp">Gestione squadra</option>
-                        <option value="home-soc.jsp">Homepage</option>
-                        <option value="gestione-calendario-soc.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
+                        <option value="visualizzaRis.jsp" data-url="visualizzaRis.jsp">Visualizza risultati</option>
+                        <option value="gestioneCalendario.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -133,7 +132,7 @@
 		}
 	}
         %>
-	
+	<div>
 	<h3>Inserimento Giocatore</h3>
 
    <div class="aggiungiGiocatore">
@@ -167,16 +166,6 @@
         <button type="submit" name="submit">Invia</button>
     </form>
     </div>
-    <h3>Inserimento Squadra</h3>
-
-   <div class="aggiungiSquadra">
-    <form action="aggiungiSquadra" method="post">
-        <label for="nomeSquadra">Nome della squadra:</label>
-        <input type="text" id="nomeSquadra" name="nomeSquadra" required><br><br>
-         <label for="nomeSquadra">Id</label>
-        <input type="text" id="id" name="id" required><br><br>
-		<button type="submit" name="submit">Invia</button>
-    </form>
 
     <footer>
         <div class="footer-container">

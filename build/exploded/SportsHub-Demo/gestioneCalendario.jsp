@@ -268,7 +268,11 @@
         <input type="text" id="competizione" name="competizione" required><br><br>
 
         <label for="partitaCasa">Partita in casa:</label>
+<<<<<<< HEAD
+        <input type="text" id="partitaCasa" name="partitaCasa"><br><br>
+=======
         <input type="text" id="casa" name="casa"><br><br>
+>>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git
 
         <button type="submit" name="submit">Invia</button>
     </form>
