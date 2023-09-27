@@ -32,11 +32,9 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menù</option>
-                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
-                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
-                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
-                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
+                        <option value="gestione-calendario-soc.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
+                        <option value="home-soc.jsp">Homepage</option>
+                        <option value="gestione-squadra-soc.jsp" data-url="gestione-squadra-soc.jsp">Gestione squadra</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
