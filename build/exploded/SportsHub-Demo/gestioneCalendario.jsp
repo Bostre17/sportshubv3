@@ -137,7 +137,7 @@
 </div>
 
 
-<h1>Form con Input e Bottoni</h1>
+<h4>Accetta o rifiuta richieste</h4>
     
     <div class="custom-form">
         <form action="process.php" method="post">

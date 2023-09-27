@@ -55,6 +55,7 @@ public class AggiungiImpegno  extends HttpServlet{
         String oraInizio=req.getParameter("oInizio");
         String oraFine=req.getParameter("oFine");
         String tipo=req.getParameter("tipo");
+        Integer isCasa=Integer.parseInt(req.getParameter("isCasa"));
 
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
@@ -72,7 +73,11 @@ public class AggiungiImpegno  extends HttpServlet{
         if(tipo.compareTo("P")==0){
         	String avversario=req.getParameter("avversario");
         	String competizione=req.getParameter("competizione");
-            x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione);
+        	if(isCasa == 1)
+        		x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione, true);
+        	else
+        		x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione, false);
+        		
             
         }else{//facciamo che se parte da richiesta apre il form già fillato
             String tipologia=req.getParameter("tipologia");
