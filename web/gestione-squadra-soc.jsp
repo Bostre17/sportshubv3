@@ -155,7 +155,9 @@
 
         <button type="submit" name="submit">Invia</button>
     </form>
+ 
     </div>
+    <h3>Rimozione Giocatore</h3>
     <div class="RimuoviGiocatore">
     <form action="RimuoviGiocatore" method="post">
     	<label for="id">id</label>
