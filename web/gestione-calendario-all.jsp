@@ -127,9 +127,73 @@
 				}
 				}
 				}
+				
 				%>
+				
 			</table>
-		</div>
+			<h2>
+				Richieste effettuate
+			</h2>
+			<br>
+			<table>
+				<tr>
+					<td><b>ID</b></td>
+					<td><b>Tipo</b></td>
+					<td><b>Inizio</b></td>
+					<td><b>Fine</b></td>
+					<td><b>idAllenatore</b></td>
+					<td><b>Titolo</b></td>
+
+				</tr>
+			<%	
+				String idall=null;
+				for(Societa s: listSocieta){
+					for(Squadra sq:s.getSquadre()){
+						for(Allenatore a:sq.getAllenatori()){
+							if(a.getUsername().equals(username)) idall=a.getId();
+						}
+					}
+				}
+			
+				ArrayList<Richiesta> richieste= (ArrayList<Richiesta>) this.getServletContext().getAttribute("richieste");
+				for(Richiesta r:richieste){
+					if(r.getIdAllenatore().equals(idall)){
+						%>
+						<tr>
+						<td><%=r.getId() %></td>
+						<td><%=r.getTipo() %> </td>
+						<td><%=r.getInizio() %></td>
+						<td><%=r.getFine() %></td>
+						<td><%=r.getIdAllenatore() %></td>
+						<td><%=r.getTitolo() %></td>
+					</tr>
+					<% 
+					}
+					
+				}
+	
+			%>
+			</table>
+			</div>
+			
+			<h3>Effettua una richiesta</h3>
+    		<div class="EffettuaRichiesta">
+    		<form action="EffettuaRichiesta" method="post">
+       		<label for="id">Tipo</label>
+       		<input type="text" id="tipo" name="tipo" required><br><br>
+       		 <label for="data">Data della partita:</label>
+        	<input type="text" id="data" name="data" required><br><br>
+
+        	<label for="oraInizio">Ora di inizio:</label>
+        	<input type="text" id="oraInizio" name="oraInizio" required><br><br>
+
+        	<label for="oraFine">Ora di fine:</label>
+        	<input type="text" id="oraFine" name="oraFine" required><br><br>
+        	<label for="id">Titolo</label>
+       		<input type="text" id="titolo" name="titolo" required><br><br>
+        	<button type="submit" name="submit">Invia</button>
+    		</form>
+    		</div>
 
 
 
