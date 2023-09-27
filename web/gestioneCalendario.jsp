@@ -272,6 +272,7 @@
 
         <button type="submit" name="submit">Invia</button>
     </form>
+    
 </div>
 
 <h3>Elimina impegno</h3>

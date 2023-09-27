@@ -32,37 +32,31 @@ public class RimuoviGiocatore extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		System.out.println("pavel");
 		HttpSession session = req.getSession();
 		//recupero l'id della società dalla sessione par capire a quale società appartiene la squadra a cui devo aggiungere un giocatore
-		String idSocietà = (String) session.getAttribute("idSoc");
-		
-		//recupero l'id della squadra
-		String idSquadra= (String) session.getAttribute("idSquadra");
-		
-		//id del giocatore da eliminare
-		String idGiocatore= (String) session.getAttribute("idGiocaore");
+		String idSocietà = (String) session.getAttribute("username_societa");
+		System.out.println("pavel");
+		String id=req.getParameter("id");//nome
+		System.out.println(id);
 		
 		
 		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
 		
 		for (Societa s: listSocieta)
 		{
-			if(s.getId().equals(idSocietà))
+			if(s.getUsername().equals(idSocietà))
 			{
 				for(Squadra sq: s.getSquadre())
 				{
-					if(sq.getId().equals(idSquadra))
-					{
 					    for(Giocatore g: sq.getGiocatori())
 					    {
-					    	if(g.getId().equals(idGiocatore))
+					    	if(g.getId().equals(id))
 					    	{
 					    		sq.eliminaGiocatore(g);
 					    		break;
 					    	}
 					    }
-					}
 				}
 				break;
 			}
@@ -71,7 +65,7 @@ public class RimuoviGiocatore extends HttpServlet{
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
 		
 		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/home-società.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-squadra-soc.jsp");
 		rd.forward(req, resp);
 		return;
 		

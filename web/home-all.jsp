@@ -35,7 +35,7 @@
                         <option value="home-all.jsp">Homepage</option>
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
-                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
+                        <option value="gestione-calendario-all.jsp">Gestione impegni</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>

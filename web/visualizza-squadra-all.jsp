@@ -32,10 +32,10 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="visualizza-squadra-gio.jsp">Visualizza squadra</option>
-                        <option value="home-gio.jsp">Homepage</option>
-                        <option value="visualizza-risultati-gio.jsp">Visualizza risultati</option>
-                        <option value="visualizza-calendario-all.jsp">Visualizza impegni</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
+                        <option value="home-all.jsp">Homepage</option>
+                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="gestione-calendario-all.jsp">Gestione impegni</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -56,8 +56,8 @@
 	<div class="content-container">
 
 		<%
-		String nome_giocatore = (String) session.getAttribute("nome_giocatore");
-		String cognome_giocatore = (String) session.getAttribute("cognome_giocatore");
+		String nome_allenatore = (String) session.getAttribute("nome_allenatore");
+		String cognome_allenatore = (String) session.getAttribute("cognome_allenatore");
 		String username_societa = (String) session.getAttribute("username_societa");
 		String nome_squadra = (String) session.getAttribute("nome_squadra");
 
