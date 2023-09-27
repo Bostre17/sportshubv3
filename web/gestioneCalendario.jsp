@@ -142,7 +142,7 @@
     <div class="custom-form">
         <form action="process.php" method="post">
             <label for="inputText">Inserisci Id richiesta:</label>
-            <input type="text" id="inputText" name="inputText" required>
+            <input type="text" id="idRichiesta" name="idRichiesta" required>
             
             <button type="submit" name="accettaButton">Accetta</button>
             <button type="submit" name="rifiutaButton">Rifiuta</button>
