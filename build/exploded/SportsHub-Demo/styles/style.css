@@ -95,7 +95,6 @@ footer {
   width: 50%;
 }
 
-<<<<<<< HEAD
 /* Stile per la form all'interno della classe "custom-form" */
 .custom-form form {
     width: 300px;
@@ -144,8 +143,6 @@ footer {
 
 /* Regole di stile per la classe "center" rimangono inalterate */
 
-
-=======
 .btn-logout {
     background-color: #333;
     color: white;
@@ -175,4 +172,3 @@ footer {
 .btn-login:active {
     background-color: darkgray; /* Cambia il colore al clic */
 }
->>>>>>> branch 'main' of https://github.com/Bostre17/sportshubv3.git

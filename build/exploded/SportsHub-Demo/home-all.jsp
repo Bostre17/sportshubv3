@@ -17,7 +17,7 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home Allenatore</title>
+    <title>Homepage Allenatore</title>
 </head>
 <body>
     <header>
@@ -32,7 +32,7 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menù</option>
+                        <option value="home-all.jsp">Homepage</option>
                         <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
                         <option value="gestione-calendario-all.jsp">Gestione calendario</option>

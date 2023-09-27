@@ -18,14 +18,14 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>SportsHub</title>
+    <title>Visualizza e inserisci risultati</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <h1 class="logo">Visualizza ed inserisci risultati</h1>
+                <h1 class="logo">SportsHub</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -33,9 +33,9 @@
                 <!-- Menu a tendina a sinistra -->
                 <nav class="menu">
                     <select id="dropdown-menu">
-                        <option value="#">Menù</option>
-                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
+                        <option value="home-all.jsp">Homepage</option>
+                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
                         <option value="gestione-calendario-all.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
