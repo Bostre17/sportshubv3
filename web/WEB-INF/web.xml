@@ -106,6 +106,14 @@
 		<servlet-name>EliminaImpegno</servlet-name>
 		<url-pattern>/eliminaImpegno</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>EffettuaRichiesta</servlet-name>
+		<servlet-class>servlet.EffettuaRichiesta</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EffettuaRichiesta</servlet-name>
+		<url-pattern>/EffettuaRichiesta</url-pattern>
+	</servlet-mapping>
 	
 	<!-- Welcome pages -->
 	<!-- pleonastico: tomcat "tenta" in automatico le index.html e index.jsp -->

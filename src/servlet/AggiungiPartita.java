@@ -66,21 +66,28 @@ public class AggiungiPartita extends HttpServlet{
         // Combina la data e l'ora in un oggetto LocalDateTime
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
+        String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
+        Integer idInt=Integer.parseInt(id);
+        idInt++;
+        //id=Integer.toString(idInt);
+        id= String.format("%08d", idInt);
+
+        this.getServletContext().setAttribute("lastIdImpegno", id);
         
-		Partita p = new Partita("11111111", nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
+		Partita p = new Partita(id, nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
 		
 		for(Societa s: listSocieta)
 		{
-			System.out.println("primo ciclo");
+			//System.out.println("primo ciclo");
 			if(s.getUsername().equals(username))
 			{
-				System.out.println("trovata la società");
+				//System.out.println("trovata la società");
 				for(Squadra sq:s.getSquadre())
 				{
-					System.out.println("secondo ciclo");
+					//System.out.println("secondo ciclo");
 					if(sq.getNome().equalsIgnoreCase(nomeSquadra))
 					{
-						System.out.println("DAJE------------------------------------------");
+						//System.out.println("DAJE------------------------------------------");
 						sq.getCalendario().addImpegno(p);
 						break;
 					}
@@ -90,7 +97,7 @@ public class AggiungiPartita extends HttpServlet{
 		
 		// Aggiunta lista società a servlet context
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-calendario-soc.jsp");
 		rd.forward(req, resp);
 		return;
 		

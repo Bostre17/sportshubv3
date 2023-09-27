@@ -56,6 +56,14 @@ public class AccettaRichiesta  extends HttpServlet{
 				break;
 			}
         
+		String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
+        Integer idInt=Integer.parseInt(id);
+        idInt++;
+        id = String.format("%08d", idInt);
+        //id=Integer.toString(idInt);
+        
+        this.getServletContext().setAttribute("lastIdImpegno", id);
+		
 		for(Societa s: listSocieta)
 		{
 			if(s.getUsername().equals(username))
@@ -64,7 +72,7 @@ public class AccettaRichiesta  extends HttpServlet{
 				{
 					if(sq.esisteAllenatore(r.getIdAllenatore()))
 					{
-						sq.getCalendario().aggiungiRichiesta(r, sq.getNome());
+						sq.getCalendario().aggiungiRichiesta(r, sq.getNome(),id);
 						richieste.remove(r);
 						break;
 					}
@@ -74,77 +82,9 @@ public class AccettaRichiesta  extends HttpServlet{
 		}
 		this.getServletContext().setAttribute("richieste", richieste);
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-calendario-soc.jsp");
 		rd.forward(req, resp);
 		return;
-		
-		
-      /*  
-		boolean res=true;
-		ArrayList<Societa> listSocieta = (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
-        String idImpegno=req.getParameter("id");
-        String nomeSquadra=req.getParameter("nomeSq");
-        String dataInizio=req.getParameter("dInizio");
-        String dataFine=req.getParameter("dFine");
-        String oraInizio=req.getParameter("oInizio");
-        String oraFine=req.getParameter("oFine");
-        String tipo=req.getParameter("tipo");
-        Integer isCasa=Integer.parseInt(req.getParameter("isCasa"));
-
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-
-        // Effettuare il parsing della data e dell'ora dalla stringa
-        LocalDateTime dateI = LocalDateTime.parse(dataInizio, dateFormatter);
-        LocalDateTime timeI = LocalDateTime.parse(oraInizio, timeFormatter);
-        LocalDateTime dateF = LocalDateTime.parse(dataFine, dateFormatter);
-        LocalDateTime timeF = LocalDateTime.parse(oraFine, timeFormatter);
-
-        // Combinare la data e l'ora per creare un oggetto LocalDateTime
-        LocalDateTime dateTimeI = dateI.withHour(timeI.getHour()).withMinute(timeI.getMinute());
-        LocalDateTime dateTimeF = dateF.withHour(timeF.getHour()).withMinute(timeF.getMinute());
-        Impegno x;
-        if(tipo.compareTo("P")==0){
-        	String avversario=req.getParameter("avversario");
-        	String competizione=req.getParameter("competizione");
-        	if(isCasa == 1)
-        		x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione, true);
-        	else
-        		x=new Partita(idImpegno,nomeSquadra,dateTimeI,dateTimeF,avversario,competizione, false);
-        		
-            
-        }else{//facciamo che se parte da richiesta apre il form già fillato
-            String tipologia=req.getParameter("tipologia");
-            String titolo=req.getParameter("titolo");
-            String idRichiedente=req.getParameter("idRic");
-            x=new Allenamento(idImpegno,nomeSquadra,dateTimeI,dateTimeF,tipologia,titolo,idRichiedente);
-        }
-
-		for (Societa s: listSocieta)//non c'è la parte di squadra che un impegno si aggiunge alla società totale così che se ne rendano tutti conto
-		{
-            if(s.getId().compareTo(idSoc)==0) {
-                for(Squadra sq: s.getSquadre()) 
-                {
-                	if(sq.getNome().equals(nomeSquadra))
-                		sq.getCalendario().addImpegno(x);
-                }
-            }
-			
-		}
-		//per capire poi una volta tornato sulla jsp se l'inserimento è anadto a buon fine
-		session.setAttribute("result", res);
-		
-		//lo risalvo sul contesto dopo che ho aggiunto il giocatore
-		if(res==true){
-			this.getServletContext().setAttribute("listSocieta", listSocieta);
-        }
-		
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/calendario.jsp");
-		rd.forward(req, resp);
-		return;
-		
-		
-		*/
 	}
 	
 

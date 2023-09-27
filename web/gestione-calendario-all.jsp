@@ -179,7 +179,9 @@
 			<h3>Effettua una richiesta</h3>
     		<div class="EffettuaRichiesta">
     		<form action="EffettuaRichiesta" method="post">
-       		<label for="id">Tipo</label>
+    		<label for="id">id</label>
+       		<input type="text" id="id" name="id" value=<%=idall %> required><br><br>
+       		<label for="tipo">Tipo</label>
        		<input type="text" id="tipo" name="tipo" required><br><br>
        		 <label for="data">Data della partita:</label>
         	<input type="text" id="data" name="data" required><br><br>
