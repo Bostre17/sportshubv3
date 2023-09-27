@@ -280,7 +280,7 @@
 <h2>Elimina impegno</h2>
     <div class="custom-form">
     <form action="eliminaImpegno" method="post">
-        <label for="inputText">Inserisci ID impegno</label>
+        <label for="inputText">ID impegno</label>
         <input type="text" id="idImpegno" name="idImpegno" required>
         <button type="submit" name="elimina" class="btn-base">Elimina</button>
     </form>

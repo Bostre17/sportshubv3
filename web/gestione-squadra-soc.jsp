@@ -143,8 +143,7 @@
 
 		<div class="aggiungiGiocatore">
 			<form action="aggiungiGiocatore" method="post">
-				<label for="id">ID</label> <input type="text" id="id" name="id"
-					required><br> <br> <label for="nomeSquadra">Nome squadra</label>
+			<label for="nomeSquadra">Nome squadra</label>
 				<input type="text" id="nomeSquadra" name="nomeSquadra" required><br>
 				<br> <label for="username">Username</label> <input type="text"
 					id="username" name="username" required><br> <br>
