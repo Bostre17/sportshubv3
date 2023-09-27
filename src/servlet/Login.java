@@ -37,24 +37,37 @@ public class Login extends HttpServlet{
 	public void init(ServletConfig conf)throws ServletException{
 		super.init(conf);
 		g = new Gson();
+		String lastIdSocieta="00000001";
+		String lastIdSquadra="00000001";
+		String lastIdGiocatore="00000003";
+		String lastIdAllenatore="00000001";
+		String lastIdImpegno="00000003";
+		String lastIdRichieste="00000001";
 		
+		this.getServletContext().setAttribute("lastIdSocieta", lastIdSocieta);
+		this.getServletContext().setAttribute("lastIdSquadra", lastIdSquadra);
+		this.getServletContext().setAttribute("lastIdGiocatore", lastIdGiocatore);
+		this.getServletContext().setAttribute("lastIdAllenatore", lastIdAllenatore);
+		this.getServletContext().setAttribute("lastIdImpegno", lastIdImpegno);
+		this.getServletContext().setAttribute("lastIdRichieste", lastIdRichieste);
+		 
 		
 	// Creazione e aggiunta attori alla servlet
 		ArrayList<Societa> listSocieta = new ArrayList<Societa>();
 		
 		// Societa
-		Societa societa1 = new Societa("dukes", "00000000","Dukes Sansepolcro");
+		Societa societa1 = new Societa("dukes", "00000001","Dukes Sansepolcro");
 		
 		// Squadra
-		Squadra squadra1 = new Squadra("Pulcini", "00000000");
+		Squadra squadra1 = new Squadra("Pulcini", "00000001");
 		
 		// Allenatore
-		Allenatore allenatore1 = new Allenatore("lebron.james.pulcini.dukes", "00000000", "Lebron", "James");
+		Allenatore allenatore1 = new Allenatore("lebron.james.pulcini.dukes", "00000001", "Lebron", "James");
 	
 		// Giocatore
-		Giocatore giocatore1 = new Giocatore("lorenzo.severini.pulcini.dukes", "00000000","Lorenzo", "Severini", 195);
-		Giocatore giocatore2 = new Giocatore("leonardo.gennaioli.pulcini.dukes", "00000001","Leonardo", "Gennaioli", 180);
-		Giocatore giocatore3 = new Giocatore("matteo.bostrenghi.pulcini.dukes", "00000002","Matteo", "Bostrenghi", 180);
+		Giocatore giocatore1 = new Giocatore("lorenzo.severini.pulcini.dukes", "00000001","Lorenzo", "Severini", 195);
+		Giocatore giocatore2 = new Giocatore("leonardo.gennaioli.pulcini.dukes", "00000002","Leonardo", "Gennaioli", 180);
+		Giocatore giocatore3 = new Giocatore("matteo.bostrenghi.pulcini.dukes", "00000003","Matteo", "Bostrenghi", 180);
 
 		// Aggiunta allenatori e giocatori a squadra
 		squadra1.aggiungiAllenatore(allenatore1);
@@ -66,19 +79,19 @@ public class Login extends HttpServlet{
 		//creazione impegni
 		LocalDateTime inizioPartita1 = LocalDateTime.of(2023, 9, 26, 18, 0);
 		LocalDateTime finePartita1 = LocalDateTime.of(2023, 9, 26, 20, 0);
-		Partita p1= new Partita("00000000", "Pulcini", inizioPartita1, finePartita1, "Orlando Tragic", "CUSB", true);
+		Partita p1= new Partita("00000001", "Pulcini", inizioPartita1, finePartita1, "Orlando Tragic", "CUSB", true);
 		p1.setPunteggioCasa(91);
 		p1.setPunteggioOspiti(90);
 		
 		LocalDateTime inizioPartita2 = LocalDateTime.of(2023, 9, 20, 18, 0);
 		LocalDateTime finePartita2 = LocalDateTime.of(2023, 9, 20, 20, 0);
-		Partita p2= new Partita("00000001", "Pulcini", inizioPartita2, finePartita2, "Lakers", "CUSB", false);
+		Partita p2= new Partita("00000002", "Pulcini", inizioPartita2, finePartita2, "Lakers", "CUSB", false);
 		p2.setPunteggioCasa(50);
 		p2.setPunteggioOspiti(130);
 		
 		LocalDateTime inizioPartita3 = LocalDateTime.of(2023, 9, 30, 18, 0);
 		LocalDateTime finePartita3 = LocalDateTime.of(2023, 9, 30, 20, 0);
-		Partita p3= new Partita("00000002", "Pulcini", inizioPartita3, finePartita3, "Miami Heets", "CUSB", false);
+		Partita p3= new Partita("00000003", "Pulcini", inizioPartita3, finePartita3, "Miami Heets", "CUSB", false);
 		
 		
 		squadra1.getCalendario().addImpegno(p1);
@@ -95,7 +108,7 @@ public class Login extends HttpServlet{
 		LocalDateTime fine = LocalDateTime.of(2023, 11, 18, 20, 0);
 		ArrayList<Richiesta> richieste = new ArrayList<Richiesta>();
 		
-		Richiesta r1= new Richiesta("00000000", "00000000","A","Allenamento", inizio, fine);
+		Richiesta r1= new Richiesta("00000001", "00000001","A","Allenamento", inizio, fine);
 		richieste.add(r1);
 		this.getServletContext().setAttribute("richieste", richieste);
 		

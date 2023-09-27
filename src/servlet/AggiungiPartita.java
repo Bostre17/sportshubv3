@@ -66,12 +66,18 @@ public class AggiungiPartita extends HttpServlet{
         // Combina la data e l'ora in un oggetto LocalDateTime
         LocalDateTime inizio = date.with(time.toLocalTime());
         LocalDateTime fine = date.with(time2.toLocalTime());
+        String id=(String) this.getServletContext().getAttribute("lastIdImpegno");
+        Integer idInt=Integer.parseInt(id);
+        idInt++;
+        id=Integer.toString(idInt);
         
-		Partita p = new Partita("11111111", nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
+        this.getServletContext().setAttribute("lastIdImpegno", id);
+        
+		Partita p = new Partita(id, nomeSquadra, inizio, fine, avversario, competizione, partita_casa);
 		
 		for(Societa s: listSocieta)
 		{
-			System.out.println("primo ciclo");
+			//System.out.println("primo ciclo");
 			if(s.getUsername().equals(username))
 			{
 				System.out.println("trovata la società");
