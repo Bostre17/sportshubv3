@@ -87,7 +87,6 @@
 			%>
 	    </div>
 	    
-		<br><br>
 		<%
 		String username_societa = (String) session.getAttribute("username_societa");
 		String nome_squadra = (String) session.getAttribute("nome_squadra");
