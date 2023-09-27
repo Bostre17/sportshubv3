@@ -53,7 +53,7 @@ public class EliminaRichiesta  extends HttpServlet{
         richieste.remove(r);
         this.getServletContext().setAttribute("richieste", richieste);
         
-        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-calendario-soc.jsp");
 		rd.forward(req, resp);
 		return;
         

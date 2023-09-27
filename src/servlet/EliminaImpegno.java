@@ -55,7 +55,7 @@ public class EliminaImpegno extends HttpServlet{
 			}
 		}
 		this.getServletContext().setAttribute("listSocieta", listSocieta);
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestioneCalendario.jsp");
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/gestione-calendario-soc.jsp");
 		rd.forward(req, resp);
 		return;
 		
