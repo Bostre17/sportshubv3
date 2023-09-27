@@ -17,14 +17,14 @@
     
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-    <title>Home Allenatore</title>
+    <title>Visualizza squadra</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <!-- Container per la scritta "SportsHub" al centro -->
             <div class="logo-container">
-                <img src="images/SportsHub.png" class="center">
+                <h1 class="logo">SportsHub</h1>
             </div>
             
             <!-- Container per il menu a tendina a sinistra -->
@@ -33,10 +33,8 @@
                 <nav class="menu">
                     <select id="dropdown-menu">
                         <option value="#">Menù</option>
-                        <option value="visualizza-squadra-all.jsp">Visualizza squadra</option>
-                        <option value="visualizza-risultati-all.jsp">Visualizza risultati</option>
-                        <option value="inserisci-risultati-all.jsp">Inserisci risultati</option>
-                        <option value="gestione-calendario-all.jsp">Gestione calendario</option>
+                        <option value="visualizzaRis.jsp" data-url="visualizzaRis.jsp">Visualizza risultati</option>
+                        <option value="gestioneCalendario.jsp" data-url="gestioneCalendario.jsp">Gestione calendario</option>
                         <!-- Aggiungi altre opzioni del menu qui -->
                     </select>
                 </nav>
@@ -55,59 +53,96 @@
 	</script>
 
 	<div class="content-container">
-    <div id="squadre">
-
 	<%
-
-	String username= (String)session.getAttribute("username");
-	ArrayList<Societa> listSocieta= (ArrayList<Societa>) this.getServletContext().getAttribute("listSocieta");
+		
 	
-	for(Societa s: listSocieta )
-	{
-		%>
-		societï¿½: 
-		<%=s.getNome() %>
-		<br>
-		<br>
-		<%
-		if(s.getUsername().equals(username))
+		String username_societa = (String)session.getAttribute("username_societa");
+		ArrayList<Societa> listSocieta = (ArrayList<Societa>)this.getServletContext().getAttribute("listSocieta");
+		ArrayList<Squadra> squadre = new ArrayList<Squadra>();
+		ArrayList<Allenatore> allenatori = new ArrayList<Allenatore>();
+		ArrayList<Giocatore> giocatori = new ArrayList<Giocatore>();
+		System.out.println(username_societa);
+		for(Societa so : listSocieta)
 		{
-			for(Squadra sq: s.getSquadre())
+			if(so.getUsername().equals(username_societa))
 			{
-				%>
-				&emsp;Squadra: 
-				<%=sq.getNome() %>
-				<br>
+				for(Squadra sq : so.getSquadre())
+				{
+					allenatori = sq.getAllenatori();
+					giocatori = sq.getGiocatori();
+			
+	%>
+		        
+		        <h2>Squadra <%= sq.getNome()%></h2>
+		        <h3>Allenatori</h3>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Cognome</b></td>
+						<td><b>Nome</b></td>
+					</tr>
 				<%
-				
-				for(Allenatore a: sq.getAllenatori())
-				{
-						%>
-						&emsp;&emsp;<%=a.toString() %>
-						<br>
-						<% 
+				int j;
+				for(j = 0 ; j < allenatori.size(); j++) {
+				%>
+					<tr>
+						<td><%=allenatori.get(j).getId()%></td>
+						<td><%=allenatori.get(j).getCognome()%></td>
+						<td><%=allenatori.get(j).getNome()%></td>
+					</tr>
+				<%
 				}
-                for(Giocatore g: sq.getGiocatori())
-				{
-						%>
-						&emsp;&emsp;<%=g.toString() %>
-						<br>
-						<% 
+				%>
+				 <tr>
+						<td><%=allenatori.get(j).getId()+1%></td>
+						<td></td>
+						<td></td>
+						<td>Aggiungi</td>
+					</tr>
+				</table>
+		        <h3>Giocatori</h3>
+				<table>
+					<tr>
+						<td><b>ID</b></td>
+						<td><b>Cognome</b></td>
+						<td><b>Nome</b></td>
+		
+					</tr>
+				<%
+				int i=0;
+				for(i = 0 ; i < giocatori.size(); i++) {
+				%>
+					<tr>
+						<td><%=giocatori.get(i).getId()%></td>
+						<td><%=giocatori.get(i).getCognome()%></td>
+						<td><%=giocatori.get(i).getNome()%></td>
+		
+					</tr>
+		        <%
 				}
-				
+				%>
+				<tr>
+				<td><%=giocatori.get(i).getId()+1%></td>
+				<td></td>
+				<td></td>
+				<td>Aggiungi</td>
+			</tr>
+		</table>
+		<%
 			}
 		}
 	}
-					
+        %>
 	
-    %>
+        
     </div>
-
-</div>
 
     <footer>
         <div class="footer-container">
-            <p>ï¿½ 2023 SportsHub</p>
+        	<form action="logout" method="POST">
+    			<button type="submit" class="btn-logout">Logout</button>
+   			</form>
+            <p>© 2023 SportsHub</p>
             <p>Bostrenghi Matteo - Gennaioli Leonardo - Severini Lorenzo</p>
         </div>
     </footer>
